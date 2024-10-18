@@ -175,8 +175,8 @@
 
         .dropzone,
         .draggable {
-            width: 200px;
-            height: 200px;
+            width: 230px;
+            height: 230px;
             border-radius: var(--border-radius);
             overflow: hidden;
             background-color: #FFFFFF;
@@ -188,8 +188,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            flex-direction: column;
+            font-size: 1.5rem;
             color: var(--text-color);
+            font-weight: bold;
+            text-align: center;
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
@@ -223,8 +226,15 @@
 
         #titulo {
             width: 50%;
+            color:#4158D0;
         }
-
+        #titulo2 {
+            
+            color:#4158D0;
+            background-color: white;
+            padding: 16px;
+            text-align: center;
+        }
         /* Feedback final para o usuário */
         #feedback {
             margin-top: 10px;
@@ -267,17 +277,7 @@
             padding: 0 16px;
         }
 
-        /* Estilo para o título da lista */
-        #titulo {
-            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-            font-weight: 500;
-            font-size: 1.75rem;
-            line-height: 1.6;
-            letter-spacing: 0.0075em;
-            color: #673ab7;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+        
 
         #boxtitulo {
             display: flex;
@@ -3850,7 +3850,7 @@
             // Criar o contêiner principal para a lista de vocabulário
             const vocabularyList = document.createElement('div');
             vocabularyList.id = 'vocabularyList';
-            vocabularyList.innerHTML = '<h3 id="titulo">Liste de vocabulaire:</h3>';
+            vocabularyList.innerHTML = '<h3 id="titulo2">Liste de vocabulaire:</h3>';
 
             // Cria a lista ordenada
             const vocabOl = document.createElement('ol');
