@@ -57,7 +57,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-          
+
         }
 
         /* Caixa de seleção de categoria e botões */
@@ -217,19 +217,21 @@
             transform: scale(1.05);
         }
 
-      
+
 
         #titulo {
             width: 50%;
-            color:#4158D0;
+            color: #4158D0;
         }
+
         #titulo2 {
-            
-            color:#4158D0;
+
+            color: #4158D0;
             background-color: white;
             padding: 16px;
             text-align: center;
         }
+
         /* Feedback final para o usuário */
         #feedback {
             margin-top: 10px;
@@ -242,7 +244,8 @@
             text-align: center;
             /* Oculto por padrão */
         }
-        #boxfeedback{
+
+        #boxfeedback {
             display: flex;
             justify-content: center;
         }
@@ -272,7 +275,7 @@
             padding: 0 16px;
         }
 
-        
+
 
         #boxtitulo {
             display: flex;
@@ -329,7 +332,8 @@
             background-color: #cccccc;
             color: #666666;
         }
-        #labelCategoria{
+
+        #labelCategoria {
             font-size: 24px;
             font-weight: bold;
         }
@@ -345,6 +349,15 @@
                 transform: scale(1);
                 opacity: 1;
             }
+        }
+
+        #generateItemsBtn {
+            width: 50%;
+        }
+
+        #boxgenerateItemsBtn {
+            display: flex;
+            justify-content: center;
         }
 
         /* -------- Media Queries para Responsividade -------- */
@@ -388,29 +401,34 @@
             #items .draggable {
                 margin-bottom: 10px;
             }
-            #boxCategoria#boxCategoria, #boxBotao{
+
+            #boxCategoria#boxCategoria,
+            #boxBotao {
                 margin-bottom: 5px;
             }
 
             #titulo {
-            
-            color:#4158D0;
-            background-color: white;
-            padding: 10px;
-            font-size: 18px;
-            text-align: center;
-        }
-        button{
-            margin: 10px;
-            padding: 10px 10px;
-            font-size: 16px;
-        }
-        #feedback{
-            font-size: 18px;
-        }
-        #boxfeedback{
-            width: 100%;
-        }
+
+                color: #4158D0;
+                background-color: white;
+                padding: 10px;
+                font-size: 18px;
+                text-align: center;
+            }
+
+            button {
+                margin: 10px;
+                padding: 10px 10px;
+                font-size: 16px;
+            }
+
+            #feedback {
+                font-size: 18px;
+            }
+
+            #boxfeedback {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -450,29 +468,32 @@
     <div id="boxBotao">
         <button id="startGameBtn"> <a>Commencer un nouveau jeu</a></button>
         <button id="randomButton"><a>Changer de catégorie</a></button>
-        <button id="generateItemsBtn"><a>Accéder à la page suivante</a></button>
+
         <button id="finishGameBtn" disabled><a>Terminer le Jeu</a></button>
     </div>
 
-   
+
     <!-- Feedback para o usuário -->
     <div id="boxfeedback">
         <p id="feedback"></p>
-     </div>
+    </div>
 
     <!-- Área do jogo -->
     <div id="gameArea">
         <div id="professions"></div>
         <div id="items"></div>
+
     </div>
-
+    <div id="boxgenerateItemsBtn">
+        <button id="generateItemsBtn"><a>Accéder à la page suivante</a></button>
+    </div>
     <!-- Placar -->
-    
-
-    
 
 
-     <div id="score" style="visibility: hidden;">Score: 0</div>
+
+
+
+    <div id="score" style="visibility: hidden;">Score: 0</div>
     <script>
         let score = 0;
         let usedItems = {};
