@@ -7,19 +7,27 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap">
     <title>Jeu d'Association</title>
     <style>
+        :root {
+            --primary-color: #6200EE;
+            --secondary-color: #03DAC5;
+            --background-color: #F5F5F5;
+            --text-color: #212121;
+            --text-light: #FFFFFF;
+            --border-radius: 8px;
+            --font-family: 'Roboto', sans-serif;
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            margin: 0;
-            padding: 20px;
+            min-height: 100vh;
             background-color: #4158D0;
             background-image: url('https://firebasestorage.googleapis.com/v0/b/mauriciodallonder-64688.appspot.com/o/bandeira.jpg?alt=media&token=93383751-b852-4b4a-89e9-82037c09f9da');
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            box-sizing: border-box;
+
         }
 
         /* Adiciona um fundo semitransparente aos textos */
@@ -35,129 +43,186 @@
         }
 
         /* Título principal */
+        /* Cabeçalho */
         h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
             text-align: center;
+            margin: 20px 0;
+            color: var(--primary-color);
         }
 
-        /* Estilo dos botões */
-        button {
-            background-color: #1976d2;
-            color: #FFF;
-            box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-                0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-                0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-            cursor: pointer;
-            transition: background-color 250ms;
-            font-weight: 500;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            min-width: 64px;
-            padding: 6px 16px;
-            border-radius: 4px;
-            border: none;
-        }
-
-        #startGameBtn {
-            background-color: red;
-            color: white;
-            font-weight: 600;
-            width: 50%;
-            margin-bottom: 15px;
-        }
-
-        /* Estilo para o seletor de categoria */
-        #categorySelect {
-            padding: 10px;
-            margin: 5px;
-            border-radius: 5px;
-            border: 1px solid #333333;
-            font-size: 16px;
-        }
-
-        /* Área principal do jogo */
+        /* Container principal */
         #gameArea {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            /* Empilha elementos verticalmente no desktop */
-            justify-content: center;
             align-items: center;
-            gap: 20px;
-            width: 100%;
-            max-width: 1200px;
+            padding: 20px;
         }
 
-        /* Contêineres para as zonas de drop e itens arrastáveis */
+        /* Caixa de seleção de categoria e botões */
+        #boxCategoria,
+        #boxBotao {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #boxCategoria label {
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+
+        #categorySelect {
+            padding: 10px;
+            border: 1px solid #CCCCCC;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+
+        button {
+            position: relative;
+            display: inline-block;
+            margin: 20px;
+            font-size: 24px;
+        }
+
+        button {
+            color: white;
+            font-family: Helvetica, sans-serif;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: #FFA12B;
+            display: block;
+            position: relative;
+            padding: 20px 40px;
+
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            text-shadow: 0px 1px 0px #000;
+            filter: dropshadow(color=#000, offx=0px, offy=1px);
+
+            -webkit-box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+            -moz-box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+            box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        button:active {
+            top: 10px;
+            background-color: #F78900;
+
+            -webkit-box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+            -moz-box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3pxpx 0 #915100;
+            box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+        }
+
+        button:after {
+            content: "";
+            height: 100%;
+            width: 100%;
+            padding: 4px;
+            position: absolute;
+            bottom: -15px;
+            left: -4px;
+            z-index: -1;
+            background-color: #2B1800;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+
+
+        button:disabled {
+            background-color: #BDBDBD;
+            cursor: not-allowed;
+            -webkit-box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #BDBDBD;
+            ;
+            -moz-box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #BDBDBD;
+            ;
+            box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #BDBDBD;
+            ;
+        }
+
+
+
+        /* Feedback */
+        #feedback {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 10px;
+            color: var(--primary-color);
+            display: none;
+        }
+
+        /* Área do jogo */
         #professions,
         #items {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 20px;
             width: 100%;
+            max-width: 1200px;
+            margin: 20px 0;
         }
 
-        /* Ajuste de ordem para posicionar #professions acima e #items abaixo */
-        #professions {
-            order: 1;
-        }
-
-        #items {
-            order: 2;
-        }
-
-        /* Estilo para as áreas de drop (zonas) */
-        .dropzone {
-            border: 2px dashed #4CAF50;
-            padding: 10px;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-            font-size: 18px;
-            color: #333333;
+        .dropzone,
+        .draggable {
             width: 200px;
             height: 200px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        /* Feedback ao acertar ou errar */
+        .dropzone {
+            border: 2px dashed var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--text-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
         .dropzone.correct {
-            background-color: #a8e6cf;
-            border-color: #43a047;
+            background-color: #C8E6C9;
+            border-color: #388E3C;
         }
 
         .dropzone.wrong {
-            background-color: #ff8a80;
-            border-color: #d32f2f;
+            background-color: #FFCDD2;
+            border-color: #D32F2F;
         }
 
-        /* Estilo dos itens arrastáveis (imagens) */
         .draggable {
             background-size: cover;
             background-position: center;
-            border: 2px solid #ddd;
-            border-radius: 10px;
             cursor: grab;
             transition: transform 0.2s ease;
-            width: 200px;
-            height: 200px;
-            background-color: white;
         }
 
-        /* Animação de zoom ao passar o mouse */
         .draggable:hover {
             transform: scale(1.05);
         }
 
-        /* Estilo para o placar */
+        /* Placar */
         #score {
-            font-size: 24px;
-            color: #333333;
-            margin-top: 20px;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: var(--text-color);
+        }
+
+        #titulo {
+            width: 50%;
         }
 
         /* Feedback final para o usuário */
@@ -168,7 +233,13 @@
             color: #333333;
             animation: feedbackAnimation 0.5s ease-in-out;
             display: none;
+            width: 50%;
+            text-align: center;
             /* Oculto por padrão */
+        }
+        #boxfeedback{
+            display: flex;
+            justify-content: center;
         }
 
         /* Caixa de botões */
@@ -206,6 +277,12 @@
             color: #673ab7;
             text-align: center;
             margin-bottom: 20px;
+        }
+
+        #boxtitulo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Estilo para a lista ordenada */
@@ -312,13 +389,20 @@
             #items .draggable {
                 margin-bottom: 10px;
             }
+            #boxCategoria#boxCategoria, #boxBotao{
+                margin-bottom: 5px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Menu de seleção de categoria -->
-    <h1>Associe les images aux noms corrects</h1>
+    <!-- Título do jogo -->
+    <div id="boxtitulo">
+        <h1 id="titulo">Associez les images aux noms corrects</h1>
+    </div>
+
+    <!-- Seleção de categoria -->
     <div id="boxCategoria">
         <label for="categorySelect">Choisissez une catégorie:</label>
         <select id="categorySelect">
@@ -329,35 +413,41 @@
             <option value="nettoyage">Maison (Accessoires de nettoyage)</option>
             <option value="typesMaison">Types de maisons</option>
             <option value="partiesDuCorps">Parties du corps</option>
-            <option value="problemes_de_sante">Problemes de santé</option>
+            <option value="problemes_de_sante">Problèmes de santé</option>
             <option value="vestuario_roupa_normal">Vêtements</option>
             <option value="vetements_de_saison">Vêtements de saison</option>
-            <option value="vêtements_vestuario">Vêtements sous vetements</option>
+            <option value="vêtements_vestuario">Sous-vêtements</option>
             <option value="accessoires">Accessoires</option>
             <option value="lieux_de_la_ville">Lieux dans la ville</option>
             <option value="transports">Transports et circulation</option>
-            <option value="partes_de_la_voiture_externes">l’extérieur de la voiture</option>
-            <option value="partes_internes_du_carro">l'intérieur de la voiture</option>
-            <option value="materiel_de_bureau">Materiel de bureau</option>
+            <option value="partes_de_la_voiture_externes">L’extérieur de la voiture</option>
+            <option value="partes_internes_du_carro">L'intérieur de la voiture</option>
+            <option value="materiel_de_bureau">Matériel de bureau</option>
             <option value="nature">Nature</option>
-
         </select>
     </div>
-    <button id="startGameBtn">cliquez ici pour commencer un nouveau jeu</button>
-    <div id="boxBotao">
 
-        <button id="randomButton">Changer de catégorie aléatoirement</button>
-        <button id="generateItemsBtn">Cliquez ici pour accéder à la page suivante</button>
-        <button id="finishGameBtn" disabled>Terminer le Jeu</button>
+    <!-- Botões de ação -->
+    <div id="boxBotao">
+        <button id="startGameBtn"> <a>Commencer un nouveau jeu</a></button>
+        <button id="randomButton"><a>Changer de catégorie</a></button>
+        <button id="generateItemsBtn"><a>Accéder à la page suivante</a></button>
+        <button id="finishGameBtn" disabled><a>Terminer le Jeu</a></button>
     </div>
 
-    <div id="feedback"></div>
+    <!-- Feedback para o usuário -->
+     <div id="boxfeedback">
+        <p id="feedback"></p>
+     </div>
+   
 
-    <!-- Game content -->
+    <!-- Área do jogo -->
     <div id="gameArea">
         <div id="professions"></div>
         <div id="items"></div>
     </div>
+
+    <!-- Placar -->
     <div id="score" style="visibility: hidden;">Score: 0</div>
 
 
