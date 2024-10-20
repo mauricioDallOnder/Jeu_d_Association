@@ -75,114 +75,122 @@
             margin-right: 10px;
         }
 
-       /* Estilo geral do select */
-#categorySelect {
-    padding: 12px;
-    border: none;
-    border-radius: var(--border-radius);
-    font-size: 1.1rem;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    width: 100%;
-    max-width: 400px;
-    font-family: var(--font-family);
-    appearance: none;
-    cursor: pointer;
-    background-image: linear-gradient(45deg, transparent 50%, var(--primary-color) 50%),
-                      linear-gradient(135deg, var(--primary-color) 50%, transparent 50%);
-    background-position: calc(100% - 15px) calc(1.25em + 2px), calc(100% - 10px) calc(1.25em + 2px);
-    background-size: 5px 5px, 5px 5px;
-    background-repeat: no-repeat;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
+        /* Estilo geral do select */
+        #categorySelect {
+            padding: 12px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            width: 100%;
+            max-width: 400px;
+            font-family: var(--font-family);
+            appearance: none;
+            cursor: pointer;
+            background-image: linear-gradient(45deg, transparent 50%, var(--primary-color) 50%),
+                linear-gradient(135deg, var(--primary-color) 50%, transparent 50%);
+            background-position: calc(100% - 15px) calc(1.25em + 2px), calc(100% - 10px) calc(1.25em + 2px);
+            background-size: 5px 5px, 5px 5px;
+            background-repeat: no-repeat;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
 
-#categorySelect:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
+        #categorySelect:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
 
-#categorySelect:focus {
-    outline: none;
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 8px rgba(98, 0, 238, 0.5);
-}
+        #categorySelect:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 8px rgba(98, 0, 238, 0.5);
+        }
 
-/* Estilo para o optgroup */
-optgroup {
-    font-weight: bold;
-    color: var(--primary-color);
-    background-color: rgba(98, 0, 238, 0.1); /* Cor de fundo levemente colorida */
-    padding: 8px;
-    border-bottom: 1px solid var(--primary-color); /* Linha de separação entre categorias */
-    font-size: 1.2rem; /* Aumentando o tamanho dos títulos */
-}
+        /* Estilo para o optgroup */
+        optgroup {
+            font-weight: bold;
+            color: var(--primary-color);
+            background-color: rgba(98, 0, 238, 0.1);
+            /* Cor de fundo levemente colorida */
+            padding: 8px;
+            border-bottom: 1px solid var(--primary-color);
+            /* Linha de separação entre categorias */
+            font-size: 1.2rem;
+            /* Aumentando o tamanho dos títulos */
+        }
 
-/* Estilo para as opções */
-option {
-    padding: 12px;
-    color: var(--text-color);
-    background-color: white;
-    font-size: 1rem;
-    border-bottom: 1px solid #e0e0e0;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
+        /* Estilo para as opções */
+        option {
+            padding: 12px;
+            color: var(--text-color);
+            background-color: white;
+            font-size: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
 
-/* Animação de fade-in para o dropdown */
-#categorySelect {
-    animation: fadeInDropdown 0.3s ease-in-out;
-}
+        /* Animação de fade-in para o dropdown */
+        #categorySelect {
+            animation: fadeInDropdown 0.3s ease-in-out;
+        }
 
-/* Fade-in animation */
-@keyframes fadeInDropdown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        /* Fade-in animation */
+        @keyframes fadeInDropdown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
 
-/* Melhoria no estilo do optgroup */
-optgroup {
-    background-color: #f7f7f7; /* Cor de fundo diferente para separar visualmente */
-    padding: 10px;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-option {
-    padding: 12px;
-    background-color: #fff;
-}
+        /* Melhoria no estilo do optgroup */
+        optgroup {
+            background-color: #f7f7f7;
+            /* Cor de fundo diferente para separar visualmente */
+            padding: 10px;
+        }
 
-/* Efeito de hover nas opções */
-option:hover {
-    background-color: var(--primary-color);
-    color: #ffffff;
-}
+        option {
+            padding: 12px;
+            background-color: #fff;
+        }
 
-/* Estilização dos optgroup de maneira ainda mais destacada */
-optgroup::before {
-    content: "▸ "; /* Adiciona um ícone ou símbolo antes do título */
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    padding-right: 5px;
-}
+        /* Efeito de hover nas opções */
+        option:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
 
-optgroup:after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: var(--primary-color); /* Linha de separação embaixo do grupo */
-    margin-top: 4px;
-}
+        /* Estilização dos optgroup de maneira ainda mais destacada */
+        optgroup::before {
+            content: "▸ ";
+            /* Adiciona um ícone ou símbolo antes do título */
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            padding-right: 5px;
+        }
 
-option[selected] {
-    background-color: var(--secondary-color); /* Cor para a opção selecionada */
-    font-weight: bold;
-}
+        optgroup:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: var(--primary-color);
+            /* Linha de separação embaixo do grupo */
+            margin-top: 4px;
+        }
+
+        option[selected] {
+            background-color: var(--secondary-color);
+            /* Cor para a opção selecionada */
+            font-weight: bold;
+        }
 
 
         button {
@@ -503,7 +511,7 @@ option[selected] {
             #professions .dropzone,
             #items .draggable {
                 margin-bottom: 10px;
-                 font-size: 1rem;
+                font-size: 1rem;
             }
 
             #boxCategoria#boxCategoria,
@@ -534,13 +542,14 @@ option[selected] {
                 width: 100%;
             }
         }
-                /* Estilo para melhorar a usabilidade em dispositivos móveis */
-@media (max-width: 767px) {
-    #categorySelect {
-        font-size: 1.5rem;
-        max-width: 80%;
-    }
-}
+
+        /* Estilo para melhorar a usabilidade em dispositivos móveis */
+        @media (max-width: 767px) {
+            #categorySelect {
+                font-size: 1.5rem;
+                max-width: 80%;
+            }
+        }
     </style>
 </head>
 
@@ -592,7 +601,7 @@ option[selected] {
                 <option value="lieux_de_la_ville">Lieux dans la ville</option>
                 <option value="transports">Transports et circulation</option>
                 <option value="transito_direcoes">Le trafic et des directions</option>
-                 <option value="plaques_transito">Panneaux de signalisation</option>
+                <option value="plaques_transito">Panneaux de signalisation</option>
                 <option value="rodovias_vias">Types de routes et voies express</option>
                 <option value="directions">Donner des directions</option>
                 <option value="points_cardinaux">Points cardinaux</option>
@@ -4247,672 +4256,673 @@ option[selected] {
                 }
             },
 
-            ustensiles_de_cuisine:{
-    "casserole": {
-        name: "La casserole",
-        img: "imgCasserole",
-        imgUrl: "./kitchen/casserole.png",
-        desc: "est un récipient utilisé pour la cuisson des aliments sur la cuisinière."
-    },
-    "couvercle": {
-        name: "Le couvercle",
-        img: "imgCouvercle",
-        imgUrl: "./kitchen/couvercle.png",
-        desc: "est utilisé pour couvrir une casserole ou une poêle."
-    },
-    "poele": {
-        name: "La poêle",
-        img: "imgPoele",
-        imgUrl: "./kitchen/poele.png",
-        desc: "est utilisée pour faire frire ou sauter des aliments."
-    },
-    "cocotte_minute": {
-        name: "La cocotte-minute",
-        img: "imgCocotteMinute",
-        imgUrl: "./kitchen/cocotte_minute.png",
-        desc: "est une marmite qui cuit sous pression pour accélérer la cuisson."
-    },
-    "moule": {
-        name: "Le moule",
-        img: "imgMoule",
-        imgUrl: "./kitchen/moule.png",
-        desc: "est utilisé pour cuire des gâteaux et d'autres pâtisseries."
-    },
-    "bouilloire": {
-        name: "La bouilloire",
-        img: "imgBouilloire",
-        imgUrl: "./kitchen/bouilloire.png",
-        desc: "est utilisée pour faire bouillir de l'eau."
-    },
-    "pot_verre": {
-        name: "Le pot en verre",
-        img: "imgPotVerre",
-        imgUrl: "./kitchen/pot_verre.png",
-        desc: "est un récipient transparent utilisé pour conserver des aliments ou liquides."
-    },
-    "pot_plastique": {
-        name: "Le pot en plastique",
-        img: "imgPotPlastique",
-        imgUrl: "./kitchen/pot_plastique.png",
-        desc: "est un récipient léger en plastique utilisé pour stocker des aliments."
-    },
-    "rape_fromage": {
-        name: "La râpe à fromage",
-        img: "imgRapeFromage",
-        imgUrl: "./kitchen/rape_fromage.png",
-        desc: "est utilisée pour râper le fromage ou d'autres aliments."
-    },
-    "torchon": {
-        name: "Le torchon",
-        img: "imgTorchon",
-        imgUrl: "./kitchen/torchon.png",
-        desc: "est utilisé pour essuyer la vaisselle ou nettoyer les surfaces."
-    },
-    "planche_decouper": {
-        name: "La planche à découper",
-        img: "imgPlancheDecouper",
-        imgUrl: "./kitchen/planche_decouper.png",
-        desc: "est utilisée pour couper des aliments en toute sécurité."
-    },
-    "bol_salladier": {
-        name: "Le bol / Le saladier",
-        img: "imgBolSalladier",
-        imgUrl: "./kitchen/bol_salladier.png",
-        desc: "est un grand récipient utilisé pour mélanger ou servir des salades."
-    },
-    "gants_cuisine": {
-        name: "Les gants de cuisine",
-        img: "imgGantsCuisine",
-        imgUrl: "./kitchen/gants_cuisine.png",
-        desc: "sont utilisés pour protéger les mains des surfaces chaudes."
-    },
-    "melangeur": {
-        name: "Le mélangeur / Le mixeur",
-        img: "imgMelangeur",
-        imgUrl: "./kitchen/melangeur.png",
-        desc: "est un appareil électrique utilisé pour mélanger ou broyer les ingrédients."
-    },
-    "batteur_melangeur": {
-        name: "Le batteur-mélangeur",
-        img: "imgBatteurMelangeur",
-        imgUrl: "./kitchen/batteur_melangeur.png",
-        desc: "est un appareil utilisé pour battre et mélanger des ingrédients."
-    },
-    "cafetiere": {
-        name: "La cafetière",
-        img: "imgCafetiere",
-        imgUrl: "./kitchen/cafetiere.png",
-        desc: "est utilisée pour préparer du café."
-    },
-    "four": {
-        name: "Le four",
-        img: "imgFour",
-        imgUrl: "./kitchen/four.png",
-        desc: "est un appareil utilisé pour cuire des aliments."
-    },
-    "cuisiniere": {
-        name: "La cuisinière / La plaque de cuisson",
-        img: "imgCuisiniere",
-        imgUrl: "./kitchen/cuisiniere.png",
-        desc: "est utilisée pour cuire des aliments sur une surface chauffée."
-    },
-    "grille_pain": {
-        name: "Le grille-pain",
-        img: "imgGrillePain",
-        imgUrl: "./kitchen/grille_pain.png",
-        desc: "est un appareil utilisé pour griller des tranches de pain."
-    },
-    "mixeur_plongeant": {
-        name: "Le mixeur plongeant",
-        img: "imgMixeurPlongeant",
-        imgUrl: "./kitchen/mixeur_plongeant.png",
-        desc: "est un appareil utilisé pour mélanger des ingrédients directement dans un récipient."
-    },
-    "cuillere_bois": {
-        name: "La cuillère en bois",
-        img: "imgCuillereBois",
-        imgUrl: "./kitchen/cuillere_bois.png",
-        desc: "est utilisée pour mélanger les aliments pendant la cuisson, surtout dans les casseroles."
-    },
-    "louche": {
-        name: "La louche",
-        img: "imgLouche",
-        imgUrl: "./kitchen/louche.png",
-        desc: "est utilisée pour servir des soupes ou des sauces."
-    },
-    "fouet": {
-        name: "Le fouet",
-        img: "imgFouet",
-        imgUrl: "./kitchen/fouet.png",
-        desc: "est utilisé pour fouetter ou mélanger les ingrédients."
-    },
-    "ecumoire": {
-        name: "L'écumoire",
-        img: "imgEcumoire",
-        imgUrl: "./kitchen/ecumoire.png",
-        desc: "est utilisée pour écumer les liquides ou égoutter les aliments frits."
-    },
-    "rouleau_patisserie": {
-        name: "Le rouleau à pâtisserie",
-        img: "imgRouleauPatisserie",
-        imgUrl: "./kitchen/rouleau_patisserie.png",
-        desc: "est utilisé pour étaler la pâte avant la cuisson."
-    },
-    "tamis": {
-        name: "Le tamis",
-        img: "imgTamis",
-        imgUrl: "./kitchen/tamis.png",
-        desc: "est utilisé pour tamiser la farine ou d'autres ingrédients en poudre."
-    },
-    "pince_pates": {
-        name: "La pince à pâtes",
-        img: "imgPincePates",
-        imgUrl: "./kitchen/pince_pates.png",
-        desc: "est utilisée pour saisir et servir les pâtes."
-    },
-    "presse_puree": {
-        name: "Le presse-purée",
-        img: "imgPressePuree",
-        imgUrl: "./kitchen/presse_puree.png",
-        desc: "est utilisé pour écraser les pommes de terre ou d'autres légumes cuits."
-    },
-    "eplucheur": {
-        name: "L'éplucheur",
-        img: "imgEplucheur",
-        imgUrl: "./kitchen/eplucheur.png",
-        desc: "est utilisé pour éplucher les légumes ou les fruits."
-    },
-    "ciseaux": {
-        name: "Les ciseaux",
-        img: "imgCiseaux",
-        imgUrl: "./kitchen/ciseaux.png",
-        desc: "sont utilisés pour couper divers aliments ou emballages."
-    },
-    "poche_douille": {
-        name: "La poche à douille",
-        img: "imgPocheDouille",
-        imgUrl: "./kitchen/poche_douille.png",
-        desc: "est utilisée pour décorer les gâteaux en pressant la crème ou la pâte."
-    },
-    "tire_bouchon": {
-        name: "Le tire-bouchon",
-        img: "imgTireBouchon",
-        imgUrl: "./kitchen/tire_bouchon.png",
-        desc: "est utilisé pour ouvrir les bouteilles de vin en retirant le bouchon."
-    },
-    "ouvre_bouteille": {
-        name: "L'ouvre-bouteille",
-        img: "imgOuvreBouteille",
-        imgUrl: "./kitchen/ouvre_bouteille.png",
-        desc: "est utilisé pour ouvrir des bouteilles fermées avec des capsules."
-    },
-    "ouvre_boite": {
-        name: "L'ouvre-boîte",
-        img: "imgOuvreBoite",
-        imgUrl: "./kitchen/ouvre_boite.png",
-        desc: "est utilisé pour ouvrir les boîtes de conserve."
-    },
-    "canette": {
-        name: "La canette",
-        img: "imgCanette",
-        imgUrl: "./kitchen/canette.png",
-        desc: "est un petit récipient en métal utilisé pour stocker des boissons."
-    },
-    "papier_aluminium": {
-        name: "Le papier d'aluminium",
-        img: "imgPapierAluminium",
-        imgUrl: "./kitchen/papier_aluminium.png",
-        desc: "est utilisé pour envelopper des aliments et conserver leur fraîcheur."
-    },
-    "sachet_plastique": {
-        name: "Le sachet plastique",
-        img: "imgSachetPlastique",
-        imgUrl: "./kitchen/sachet_plastique.png",
-        desc: "est utilisé pour stocker des aliments ou les conserver."
-    },
-    "moule_glacons": {
-        name: "Le moule à glaçons",
-        img: "imgMouleGlacons",
-        imgUrl: "./kitchen/moule_glacons.png",
-        desc: "est utilisé pour fabriquer des glaçons dans le congélateur."
-    },
-    "briquet": {
-        name: "Le briquet",
-        img: "imgBriquet",
-        imgUrl: "./kitchen/briquet.png",
-        desc: "est utilisé pour allumer le feu ou un réchaud."
-    },
-    "assiette": {
-        name: "L'assiette / Le plat",
-        img: "imgAssiette",
-        imgUrl: "./kitchen/assiette.png",
-        desc: "est un récipient plat utilisé pour servir les aliments."
-    },
-    "assiette_creuse": {
-        name: "L'assiette creuse",
-        img: "imgAssietteCreuse",
-        imgUrl: "./kitchen/assiette_creuse.png",
-        desc: "est utilisée pour servir des soupes ou des plats liquides."
-    },
-    "fourchette": {
-        name: "La fourchette",
-        img: "imgFourchette",
-        imgUrl: "./kitchen/fourchette.png",
-        desc: "est un ustensile utilisé pour manger des aliments solides."
-    },
-    "couteau": {
-        name: "Le couteau",
-        img: "imgCouteau",
-        imgUrl: "./kitchen/couteau.png",
-        desc: "est un ustensile tranchant utilisé pour couper des aliments."
-    },
-    "cuillere": {
-        name: "La cuillère",
-        img: "imgCuillere",
-        imgUrl: "./kitchen/cuillere.png",
-        desc: "est un ustensile utilisé pour manger des aliments liquides ou semi-liquides."
-    },
-    "verre_vin": {
-        name: "Le verre à vin",
-        img: "imgVerreVin",
-        imgUrl: "./kitchen/verre_vin.png",
-        desc: "est utilisé pour servir du vin."
-    },
-    "verre_mousseux": {
-        name: "Le verre à vin mousseux",
-        img: "imgVerreMousseux",
-        imgUrl: "./kitchen/verre_mousseux.png",
-        desc: "est un verre utilisé pour servir des vins mousseux, comme le champagne."
-    },
-    "verre": {
-        name: "Le verre",
-        img: "imgVerre",
-        imgUrl: "./kitchen/verre.png",
-        desc: "est un récipient utilisé pour boire des liquides."
-    },
-    "theiere": {
-        name: "La théière",
-        img: "imgTheiere",
-        imgUrl: "./kitchen/theiere.png",
-        desc: "est utilisée pour infuser et servir du thé."
-    },
-    "mug": {
-        name: "Le mug",
-        img: "imgMug",
-        imgUrl: "./kitchen/mug.png",
-        desc: "est une grande tasse utilisée pour boire des boissons chaudes."
-    },
-    "tasse": {
-        name: "La tasse",
-        img: "imgTasse",
-        imgUrl: "./kitchen/tasse.png",
-        desc: "est utilisée pour boire des boissons chaudes comme le café ou le thé."
-    },
-    "soucoupe": {
-        name: "La soucoupe",
-        img: "imgSoucoupe",
-        imgUrl: "./kitchen/soucoupe.png",
-        desc: "est une petite assiette sur laquelle on place une tasse."
-    },
-    "plateau": {
-        name: "Le plateau",
-        img: "imgPlateau",
-        imgUrl: "./kitchen/plateau.png",
-        desc: "est utilisé pour transporter plusieurs plats ou boissons."
-    },
-    "bouteille_vin": {
-        name: "La bouteille de vin",
-        img: "imgBouteilleVin",
-        imgUrl: "./kitchen/bouteille_vin.png",
-        desc: "est utilisée pour stocker et servir du vin."
-    },
-    "bouteille_eau": {
-        name: "La bouteille d'eau",
-        img: "imgBouteilleEau",
-        imgUrl: "./kitchen/bouteille_eau.png",
-        desc: "est utilisée pour stocker de l'eau ou d'autres boissons."
-    },
-    "panier": {
-        name: "Le panier",
-        img: "imgPanier",
-        imgUrl: "./kitchen/panier.png",
-        desc: "est un récipient utilisé pour transporter des aliments ou des produits."
-    },
-    "balance": {
-        name: "La balance",
-        img: "imgBalance",
-        imgUrl: "./kitchen/balance.png",
-        desc: "est utilisée pour peser les ingrédients."
-    },
-    "tiroir": {
-        name: "Le tiroir",
-        img: "imgTiroir",
-        imgUrl: "./kitchen/tiroir.png",
-        desc: "est utilisé pour ranger des ustensiles et autres articles de cuisine."
-    },
-    "armoire": {
-        name: "L'armoire",
-        img: "imgArmoire",
-        imgUrl: "./kitchen/armoire.png",
-        desc: "est utilisée pour stocker des ustensiles et des provisions."
-    },
-    "bol_fruits": {
-        name: "Le bol à fruits",
-        img: "imgBolFruits",
-        imgUrl: "./kitchen/bol_fruits.png",
-        desc: "est utilisé pour stocker et présenter des fruits."
-    },
-    "paquet": {
-        name: "Le paquet",
-        img: "imgPaquet",
-        imgUrl: "./kitchen/paquet.png",
-        desc: "est utilisé pour emballer ou stocker des aliments."
-    },
-    "serviette": {
-        name: "La serviette",
-        img: "imgServiette",
-        imgUrl: "./kitchen/serviette.png",
-        desc: "est utilisée pour s'essuyer les mains ou la bouche pendant un repas."
-    },
-    "thermos": {
-        name: "Le Thermos",
-        img: "imgThermos",
-        imgUrl: "./kitchen/thermos.png",
-        desc: "est un récipient isolé qui conserve les boissons chaudes ou froides."
-    },
-transito_direcoes:{
-    "feu_signalisation": {
-        name: "Un feu de signalisation",
-        img: "imgFeuSignalisation",
-        imgUrl: "./transito/feu_signalisation.png",
-        desc: "est un dispositif qui régule la circulation à une intersection."
-    },
-    "panneau_signalisation": {
-        name: "Un panneau de signalisation",
-        img: "imgPanneauSignalisation",
-        imgUrl: "./transito/panneau_signalisation.png",
-        desc: "est un signe qui informe les conducteurs des règles et des dangers sur la route."
-    },
-    "embouteillage": {
-        name: "Un embouteillage",
-        img: "imgEmbouteillage",
-        imgUrl: "./transito/embouteillage.png",
-        desc: "est une accumulation de véhicules qui ralentit ou bloque la circulation."
-    },
-    "route_sens_unique": {
-        name: "Une route à sens unique",
-        img: "imgRouteSensUnique",
-        imgUrl: "./transito/route_sens_unique.png",
-        desc: "est une rue où les véhicules ne peuvent circuler que dans une seule direction."
-    },
-    "rond_point": {
-        name: "Un rond-point",
-        img: "imgRondPoint",
-        imgUrl: "./transito/rond_point.png",
-        desc: "est une intersection circulaire qui permet de réguler le flux de véhicules."
-    },
-    "peage": {
-        name: "Un péage",
-        img: "imgPeage",
-        imgUrl: "./transito/peage.png",
-        desc: "est un endroit où les conducteurs paient pour utiliser certaines routes."
-    },
-    "priorite_droite": {
-        name: "La priorité à droite",
-        img: "imgPrioriteDroite",
-        imgUrl: "./transito/priorite_droite.png",
-        desc: "est une règle de circulation où les véhicules venant de droite ont la priorité."
-    },
-    "sens_interdit": {
-        name: "Un sens interdit",
-        img: "imgSensInterdit",
-        imgUrl: "./transito/sens_interdit.png",
-        desc: "indique qu'il est interdit de circuler dans cette direction."
-    },
-    "accident_route": {
-        name: "Un accident de la route",
-        img: "imgAccidentRoute",
-        imgUrl: "./transito/accident_route.png",
-        desc: "est un événement où des véhicules sont impliqués dans une collision."
-    },
-    "vitesse_limitee": {
-        name: "Une vitesse limitée",
-        img: "imgVitesseLimitee",
-        imgUrl: "./transito/vitesse_limitee.png",
-        desc: "indique la vitesse maximale autorisée sur une route."
-    },
-    "passage_pieton": {
-        name: "Un passage piéton",
-        img: "imgPassagePieton",
-        imgUrl: "./transito/passage_pieton.png",
-        desc: "est un endroit où les piétons peuvent traverser la route en toute sécurité."
-    },
-    "stationnement_interdit": {
-        name: "Un stationnement interdit",
-        img: "imgStationnementInterdit",
-        imgUrl: "./transito/stationnement_interdit.png",
-        desc: "signifie qu'il est interdit de stationner dans cette zone."
-    },
-    "parking_souterrain": {
-        name: "Un parking souterrain",
-        img: "imgParkingSouterrain",
-        imgUrl: "./transito/parking_souterrain.png",
-        desc: "est un parking situé sous terre."
-    }
-},
+            ustensiles_de_cuisine: {
+                "casserole": {
+                    name: "La casserole",
+                    img: "imgCasserole",
+                    imgUrl: "./kitchen/casserole.png",
+                    desc: "est un récipient utilisé pour la cuisson des aliments sur la cuisinière."
+                },
+                "couvercle": {
+                    name: "Le couvercle",
+                    img: "imgCouvercle",
+                    imgUrl: "./kitchen/couvercle.png",
+                    desc: "est utilisé pour couvrir une casserole ou une poêle."
+                },
+                "poele": {
+                    name: "La poêle",
+                    img: "imgPoele",
+                    imgUrl: "./kitchen/poele.png",
+                    desc: "est utilisée pour faire frire ou sauter des aliments."
+                },
+                "cocotte_minute": {
+                    name: "La cocotte-minute",
+                    img: "imgCocotteMinute",
+                    imgUrl: "./kitchen/cocotte_minute.png",
+                    desc: "est une marmite qui cuit sous pression pour accélérer la cuisson."
+                },
+                "moule": {
+                    name: "Le moule",
+                    img: "imgMoule",
+                    imgUrl: "./kitchen/moule.png",
+                    desc: "est utilisé pour cuire des gâteaux et d'autres pâtisseries."
+                },
+                "bouilloire": {
+                    name: "La bouilloire",
+                    img: "imgBouilloire",
+                    imgUrl: "./kitchen/bouilloire.png",
+                    desc: "est utilisée pour faire bouillir de l'eau."
+                },
+                "pot_verre": {
+                    name: "Le pot en verre",
+                    img: "imgPotVerre",
+                    imgUrl: "./kitchen/pot_verre.png",
+                    desc: "est un récipient transparent utilisé pour conserver des aliments ou liquides."
+                },
+                "pot_plastique": {
+                    name: "Le pot en plastique",
+                    img: "imgPotPlastique",
+                    imgUrl: "./kitchen/pot_plastique.png",
+                    desc: "est un récipient léger en plastique utilisé pour stocker des aliments."
+                },
+                "rape_fromage": {
+                    name: "La râpe à fromage",
+                    img: "imgRapeFromage",
+                    imgUrl: "./kitchen/rape_fromage.png",
+                    desc: "est utilisée pour râper le fromage ou d'autres aliments."
+                },
+                "torchon": {
+                    name: "Le torchon",
+                    img: "imgTorchon",
+                    imgUrl: "./kitchen/torchon.png",
+                    desc: "est utilisé pour essuyer la vaisselle ou nettoyer les surfaces."
+                },
+                "planche_decouper": {
+                    name: "La planche à découper",
+                    img: "imgPlancheDecouper",
+                    imgUrl: "./kitchen/planche_decouper.png",
+                    desc: "est utilisée pour couper des aliments en toute sécurité."
+                },
+                "bol_salladier": {
+                    name: "Le bol / Le saladier",
+                    img: "imgBolSalladier",
+                    imgUrl: "./kitchen/bol_salladier.png",
+                    desc: "est un grand récipient utilisé pour mélanger ou servir des salades."
+                },
+                "gants_cuisine": {
+                    name: "Les gants de cuisine",
+                    img: "imgGantsCuisine",
+                    imgUrl: "./kitchen/gants_cuisine.png",
+                    desc: "sont utilisés pour protéger les mains des surfaces chaudes."
+                },
+                "melangeur": {
+                    name: "Le mélangeur / Le mixeur",
+                    img: "imgMelangeur",
+                    imgUrl: "./kitchen/melangeur.png",
+                    desc: "est un appareil électrique utilisé pour mélanger ou broyer les ingrédients."
+                },
+                "batteur_melangeur": {
+                    name: "Le batteur-mélangeur",
+                    img: "imgBatteurMelangeur",
+                    imgUrl: "./kitchen/batteur_melangeur.png",
+                    desc: "est un appareil utilisé pour battre et mélanger des ingrédients."
+                },
+                "cafetiere": {
+                    name: "La cafetière",
+                    img: "imgCafetiere",
+                    imgUrl: "./kitchen/cafetiere.png",
+                    desc: "est utilisée pour préparer du café."
+                },
+                "four": {
+                    name: "Le four",
+                    img: "imgFour",
+                    imgUrl: "./kitchen/four.png",
+                    desc: "est un appareil utilisé pour cuire des aliments."
+                },
+                "cuisiniere": {
+                    name: "La cuisinière / La plaque de cuisson",
+                    img: "imgCuisiniere",
+                    imgUrl: "./kitchen/cuisiniere.png",
+                    desc: "est utilisée pour cuire des aliments sur une surface chauffée."
+                },
+                "grille_pain": {
+                    name: "Le grille-pain",
+                    img: "imgGrillePain",
+                    imgUrl: "./kitchen/grille_pain.png",
+                    desc: "est un appareil utilisé pour griller des tranches de pain."
+                },
+                "mixeur_plongeant": {
+                    name: "Le mixeur plongeant",
+                    img: "imgMixeurPlongeant",
+                    imgUrl: "./kitchen/mixeur_plongeant.png",
+                    desc: "est un appareil utilisé pour mélanger des ingrédients directement dans un récipient."
+                },
+                "cuillere_bois": {
+                    name: "La cuillère en bois",
+                    img: "imgCuillereBois",
+                    imgUrl: "./kitchen/cuillere_bois.png",
+                    desc: "est utilisée pour mélanger les aliments pendant la cuisson, surtout dans les casseroles."
+                },
+                "louche": {
+                    name: "La louche",
+                    img: "imgLouche",
+                    imgUrl: "./kitchen/louche.png",
+                    desc: "est utilisée pour servir des soupes ou des sauces."
+                },
+                "fouet": {
+                    name: "Le fouet",
+                    img: "imgFouet",
+                    imgUrl: "./kitchen/fouet.png",
+                    desc: "est utilisé pour fouetter ou mélanger les ingrédients."
+                },
+                "ecumoire": {
+                    name: "L'écumoire",
+                    img: "imgEcumoire",
+                    imgUrl: "./kitchen/ecumoire.png",
+                    desc: "est utilisée pour écumer les liquides ou égoutter les aliments frits."
+                },
+                "rouleau_patisserie": {
+                    name: "Le rouleau à pâtisserie",
+                    img: "imgRouleauPatisserie",
+                    imgUrl: "./kitchen/rouleau_patisserie.png",
+                    desc: "est utilisé pour étaler la pâte avant la cuisson."
+                },
+                "tamis": {
+                    name: "Le tamis",
+                    img: "imgTamis",
+                    imgUrl: "./kitchen/tamis.png",
+                    desc: "est utilisé pour tamiser la farine ou d'autres ingrédients en poudre."
+                },
+                "pince_pates": {
+                    name: "La pince à pâtes",
+                    img: "imgPincePates",
+                    imgUrl: "./kitchen/pince_pates.png",
+                    desc: "est utilisée pour saisir et servir les pâtes."
+                },
+                "presse_puree": {
+                    name: "Le presse-purée",
+                    img: "imgPressePuree",
+                    imgUrl: "./kitchen/presse_puree.png",
+                    desc: "est utilisé pour écraser les pommes de terre ou d'autres légumes cuits."
+                },
+                "eplucheur": {
+                    name: "L'éplucheur",
+                    img: "imgEplucheur",
+                    imgUrl: "./kitchen/eplucheur.png",
+                    desc: "est utilisé pour éplucher les légumes ou les fruits."
+                },
+                "ciseaux": {
+                    name: "Les ciseaux",
+                    img: "imgCiseaux",
+                    imgUrl: "./kitchen/ciseaux.png",
+                    desc: "sont utilisés pour couper divers aliments ou emballages."
+                },
+                "poche_douille": {
+                    name: "La poche à douille",
+                    img: "imgPocheDouille",
+                    imgUrl: "./kitchen/poche_douille.png",
+                    desc: "est utilisée pour décorer les gâteaux en pressant la crème ou la pâte."
+                },
+                "tire_bouchon": {
+                    name: "Le tire-bouchon",
+                    img: "imgTireBouchon",
+                    imgUrl: "./kitchen/tire_bouchon.png",
+                    desc: "est utilisé pour ouvrir les bouteilles de vin en retirant le bouchon."
+                },
+                "ouvre_bouteille": {
+                    name: "L'ouvre-bouteille",
+                    img: "imgOuvreBouteille",
+                    imgUrl: "./kitchen/ouvre_bouteille.png",
+                    desc: "est utilisé pour ouvrir des bouteilles fermées avec des capsules."
+                },
+                "ouvre_boite": {
+                    name: "L'ouvre-boîte",
+                    img: "imgOuvreBoite",
+                    imgUrl: "./kitchen/ouvre_boite.png",
+                    desc: "est utilisé pour ouvrir les boîtes de conserve."
+                },
+                "canette": {
+                    name: "La canette",
+                    img: "imgCanette",
+                    imgUrl: "./kitchen/canette.png",
+                    desc: "est un petit récipient en métal utilisé pour stocker des boissons."
+                },
+                "papier_aluminium": {
+                    name: "Le papier d'aluminium",
+                    img: "imgPapierAluminium",
+                    imgUrl: "./kitchen/papier_aluminium.png",
+                    desc: "est utilisé pour envelopper des aliments et conserver leur fraîcheur."
+                },
+                "sachet_plastique": {
+                    name: "Le sachet plastique",
+                    img: "imgSachetPlastique",
+                    imgUrl: "./kitchen/sachet_plastique.png",
+                    desc: "est utilisé pour stocker des aliments ou les conserver."
+                },
+                "moule_glacons": {
+                    name: "Le moule à glaçons",
+                    img: "imgMouleGlacons",
+                    imgUrl: "./kitchen/moule_glacons.png",
+                    desc: "est utilisé pour fabriquer des glaçons dans le congélateur."
+                },
+                "briquet": {
+                    name: "Le briquet",
+                    img: "imgBriquet",
+                    imgUrl: "./kitchen/briquet.png",
+                    desc: "est utilisé pour allumer le feu ou un réchaud."
+                },
+                "assiette": {
+                    name: "L'assiette / Le plat",
+                    img: "imgAssiette",
+                    imgUrl: "./kitchen/assiette.png",
+                    desc: "est un récipient plat utilisé pour servir les aliments."
+                },
+                "assiette_creuse": {
+                    name: "L'assiette creuse",
+                    img: "imgAssietteCreuse",
+                    imgUrl: "./kitchen/assiette_creuse.png",
+                    desc: "est utilisée pour servir des soupes ou des plats liquides."
+                },
+                "fourchette": {
+                    name: "La fourchette",
+                    img: "imgFourchette",
+                    imgUrl: "./kitchen/fourchette.png",
+                    desc: "est un ustensile utilisé pour manger des aliments solides."
+                },
+                "couteau": {
+                    name: "Le couteau",
+                    img: "imgCouteau",
+                    imgUrl: "./kitchen/couteau.png",
+                    desc: "est un ustensile tranchant utilisé pour couper des aliments."
+                },
+                "cuillere": {
+                    name: "La cuillère",
+                    img: "imgCuillere",
+                    imgUrl: "./kitchen/cuillere.png",
+                    desc: "est un ustensile utilisé pour manger des aliments liquides ou semi-liquides."
+                },
+                "verre_vin": {
+                    name: "Le verre à vin",
+                    img: "imgVerreVin",
+                    imgUrl: "./kitchen/verre_vin.png",
+                    desc: "est utilisé pour servir du vin."
+                },
+                "verre_mousseux": {
+                    name: "Le verre à vin mousseux",
+                    img: "imgVerreMousseux",
+                    imgUrl: "./kitchen/verre_mousseux.png",
+                    desc: "est un verre utilisé pour servir des vins mousseux, comme le champagne."
+                },
+                "verre": {
+                    name: "Le verre",
+                    img: "imgVerre",
+                    imgUrl: "./kitchen/verre.png",
+                    desc: "est un récipient utilisé pour boire des liquides."
+                },
+                "theiere": {
+                    name: "La théière",
+                    img: "imgTheiere",
+                    imgUrl: "./kitchen/theiere.png",
+                    desc: "est utilisée pour infuser et servir du thé."
+                },
+                "mug": {
+                    name: "Le mug",
+                    img: "imgMug",
+                    imgUrl: "./kitchen/mug.png",
+                    desc: "est une grande tasse utilisée pour boire des boissons chaudes."
+                },
+                "tasse": {
+                    name: "La tasse",
+                    img: "imgTasse",
+                    imgUrl: "./kitchen/tasse.png",
+                    desc: "est utilisée pour boire des boissons chaudes comme le café ou le thé."
+                },
+                "soucoupe": {
+                    name: "La soucoupe",
+                    img: "imgSoucoupe",
+                    imgUrl: "./kitchen/soucoupe.png",
+                    desc: "est une petite assiette sur laquelle on place une tasse."
+                },
+                "plateau": {
+                    name: "Le plateau",
+                    img: "imgPlateau",
+                    imgUrl: "./kitchen/plateau.png",
+                    desc: "est utilisé pour transporter plusieurs plats ou boissons."
+                },
+                "bouteille_vin": {
+                    name: "La bouteille de vin",
+                    img: "imgBouteilleVin",
+                    imgUrl: "./kitchen/bouteille_vin.png",
+                    desc: "est utilisée pour stocker et servir du vin."
+                },
+                "bouteille_eau": {
+                    name: "La bouteille d'eau",
+                    img: "imgBouteilleEau",
+                    imgUrl: "./kitchen/bouteille_eau.png",
+                    desc: "est utilisée pour stocker de l'eau ou d'autres boissons."
+                },
+                "panier": {
+                    name: "Le panier",
+                    img: "imgPanier",
+                    imgUrl: "./kitchen/panier.png",
+                    desc: "est un récipient utilisé pour transporter des aliments ou des produits."
+                },
+                "balance": {
+                    name: "La balance",
+                    img: "imgBalance",
+                    imgUrl: "./kitchen/balance.png",
+                    desc: "est utilisée pour peser les ingrédients."
+                },
+                "tiroir": {
+                    name: "Le tiroir",
+                    img: "imgTiroir",
+                    imgUrl: "./kitchen/tiroir.png",
+                    desc: "est utilisé pour ranger des ustensiles et autres articles de cuisine."
+                },
+                "armoire": {
+                    name: "L'armoire",
+                    img: "imgArmoire",
+                    imgUrl: "./kitchen/armoire.png",
+                    desc: "est utilisée pour stocker des ustensiles et des provisions."
+                },
+                "bol_fruits": {
+                    name: "Le bol à fruits",
+                    img: "imgBolFruits",
+                    imgUrl: "./kitchen/bol_fruits.png",
+                    desc: "est utilisé pour stocker et présenter des fruits."
+                },
+                "paquet": {
+                    name: "Le paquet",
+                    img: "imgPaquet",
+                    imgUrl: "./kitchen/paquet.png",
+                    desc: "est utilisé pour emballer ou stocker des aliments."
+                },
+                "serviette": {
+                    name: "La serviette",
+                    img: "imgServiette",
+                    imgUrl: "./kitchen/serviette.png",
+                    desc: "est utilisée pour s'essuyer les mains ou la bouche pendant un repas."
+                },
+                "thermos": {
+                    name: "Le Thermos",
+                    img: "imgThermos",
+                    imgUrl: "./kitchen/thermos.png",
+                    desc: "est un récipient isolé qui conserve les boissons chaudes ou froides."
+                },
+                transito_direcoes: {
+                    "feu_signalisation": {
+                        name: "Un feu de signalisation",
+                        img: "imgFeuSignalisation",
+                        imgUrl: "./transito/feu_signalisation.png",
+                        desc: "est un dispositif qui régule la circulation à une intersection."
+                    },
+                    "panneau_signalisation": {
+                        name: "Un panneau de signalisation",
+                        img: "imgPanneauSignalisation",
+                        imgUrl: "./transito/panneau_signalisation.png",
+                        desc: "est un signe qui informe les conducteurs des règles et des dangers sur la route."
+                    },
+                    "embouteillage": {
+                        name: "Un embouteillage",
+                        img: "imgEmbouteillage",
+                        imgUrl: "./transito/embouteillage.png",
+                        desc: "est une accumulation de véhicules qui ralentit ou bloque la circulation."
+                    },
+                    "route_sens_unique": {
+                        name: "Une route à sens unique",
+                        img: "imgRouteSensUnique",
+                        imgUrl: "./transito/route_sens_unique.png",
+                        desc: "est une rue où les véhicules ne peuvent circuler que dans une seule direction."
+                    },
+                    "rond_point": {
+                        name: "Un rond-point",
+                        img: "imgRondPoint",
+                        imgUrl: "./transito/rond_point.png",
+                        desc: "est une intersection circulaire qui permet de réguler le flux de véhicules."
+                    },
+                    "peage": {
+                        name: "Un péage",
+                        img: "imgPeage",
+                        imgUrl: "./transito/peage.png",
+                        desc: "est un endroit où les conducteurs paient pour utiliser certaines routes."
+                    },
+                    "priorite_droite": {
+                        name: "La priorité à droite",
+                        img: "imgPrioriteDroite",
+                        imgUrl: "./transito/priorite_droite.png",
+                        desc: "est une règle de circulation où les véhicules venant de droite ont la priorité."
+                    },
+                    "sens_interdit": {
+                        name: "Un sens interdit",
+                        img: "imgSensInterdit",
+                        imgUrl: "./transito/sens_interdit.png",
+                        desc: "indique qu'il est interdit de circuler dans cette direction."
+                    },
+                    "accident_route": {
+                        name: "Un accident de la route",
+                        img: "imgAccidentRoute",
+                        imgUrl: "./transito/accident_route.png",
+                        desc: "est un événement où des véhicules sont impliqués dans une collision."
+                    },
+                    "vitesse_limitee": {
+                        name: "Une vitesse limitée",
+                        img: "imgVitesseLimitee",
+                        imgUrl: "./transito/vitesse_limitee.png",
+                        desc: "indique la vitesse maximale autorisée sur une route."
+                    },
+                    "passage_pieton": {
+                        name: "Un passage piéton",
+                        img: "imgPassagePieton",
+                        imgUrl: "./transito/passage_pieton.png",
+                        desc: "est un endroit où les piétons peuvent traverser la route en toute sécurité."
+                    },
+                    "stationnement_interdit": {
+                        name: "Un stationnement interdit",
+                        img: "imgStationnementInterdit",
+                        imgUrl: "./transito/stationnement_interdit.png",
+                        desc: "signifie qu'il est interdit de stationner dans cette zone."
+                    },
+                    "parking_souterrain": {
+                        name: "Un parking souterrain",
+                        img: "imgParkingSouterrain",
+                        imgUrl: "./transito/parking_souterrain.png",
+                        desc: "est un parking situé sous terre."
+                    }
+                },
 
-    plaques_transito:  {
-    "stop": {
-        name: "Un stop",
-        img: "imgStop",
-        imgUrl: "./transito/stop.png",
-        desc: "est un panneau qui oblige les conducteurs à s'arrêter complètement avant de continuer."
-    },
-    "cedez_le_passage": {
-        name: "Cédez le passage",
-        img: "imgCedezLePassage",
-        imgUrl: "./transito/cedez_le_passage.png",
-        desc: "indique que les conducteurs doivent céder la priorité aux autres véhicules."
-    },
-    "limitation_vitesse": {
-        name: "Limitation de vitesse",
-        img: "imgLimitationVitesse",
-        imgUrl: "./transito/limitation_vitesse.png",
-        desc: "est un panneau qui indique la vitesse maximale autorisée sur une route."
-    },
-    "voie_reservee": {
-        name: "Voie réservée",
-        img: "imgVoieReservee",
-        imgUrl: "./transito/voie_reservee.png",
-        desc: "est une voie réservée à certains types de véhicules, comme les bus ou les taxis."
-    },
-    "interdiction_tourner_gauche_droite": {
-        name: "Interdiction de tourner à gauche/droite",
-        img: "imgInterdictionTourner",
-        imgUrl: "./transito/interdiction_tourner.png",
-        desc: "indique qu'il est interdit de tourner à gauche ou à droite à cet endroit."
-    },
-    "stationnement_reserve": {
-        name: "Stationnement réservé",
-        img: "imgStationnementReserve",
-        imgUrl: "./transito/stationnement_reserve.png",
-        desc: "indique qu'une zone de stationnement est réservée pour certains véhicules."
-    },
-    "aire_de_repos": {
-        name: "Aire de repos",
-        img: "imgAireDeRepos",
-        imgUrl: "./transito/aire_de_repos.png",
-        desc: "est une zone sur l'autoroute où les conducteurs peuvent se reposer."
-    },
-    "zone_pietonne": {
-        name: "Zone piétonne",
-        img: "imgZonePietonne",
-        imgUrl: "./transito/zone_pietonne.png",
-        desc: "indique une zone réservée aux piétons."
-    },
-    "travaux_en_cours": {
-        name: "Travaux en cours",
-        img: "imgTravauxEnCours",
-        imgUrl: "./transito/travaux_en_cours.png",
-        desc: "indique des travaux de construction ou de réparation sur la route."
-    },
-    "danger": {
-        name: "Danger",
-        img: "imgDanger",
-        imgUrl: "./transito/danger.png",
-        desc: "est un panneau avertissant d'un danger imminent sur la route."
-    },
-    "sortie": {
-        name: "Sortie",
-        img: "imgSortie",
-        imgUrl: "./transito/sortie.png",
-        desc: "indique une sortie sur une route ou une autoroute."
-    },
-    "rue_barree": {
-        name: "Rue barrée",
-        img: "imgRueBarree",
-        imgUrl: "./transito/rue_barree.png",
-        desc: "indique qu'une rue est bloquée et inaccessible."
-    },
-    "attention_enfants": {
-        name: "Attention enfants",
-        img: "imgAttentionEnfants",
-        imgUrl: "./transito/attention_enfants.png",
-        desc: "avertit que des enfants peuvent être présents, comme près d'une école."
-    }
-},
-        rodovias_vias: {
-    "autoroute": {
-        name: "Une autoroute",
-        img: "imgAutoroute",
-        imgUrl: "./transito/autoroute.png",
-        desc: "est une route rapide à plusieurs voies avec des entrées et des sorties spécifiques."
-    },
-    "voie_rapide": {
-        name: "Une voie rapide",
-        img: "imgVoieRapide",
-        imgUrl: "./transito/voie_rapide.png",
-        desc: "est une route réservée aux véhicules motorisés pour circuler à grande vitesse."
-    },
-    "bretelle_acces": {
-        name: "Une bretelle d'accès",
-        img: "imgBretelleAcces",
-        imgUrl: "./transito/bretelle_acces.png",
-        desc: "est une voie permettant d'accéder à une autoroute ou à une route principale."
-    },
-    "sortie_autoroute": {
-        name: "Une sortie d'autoroute",
-        img: "imgSortieAutoroute",
-        imgUrl: "./transito/sortie_autoroute.png",
-        desc: "est un point de sortie permettant aux véhicules de quitter l'autoroute."
-    },
-    "aire_service": {
-        name: "Une aire de service",
-        img: "imgAireService",
-        imgUrl: "./transito/aire_service.png",
-        desc: "est une zone où les conducteurs peuvent se reposer, faire le plein ou manger sur l'autoroute."
-    },
-    "voie_depassement": {
-        name: "Une voie de dépassement",
-        img: "imgVoieDepassement",
-        imgUrl: "./transito/voie_depassement.png",
-        desc: "est une voie utilisée pour dépasser d'autres véhicules."
-    },
-    "poste_peage": {
-        name: "Un poste de péage",
-        img: "imgPostePeage",
-        imgUrl: "./transito/poste_peage.png",
-        desc: "est un endroit où les conducteurs paient pour utiliser certaines routes."
-    },
-    "pont_autoroutier": {
-        name: "Un pont autoroutier",
-        img: "imgPontAutoroutier",
-        imgUrl: "./transito/pont_autoroutier.png",
-        desc: "est une structure qui permet aux véhicules de traverser une autoroute ou une rivière."
-    },
-    "tunnel": {
-        name: "Un tunnel",
-        img: "imgTunnel",
-        imgUrl: "./transito/tunnel.png",
-        desc: "est un passage souterrain traversé par des véhicules."
-    },
-    "intersection": {
-        name: "Une intersection",
-        img: "imgIntersection",
-        imgUrl: "./transito/intersection.png",
-        desc: "est un croisement où deux ou plusieurs routes se rencontrent."
-    },
-    "piste_cyclable": {
-        name: "Une piste cyclable",
-        img: "imgPisteCyclable",
-        imgUrl: "./transito/piste_cyclable.png",
-        desc: "est une voie réservée aux vélos."
-    }
-},
-        directions: {
-    "tournez_gauche": {
-        name: "Tournez à gauche",
-        img: "imgTournezGauche",
-        imgUrl: "./directions/tournez_gauche.png",
-        desc: "est une instruction pour indiquer de tourner à gauche."
-    },
-    "tournez_droite": {
-        name: "Tournez à droite",
-        img: "imgTournezDroite",
-        imgUrl: "./directions/tournez_droite.png",
-        desc: "est une instruction pour indiquer de tourner à droite."
-    },
-    "allez_tout_droit": {
-        name: "Allez tout droit",
-        img: "imgAllezToutDroit",
-        imgUrl: "./directions/allez_tout_droit.png",
-        desc: "indique que vous devez continuer tout droit."
-    },
-    "premiere_gauche": {
-        name: "Prenez la première à gauche",
-        img: "imgPremiereGauche",
-        imgUrl: "./directions/premiere_gauche.png",
-        desc: "indique que vous devez prendre la première rue à gauche."
-    },
-    "deuxieme_droite": {
-        name: "Prenez la deuxième à droite",
-        img: "imgDeuxiemeDroite",
-        imgUrl: "./directions/deuxieme_droite.png",
-        desc: "indique que vous devez prendre la deuxième rue à droite."
-    },
-    "continuez_rond_point": {
-        name: "Continuez jusqu'au rond-point",
-        img: "imgRondPoint",
-        imgUrl: "./directions/continuez_rond_point.png",
-        desc: "indique que vous devez continuer tout droit jusqu'au rond-point."
-    },
-    "traversez_pont": {
-        name: "Traversez le pont",
-        img: "imgTraversezPont",
-        imgUrl: "./directions/traversez_pont.png",
-        desc: "est une instruction pour traverser un pont."
-    },
-    "suivez_panneaux": {
-        name: "Suivez les panneaux pour...",
-        img: "imgSuivezPanneaux",
-        imgUrl: "./directions/suivez_panneaux.png",
-        desc: "est une instruction pour suivre les panneaux en direction d'un lieu spécifique."
-    },
-    "descendez_rue": {
-        name: "Descendez la rue",
-        img: "imgDescendezRue",
-        imgUrl: "./directions/descendez_rue.png",
-        desc: "est une instruction pour descendre une rue."
-    },
-    "montez_colline": {
-        name: "Montez la colline",
-        img: "imgMontezColline",
-        imgUrl: "./directions/montez_colline.png",
-        desc: "est une instruction pour monter une colline."
-    }
-}
+                plaques_transito: {
+                    "stop": {
+                        name: "Un stop",
+                        img: "imgStop",
+                        imgUrl: "./transito/stop.png",
+                        desc: "est un panneau qui oblige les conducteurs à s'arrêter complètement avant de continuer."
+                    },
+                    "cedez_le_passage": {
+                        name: "Cédez le passage",
+                        img: "imgCedezLePassage",
+                        imgUrl: "./transito/cedez_le_passage.png",
+                        desc: "indique que les conducteurs doivent céder la priorité aux autres véhicules."
+                    },
+                    "limitation_vitesse": {
+                        name: "Limitation de vitesse",
+                        img: "imgLimitationVitesse",
+                        imgUrl: "./transito/limitation_vitesse.png",
+                        desc: "est un panneau qui indique la vitesse maximale autorisée sur une route."
+                    },
+                    "voie_reservee": {
+                        name: "Voie réservée",
+                        img: "imgVoieReservee",
+                        imgUrl: "./transito/voie_reservee.png",
+                        desc: "est une voie réservée à certains types de véhicules, comme les bus ou les taxis."
+                    },
+                    "interdiction_tourner_gauche_droite": {
+                        name: "Interdiction de tourner à gauche/droite",
+                        img: "imgInterdictionTourner",
+                        imgUrl: "./transito/interdiction_tourner.png",
+                        desc: "indique qu'il est interdit de tourner à gauche ou à droite à cet endroit."
+                    },
+                    "stationnement_reserve": {
+                        name: "Stationnement réservé",
+                        img: "imgStationnementReserve",
+                        imgUrl: "./transito/stationnement_reserve.png",
+                        desc: "indique qu'une zone de stationnement est réservée pour certains véhicules."
+                    },
+                    "aire_de_repos": {
+                        name: "Aire de repos",
+                        img: "imgAireDeRepos",
+                        imgUrl: "./transito/aire_de_repos.png",
+                        desc: "est une zone sur l'autoroute où les conducteurs peuvent se reposer."
+                    },
+                    "zone_pietonne": {
+                        name: "Zone piétonne",
+                        img: "imgZonePietonne",
+                        imgUrl: "./transito/zone_pietonne.png",
+                        desc: "indique une zone réservée aux piétons."
+                    },
+                    "travaux_en_cours": {
+                        name: "Travaux en cours",
+                        img: "imgTravauxEnCours",
+                        imgUrl: "./transito/travaux_en_cours.png",
+                        desc: "indique des travaux de construction ou de réparation sur la route."
+                    },
+                    "danger": {
+                        name: "Danger",
+                        img: "imgDanger",
+                        imgUrl: "./transito/danger.png",
+                        desc: "est un panneau avertissant d'un danger imminent sur la route."
+                    },
+                    "sortie": {
+                        name: "Sortie",
+                        img: "imgSortie",
+                        imgUrl: "./transito/sortie.png",
+                        desc: "indique une sortie sur une route ou une autoroute."
+                    },
+                    "rue_barree": {
+                        name: "Rue barrée",
+                        img: "imgRueBarree",
+                        imgUrl: "./transito/rue_barree.png",
+                        desc: "indique qu'une rue est bloquée et inaccessible."
+                    },
+                    "attention_enfants": {
+                        name: "Attention enfants",
+                        img: "imgAttentionEnfants",
+                        imgUrl: "./transito/attention_enfants.png",
+                        desc: "avertit que des enfants peuvent être présents, comme près d'une école."
+                    }
+                },
+                rodovias_vias: {
+                    "autoroute": {
+                        name: "Une autoroute",
+                        img: "imgAutoroute",
+                        imgUrl: "./transito/autoroute.png",
+                        desc: "est une route rapide à plusieurs voies avec des entrées et des sorties spécifiques."
+                    },
+                    "voie_rapide": {
+                        name: "Une voie rapide",
+                        img: "imgVoieRapide",
+                        imgUrl: "./transito/voie_rapide.png",
+                        desc: "est une route réservée aux véhicules motorisés pour circuler à grande vitesse."
+                    },
+                    "bretelle_acces": {
+                        name: "Une bretelle d'accès",
+                        img: "imgBretelleAcces",
+                        imgUrl: "./transito/bretelle_acces.png",
+                        desc: "est une voie permettant d'accéder à une autoroute ou à une route principale."
+                    },
+                    "sortie_autoroute": {
+                        name: "Une sortie d'autoroute",
+                        img: "imgSortieAutoroute",
+                        imgUrl: "./transito/sortie_autoroute.png",
+                        desc: "est un point de sortie permettant aux véhicules de quitter l'autoroute."
+                    },
+                    "aire_service": {
+                        name: "Une aire de service",
+                        img: "imgAireService",
+                        imgUrl: "./transito/aire_service.png",
+                        desc: "est une zone où les conducteurs peuvent se reposer, faire le plein ou manger sur l'autoroute."
+                    },
+                    "voie_depassement": {
+                        name: "Une voie de dépassement",
+                        img: "imgVoieDepassement",
+                        imgUrl: "./transito/voie_depassement.png",
+                        desc: "est une voie utilisée pour dépasser d'autres véhicules."
+                    },
+                    "poste_peage": {
+                        name: "Un poste de péage",
+                        img: "imgPostePeage",
+                        imgUrl: "./transito/poste_peage.png",
+                        desc: "est un endroit où les conducteurs paient pour utiliser certaines routes."
+                    },
+                    "pont_autoroutier": {
+                        name: "Un pont autoroutier",
+                        img: "imgPontAutoroutier",
+                        imgUrl: "./transito/pont_autoroutier.png",
+                        desc: "est une structure qui permet aux véhicules de traverser une autoroute ou une rivière."
+                    },
+                    "tunnel": {
+                        name: "Un tunnel",
+                        img: "imgTunnel",
+                        imgUrl: "./transito/tunnel.png",
+                        desc: "est un passage souterrain traversé par des véhicules."
+                    },
+                    "intersection": {
+                        name: "Une intersection",
+                        img: "imgIntersection",
+                        imgUrl: "./transito/intersection.png",
+                        desc: "est un croisement où deux ou plusieurs routes se rencontrent."
+                    },
+                    "piste_cyclable": {
+                        name: "Une piste cyclable",
+                        img: "imgPisteCyclable",
+                        imgUrl: "./transito/piste_cyclable.png",
+                        desc: "est une voie réservée aux vélos."
+                    }
+                },
+                directions: {
+                    "tournez_gauche": {
+                        name: "Tournez à gauche",
+                        img: "imgTournezGauche",
+                        imgUrl: "./directions/tournez_gauche.png",
+                        desc: "est une instruction pour indiquer de tourner à gauche."
+                    },
+                    "tournez_droite": {
+                        name: "Tournez à droite",
+                        img: "imgTournezDroite",
+                        imgUrl: "./directions/tournez_droite.png",
+                        desc: "est une instruction pour indiquer de tourner à droite."
+                    },
+                    "allez_tout_droit": {
+                        name: "Allez tout droit",
+                        img: "imgAllezToutDroit",
+                        imgUrl: "./directions/allez_tout_droit.png",
+                        desc: "indique que vous devez continuer tout droit."
+                    },
+                    "premiere_gauche": {
+                        name: "Prenez la première à gauche",
+                        img: "imgPremiereGauche",
+                        imgUrl: "./directions/premiere_gauche.png",
+                        desc: "indique que vous devez prendre la première rue à gauche."
+                    },
+                    "deuxieme_droite": {
+                        name: "Prenez la deuxième à droite",
+                        img: "imgDeuxiemeDroite",
+                        imgUrl: "./directions/deuxieme_droite.png",
+                        desc: "indique que vous devez prendre la deuxième rue à droite."
+                    },
+                    "continuez_rond_point": {
+                        name: "Continuez jusqu'au rond-point",
+                        img: "imgRondPoint",
+                        imgUrl: "./directions/continuez_rond_point.png",
+                        desc: "indique que vous devez continuer tout droit jusqu'au rond-point."
+                    },
+                    "traversez_pont": {
+                        name: "Traversez le pont",
+                        img: "imgTraversezPont",
+                        imgUrl: "./directions/traversez_pont.png",
+                        desc: "est une instruction pour traverser un pont."
+                    },
+                    "suivez_panneaux": {
+                        name: "Suivez les panneaux pour...",
+                        img: "imgSuivezPanneaux",
+                        imgUrl: "./directions/suivez_panneaux.png",
+                        desc: "est une instruction pour suivre les panneaux en direction d'un lieu spécifique."
+                    },
+                    "descendez_rue": {
+                        name: "Descendez la rue",
+                        img: "imgDescendezRue",
+                        imgUrl: "./directions/descendez_rue.png",
+                        desc: "est une instruction pour descendre une rue."
+                    },
+                    "montez_colline": {
+                        name: "Montez la colline",
+                        img: "imgMontezColline",
+                        imgUrl: "./directions/montez_colline.png",
+                        desc: "est une instruction pour monter une colline."
+                    }
+                }
 
-        };
+            }
+        }
 
         window.onload = function () {
             // Eventos para os botões
