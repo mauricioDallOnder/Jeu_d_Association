@@ -75,12 +75,115 @@
             margin-right: 10px;
         }
 
-        #categorySelect {
-            padding: 10px;
-            border: 1px solid #CCCCCC;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-        }
+       /* Estilo geral do select */
+#categorySelect {
+    padding: 12px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    width: 100%;
+    max-width: 400px;
+    font-family: var(--font-family);
+    appearance: none;
+    cursor: pointer;
+    background-image: linear-gradient(45deg, transparent 50%, var(--primary-color) 50%),
+                      linear-gradient(135deg, var(--primary-color) 50%, transparent 50%);
+    background-position: calc(100% - 15px) calc(1.25em + 2px), calc(100% - 10px) calc(1.25em + 2px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#categorySelect:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#categorySelect:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 8px rgba(98, 0, 238, 0.5);
+}
+
+/* Estilo para o optgroup */
+optgroup {
+    font-weight: bold;
+    color: var(--primary-color);
+    background-color: rgba(98, 0, 238, 0.1); /* Cor de fundo levemente colorida */
+    padding: 8px;
+    border-bottom: 1px solid var(--primary-color); /* Linha de separação entre categorias */
+    font-size: 1.2rem; /* Aumentando o tamanho dos títulos */
+}
+
+/* Estilo para as opções */
+option {
+    padding: 12px;
+    color: var(--text-color);
+    background-color: white;
+    font-size: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Animação de fade-in para o dropdown */
+#categorySelect {
+    animation: fadeInDropdown 0.3s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeInDropdown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Melhoria no estilo do optgroup */
+optgroup {
+    background-color: #f7f7f7; /* Cor de fundo diferente para separar visualmente */
+    padding: 10px;
+}
+
+option {
+    padding: 12px;
+    background-color: #fff;
+}
+
+/* Efeito de hover nas opções */
+option:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+/* Estilização dos optgroup de maneira ainda mais destacada */
+optgroup::before {
+    content: "▸ "; /* Adiciona um ícone ou símbolo antes do título */
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    padding-right: 5px;
+}
+
+optgroup:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-color); /* Linha de separação embaixo do grupo */
+    margin-top: 4px;
+}
+
+option[selected] {
+    background-color: var(--secondary-color); /* Cor para a opção selecionada */
+    font-weight: bold;
+}
+
 
         button {
             position: relative;
@@ -430,6 +533,13 @@
                 width: 100%;
             }
         }
+                /* Estilo para melhorar a usabilidade em dispositivos móveis */
+@media (max-width: 767px) {
+    #categorySelect {
+        font-size: 1.2rem;
+        max-width: 50%;
+    }
+}
     </style>
 </head>
 
@@ -443,24 +553,56 @@
     <div id="boxCategoria">
         <label for="categorySelect" id="labelCategoria">Choisissez une catégorie:</label>
         <select id="categorySelect">
-            <option value="activites_quotidiennes">Activités quotidiennes</option>
-            <option value="nourriture">Nourriture</option>
-            <option value="maisonLieux">Maison (Parties de la maison)</option>
-            <option value="maisonMeubles">Maison (Meubles)</option>
-            <option value="nettoyage">Maison (Accessoires de nettoyage)</option>
-            <option value="partiesDuCorps">Parties du corps</option>
-            <option value="sentiments_et_emotions">Sentiments et émotions</option>
-            <option value="problemes_de_sante">Problèmes de santé</option>
-            <option value="vestuario_roupa_normal">Vêtements</option>
-            <option value="vetements_de_saison">Vêtements de saison</option>
-            <option value="vêtements_vestuario">Sous-vêtements</option>
-            <option value="accessoires">Accessoires</option>
-            <option value="lieux_de_la_ville">Lieux dans la ville</option>
-            <option value="transports">Transports et circulation</option>
-            <option value="partes_de_la_voiture_externes">L’extérieur de la voiture</option>
-            <option value="partes_internes_du_carro">L'intérieur de la voiture</option>
-            <option value="materiel_de_bureau">Matériel de bureau</option>
-            <option value="nature">Nature</option>
+            <!-- Atividades e rotinas diárias -->
+            <optgroup label="Activités quotidiennes">
+                <option value="activites_quotidiennes">Activités quotidiennes</option>
+            </optgroup>
+
+            <!-- Alimentação e cozinha -->
+            <optgroup label="Cuisine et Nourriture">
+                <option value="nourriture">Nourriture</option>
+                <option value="ustensiles_de_cuisine">Les ustensiles de la cuisine</option>
+            </optgroup>
+
+            <!-- Casa e móveis -->
+            <optgroup label="Maison et Meubles">
+                <option value="maisonLieux">Les pièces de la maison</option>
+                <option value="maisonMeubles">Les meubles</option>
+                <option value="nettoyage">Les accessoires de nettoyage</option>
+            </optgroup>
+
+            <!-- Corpo humano e saúde -->
+            <optgroup label="Santé et Corps Humain">
+                <option value="partiesDuCorps">Parties du corps</option>
+                <option value="sentiments_et_emotions">Sentiments et émotions</option>
+                <option value="problemes_de_sante">Problèmes de santé</option>
+            </optgroup>
+
+            <!-- Vestuário -->
+            <optgroup label="Vêtements et Accessoires">
+                <option value="vestuario_roupa_normal">Vêtements</option>
+                <option value="vetements_de_saison">Vêtements de saison</option>
+                <option value="vêtements_vestuario">Sous-vêtements</option>
+                <option value="accessoires">Accessoires</option>
+            </optgroup>
+
+            <!-- Lugares e transportes -->
+            <optgroup label="Lieux et Transports">
+                <option value="lieux_de_la_ville">Lieux dans la ville</option>
+                <option value="transports">Transports et circulation</option>
+            </optgroup>
+
+            <!-- Carro -->
+            <optgroup label="Voiture">
+                <option value="partes_de_la_voiture_externes">L’extérieur de la voiture</option>
+                <option value="partes_internes_du_carro">L'intérieur de la voiture</option>
+            </optgroup>
+
+            <!-- Escritório e Natureza -->
+            <optgroup label="Bureau et Nature">
+                <option value="materiel_de_bureau">Matériel de bureau</option>
+                <option value="nature">Nature</option>
+            </optgroup>
         </select>
     </div>
 
@@ -4097,7 +4239,382 @@
                     imgUrl: "./emotions/gratitude.png",
                     desc: "est la reconnaissance pour un bienfait reçu."
                 }
-            }
+            },
+
+            ustensiles_de_cuisine:{
+    "casserole": {
+        name: "La casserole",
+        img: "imgCasserole",
+        imgUrl: "./kitchen/casserole.png",
+        desc: "est un récipient utilisé pour la cuisson des aliments sur la cuisinière."
+    },
+    "couvercle": {
+        name: "Le couvercle",
+        img: "imgCouvercle",
+        imgUrl: "./kitchen/couvercle.png",
+        desc: "est utilisé pour couvrir une casserole ou une poêle."
+    },
+    "poele": {
+        name: "La poêle",
+        img: "imgPoele",
+        imgUrl: "./kitchen/poele.png",
+        desc: "est utilisée pour faire frire ou sauter des aliments."
+    },
+    "cocotte_minute": {
+        name: "La cocotte-minute",
+        img: "imgCocotteMinute",
+        imgUrl: "./kitchen/cocotte_minute.png",
+        desc: "est une marmite qui cuit sous pression pour accélérer la cuisson."
+    },
+    "moule": {
+        name: "Le moule",
+        img: "imgMoule",
+        imgUrl: "./kitchen/moule.png",
+        desc: "est utilisé pour cuire des gâteaux et d'autres pâtisseries."
+    },
+    "bouilloire": {
+        name: "La bouilloire",
+        img: "imgBouilloire",
+        imgUrl: "./kitchen/bouilloire.png",
+        desc: "est utilisée pour faire bouillir de l'eau."
+    },
+    "pot_verre": {
+        name: "Le pot en verre",
+        img: "imgPotVerre",
+        imgUrl: "./kitchen/pot_verre.png",
+        desc: "est un récipient transparent utilisé pour conserver des aliments ou liquides."
+    },
+    "pot_plastique": {
+        name: "Le pot en plastique",
+        img: "imgPotPlastique",
+        imgUrl: "./kitchen/pot_plastique.png",
+        desc: "est un récipient léger en plastique utilisé pour stocker des aliments."
+    },
+    "rape_fromage": {
+        name: "La râpe à fromage",
+        img: "imgRapeFromage",
+        imgUrl: "./kitchen/rape_fromage.png",
+        desc: "est utilisée pour râper le fromage ou d'autres aliments."
+    },
+    "torchon": {
+        name: "Le torchon",
+        img: "imgTorchon",
+        imgUrl: "./kitchen/torchon.png",
+        desc: "est utilisé pour essuyer la vaisselle ou nettoyer les surfaces."
+    },
+    "planche_decouper": {
+        name: "La planche à découper",
+        img: "imgPlancheDecouper",
+        imgUrl: "./kitchen/planche_decouper.png",
+        desc: "est utilisée pour couper des aliments en toute sécurité."
+    },
+    "bol_salladier": {
+        name: "Le bol / Le saladier",
+        img: "imgBolSalladier",
+        imgUrl: "./kitchen/bol_salladier.png",
+        desc: "est un grand récipient utilisé pour mélanger ou servir des salades."
+    },
+    "gants_cuisine": {
+        name: "Les gants de cuisine",
+        img: "imgGantsCuisine",
+        imgUrl: "./kitchen/gants_cuisine.png",
+        desc: "sont utilisés pour protéger les mains des surfaces chaudes."
+    },
+    "melangeur": {
+        name: "Le mélangeur / Le mixeur",
+        img: "imgMelangeur",
+        imgUrl: "./kitchen/melangeur.png",
+        desc: "est un appareil électrique utilisé pour mélanger ou broyer les ingrédients."
+    },
+    "batteur_melangeur": {
+        name: "Le batteur-mélangeur",
+        img: "imgBatteurMelangeur",
+        imgUrl: "./kitchen/batteur_melangeur.png",
+        desc: "est un appareil utilisé pour battre et mélanger des ingrédients."
+    },
+    "cafetiere": {
+        name: "La cafetière",
+        img: "imgCafetiere",
+        imgUrl: "./kitchen/cafetiere.png",
+        desc: "est utilisée pour préparer du café."
+    },
+    "four": {
+        name: "Le four",
+        img: "imgFour",
+        imgUrl: "./kitchen/four.png",
+        desc: "est un appareil utilisé pour cuire des aliments."
+    },
+    "cuisiniere": {
+        name: "La cuisinière / La plaque de cuisson",
+        img: "imgCuisiniere",
+        imgUrl: "./kitchen/cuisiniere.png",
+        desc: "est utilisée pour cuire des aliments sur une surface chauffée."
+    },
+    "grille_pain": {
+        name: "Le grille-pain",
+        img: "imgGrillePain",
+        imgUrl: "./kitchen/grille_pain.png",
+        desc: "est un appareil utilisé pour griller des tranches de pain."
+    },
+    "mixeur_plongeant": {
+        name: "Le mixeur plongeant",
+        img: "imgMixeurPlongeant",
+        imgUrl: "./kitchen/mixeur_plongeant.png",
+        desc: "est un appareil utilisé pour mélanger des ingrédients directement dans un récipient."
+    },
+    "cuillere_bois": {
+        name: "La cuillère en bois",
+        img: "imgCuillereBois",
+        imgUrl: "./kitchen/cuillere_bois.png",
+        desc: "est utilisée pour mélanger les aliments pendant la cuisson, surtout dans les casseroles."
+    },
+    "louche": {
+        name: "La louche",
+        img: "imgLouche",
+        imgUrl: "./kitchen/louche.png",
+        desc: "est utilisée pour servir des soupes ou des sauces."
+    },
+    "fouet": {
+        name: "Le fouet",
+        img: "imgFouet",
+        imgUrl: "./kitchen/fouet.png",
+        desc: "est utilisé pour fouetter ou mélanger les ingrédients."
+    },
+    "ecumoire": {
+        name: "L'écumoire",
+        img: "imgEcumoire",
+        imgUrl: "./kitchen/ecumoire.png",
+        desc: "est utilisée pour écumer les liquides ou égoutter les aliments frits."
+    },
+    "rouleau_patisserie": {
+        name: "Le rouleau à pâtisserie",
+        img: "imgRouleauPatisserie",
+        imgUrl: "./kitchen/rouleau_patisserie.png",
+        desc: "est utilisé pour étaler la pâte avant la cuisson."
+    },
+    "tamis": {
+        name: "Le tamis",
+        img: "imgTamis",
+        imgUrl: "./kitchen/tamis.png",
+        desc: "est utilisé pour tamiser la farine ou d'autres ingrédients en poudre."
+    },
+    "pince_pates": {
+        name: "La pince à pâtes",
+        img: "imgPincePates",
+        imgUrl: "./kitchen/pince_pates.png",
+        desc: "est utilisée pour saisir et servir les pâtes."
+    },
+    "presse_puree": {
+        name: "Le presse-purée",
+        img: "imgPressePuree",
+        imgUrl: "./kitchen/presse_puree.png",
+        desc: "est utilisé pour écraser les pommes de terre ou d'autres légumes cuits."
+    },
+    "eplucheur": {
+        name: "L'éplucheur",
+        img: "imgEplucheur",
+        imgUrl: "./kitchen/eplucheur.png",
+        desc: "est utilisé pour éplucher les légumes ou les fruits."
+    },
+    "ciseaux": {
+        name: "Les ciseaux",
+        img: "imgCiseaux",
+        imgUrl: "./kitchen/ciseaux.png",
+        desc: "sont utilisés pour couper divers aliments ou emballages."
+    },
+    "poche_douille": {
+        name: "La poche à douille",
+        img: "imgPocheDouille",
+        imgUrl: "./kitchen/poche_douille.png",
+        desc: "est utilisée pour décorer les gâteaux en pressant la crème ou la pâte."
+    },
+    "tire_bouchon": {
+        name: "Le tire-bouchon",
+        img: "imgTireBouchon",
+        imgUrl: "./kitchen/tire_bouchon.png",
+        desc: "est utilisé pour ouvrir les bouteilles de vin en retirant le bouchon."
+    },
+    "ouvre_bouteille": {
+        name: "L'ouvre-bouteille",
+        img: "imgOuvreBouteille",
+        imgUrl: "./kitchen/ouvre_bouteille.png",
+        desc: "est utilisé pour ouvrir des bouteilles fermées avec des capsules."
+    },
+    "ouvre_boite": {
+        name: "L'ouvre-boîte",
+        img: "imgOuvreBoite",
+        imgUrl: "./kitchen/ouvre_boite.png",
+        desc: "est utilisé pour ouvrir les boîtes de conserve."
+    },
+    "canette": {
+        name: "La canette",
+        img: "imgCanette",
+        imgUrl: "./kitchen/canette.png",
+        desc: "est un petit récipient en métal utilisé pour stocker des boissons."
+    },
+    "papier_aluminium": {
+        name: "Le papier d'aluminium",
+        img: "imgPapierAluminium",
+        imgUrl: "./kitchen/papier_aluminium.png",
+        desc: "est utilisé pour envelopper des aliments et conserver leur fraîcheur."
+    },
+    "sachet_plastique": {
+        name: "Le sachet plastique",
+        img: "imgSachetPlastique",
+        imgUrl: "./kitchen/sachet_plastique.png",
+        desc: "est utilisé pour stocker des aliments ou les conserver."
+    },
+    "moule_glacons": {
+        name: "Le moule à glaçons",
+        img: "imgMouleGlacons",
+        imgUrl: "./kitchen/moule_glacons.png",
+        desc: "est utilisé pour fabriquer des glaçons dans le congélateur."
+    },
+    "briquet": {
+        name: "Le briquet",
+        img: "imgBriquet",
+        imgUrl: "./kitchen/briquet.png",
+        desc: "est utilisé pour allumer le feu ou un réchaud."
+    },
+    "assiette": {
+        name: "L'assiette / Le plat",
+        img: "imgAssiette",
+        imgUrl: "./kitchen/assiette.png",
+        desc: "est un récipient plat utilisé pour servir les aliments."
+    },
+    "assiette_creuse": {
+        name: "L'assiette creuse",
+        img: "imgAssietteCreuse",
+        imgUrl: "./kitchen/assiette_creuse.png",
+        desc: "est utilisée pour servir des soupes ou des plats liquides."
+    },
+    "fourchette": {
+        name: "La fourchette",
+        img: "imgFourchette",
+        imgUrl: "./kitchen/fourchette.png",
+        desc: "est un ustensile utilisé pour manger des aliments solides."
+    },
+    "couteau": {
+        name: "Le couteau",
+        img: "imgCouteau",
+        imgUrl: "./kitchen/couteau.png",
+        desc: "est un ustensile tranchant utilisé pour couper des aliments."
+    },
+    "cuillere": {
+        name: "La cuillère",
+        img: "imgCuillere",
+        imgUrl: "./kitchen/cuillere.png",
+        desc: "est un ustensile utilisé pour manger des aliments liquides ou semi-liquides."
+    },
+    "verre_vin": {
+        name: "Le verre à vin",
+        img: "imgVerreVin",
+        imgUrl: "./kitchen/verre_vin.png",
+        desc: "est utilisé pour servir du vin."
+    },
+    "verre_mousseux": {
+        name: "Le verre à vin mousseux",
+        img: "imgVerreMousseux",
+        imgUrl: "./kitchen/verre_mousseux.png",
+        desc: "est un verre utilisé pour servir des vins mousseux, comme le champagne."
+    },
+    "verre": {
+        name: "Le verre",
+        img: "imgVerre",
+        imgUrl: "./kitchen/verre.png",
+        desc: "est un récipient utilisé pour boire des liquides."
+    },
+    "theiere": {
+        name: "La théière",
+        img: "imgTheiere",
+        imgUrl: "./kitchen/theiere.png",
+        desc: "est utilisée pour infuser et servir du thé."
+    },
+    "mug": {
+        name: "Le mug",
+        img: "imgMug",
+        imgUrl: "./kitchen/mug.png",
+        desc: "est une grande tasse utilisée pour boire des boissons chaudes."
+    },
+    "tasse": {
+        name: "La tasse",
+        img: "imgTasse",
+        imgUrl: "./kitchen/tasse.png",
+        desc: "est utilisée pour boire des boissons chaudes comme le café ou le thé."
+    },
+    "soucoupe": {
+        name: "La soucoupe",
+        img: "imgSoucoupe",
+        imgUrl: "./kitchen/soucoupe.png",
+        desc: "est une petite assiette sur laquelle on place une tasse."
+    },
+    "plateau": {
+        name: "Le plateau",
+        img: "imgPlateau",
+        imgUrl: "./kitchen/plateau.png",
+        desc: "est utilisé pour transporter plusieurs plats ou boissons."
+    },
+    "bouteille_vin": {
+        name: "La bouteille de vin",
+        img: "imgBouteilleVin",
+        imgUrl: "./kitchen/bouteille_vin.png",
+        desc: "est utilisée pour stocker et servir du vin."
+    },
+    "bouteille_eau": {
+        name: "La bouteille d'eau",
+        img: "imgBouteilleEau",
+        imgUrl: "./kitchen/bouteille_eau.png",
+        desc: "est utilisée pour stocker de l'eau ou d'autres boissons."
+    },
+    "panier": {
+        name: "Le panier",
+        img: "imgPanier",
+        imgUrl: "./kitchen/panier.png",
+        desc: "est un récipient utilisé pour transporter des aliments ou des produits."
+    },
+    "balance": {
+        name: "La balance",
+        img: "imgBalance",
+        imgUrl: "./kitchen/balance.png",
+        desc: "est utilisée pour peser les ingrédients."
+    },
+    "tiroir": {
+        name: "Le tiroir",
+        img: "imgTiroir",
+        imgUrl: "./kitchen/tiroir.png",
+        desc: "est utilisé pour ranger des ustensiles et autres articles de cuisine."
+    },
+    "armoire": {
+        name: "L'armoire",
+        img: "imgArmoire",
+        imgUrl: "./kitchen/armoire.png",
+        desc: "est utilisée pour stocker des ustensiles et des provisions."
+    },
+    "bol_fruits": {
+        name: "Le bol à fruits",
+        img: "imgBolFruits",
+        imgUrl: "./kitchen/bol_fruits.png",
+        desc: "est utilisé pour stocker et présenter des fruits."
+    },
+    "paquet": {
+        name: "Le paquet",
+        img: "imgPaquet",
+        imgUrl: "./kitchen/paquet.png",
+        desc: "est utilisé pour emballer ou stocker des aliments."
+    },
+    "serviette": {
+        name: "La serviette",
+        img: "imgServiette",
+        imgUrl: "./kitchen/serviette.png",
+        desc: "est utilisée pour s'essuyer les mains ou la bouche pendant un repas."
+    },
+    "thermos": {
+        name: "Le Thermos",
+        img: "imgThermos",
+        imgUrl: "./kitchen/thermos.png",
+        desc: "est un récipient isolé qui conserve les boissons chaudes ou froides."
+    },
+}
 
 
 
