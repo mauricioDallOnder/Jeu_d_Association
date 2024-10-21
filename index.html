@@ -600,7 +600,6 @@
             <optgroup label="Lieux,Transports et Directions">
                 <option value="lieux_de_la_ville">Lieux dans la ville</option>
                 <option value="transports">Transports et circulation</option>
-                <option value="transito_direcoes">Le trafic et des directions</option>
                 <option value="plaques_transito">Panneaux de signalisation</option>
                 <option value="rodovias_vias">Types de routes et voies express</option>
                 <option value="directions">Donner des directions</option>
@@ -4632,86 +4631,6 @@
 
             },
 
-            transito_direcoes: {
-                "Le feu de signalisation": {
-                    name: "Un feu de signalisation",
-                    img: "imgFeuSignalisation",
-                    imgUrl: "./transito/feu_signalisation.png",
-                    desc: "est un dispositif qui régule la circulation à une intersection."
-                },
-                "Le panneau de signalisation": {
-                    name: "Un panneau de signalisation",
-                    img: "imgPanneauSignalisation",
-                    imgUrl: "./transito/panneau_signalisation.png",
-                    desc: "est un signe qui informe les conducteurs des règles et des dangers sur la route."
-                },
-                "L'embouteillage": {
-                    name: "Un embouteillage",
-                    img: "imgEmbouteillage",
-                    imgUrl: "./transito/embouteillage.png",
-                    desc: "est une accumulation de véhicules qui ralentit ou bloque la circulation."
-                },
-                "La route à sens unique": {
-                    name: "Une route à sens unique",
-                    img: "imgRouteSensUnique",
-                    imgUrl: "./transito/route_sens_unique.png",
-                    desc: "est une rue où les véhicules ne peuvent circuler que dans une seule direction."
-                },
-                "Le rond-point": {
-                    name: "Un rond-point",
-                    img: "imgRondPoint",
-                    imgUrl: "./transito/rond_point.png",
-                    desc: "est une intersection circulaire qui permet de réguler le flux de véhicules."
-                },
-                "Le péage": {
-                    name: "Un péage",
-                    img: "imgPeage",
-                    imgUrl: "./transito/peage.png",
-                    desc: "est un endroit où les conducteurs paient pour utiliser certaines routes."
-                },
-                "La priorité à droite": {
-                    name: "La priorité à droite",
-                    img: "imgPrioriteDroite",
-                    imgUrl: "./transito/priorite_droite.png",
-                    desc: "est une règle de circulation où les véhicules venant de droite ont la priorité."
-                },
-                "Le sens interdit": {
-                    name: "Un sens interdit",
-                    img: "imgSensInterdit",
-                    imgUrl: "./transito/sens_interdit.png",
-                    desc: "indique qu'il est interdit de circuler dans cette direction."
-                },
-                "L'accident de la route": {
-                    name: "Un accident de la route",
-                    img: "imgAccidentRoute",
-                    imgUrl: "./transito/accident_route.png",
-                    desc: "est un événement où des véhicules sont impliqués dans une collision."
-                },
-                "La vitesse limitée": {
-                    name: "Une vitesse limitée",
-                    img: "imgVitesseLimitee",
-                    imgUrl: "./transito/vitesse_limitee.png",
-                    desc: "indique la vitesse maximale autorisée sur une route."
-                },
-                "Le passage piéton": {
-                    name: "Un passage piéton",
-                    img: "imgPassagePieton",
-                    imgUrl: "./transito/passage_pieton.png",
-                    desc: "est un endroit où les piétons peuvent traverser la route en toute sécurité."
-                },
-                "Le stationnement interdit": {
-                    name: "Un stationnement interdit",
-                    img: "imgStationnementInterdit",
-                    imgUrl: "./transito/stationnement_interdit.png",
-                    desc: "signifie qu'il est interdit de stationner dans cette zone."
-                },
-                "Le parking souterrain": {
-                    name: "Un parking souterrain",
-                    img: "imgParkingSouterrain",
-                    imgUrl: "./transito/parking_souterrain.png",
-                    desc: "est un parking situé sous terre."
-                }
-            },
 
             plaques_transito: {
                 "Le stop": {
@@ -4791,7 +4710,46 @@
                     img: "imgAttentionEnfants",
                     imgUrl: "./transito/attention_enfants.png",
                     desc: "avertit que des enfants peuvent être présents, comme près d'une école."
-                }
+                },
+                "Le feu de signalisation": {
+                    name: "Un feu de signalisation",
+                    img: "imgFeuSignalisation",
+                    imgUrl: "./transito/feu_signalisation.png",
+                    desc: "est un dispositif qui régule la circulation à une intersection."
+                },
+                "Le panneau de signalisation": {
+                    name: "Un panneau de signalisation",
+                    img: "imgPanneauSignalisation",
+                    imgUrl: "./transito/panneau_signalisation.png",
+                    desc: "est un signe qui informe les conducteurs des règles et des dangers sur la route."
+                },
+                "L'embouteillage": {
+                    name: "Un embouteillage",
+                    img: "imgEmbouteillage",
+                    imgUrl: "./transito/embouteillage.png",
+                    desc: "est une accumulation de véhicules qui ralentit ou bloque la circulation."
+                },
+
+                "La priorité à droite": {
+                    name: "La priorité à droite",
+                    img: "imgPrioriteDroite",
+                    imgUrl: "./transito/priorite_droite.png",
+                    desc: "est une règle de circulation où les véhicules venant de droite ont la priorité."
+                },
+                "Le sens interdit": {
+                    name: "Un sens interdit",
+                    img: "imgSensInterdit",
+                    imgUrl: "./transito/sens_interdit.png",
+                    desc: "indique qu'il est interdit de circuler dans cette direction."
+                },
+
+                "Le stationnement interdit": {
+                    name: "Un stationnement interdit",
+                    img: "imgStationnementInterdit",
+                    imgUrl: "./transito/stationnement_interdit.png",
+                    desc: "signifie qu'il est interdit de stationner dans cette zone."
+                },
+
             },
             rodovias_vias: {
                 "L'autoroute": {
@@ -4853,7 +4811,31 @@
                     img: "imgPisteCyclable",
                     imgUrl: "./transito/piste_cyclable.png",
                     desc: "est une voie réservée aux vélos."
-                }
+                },
+                "Le rond-point": {
+                    name: "Un rond-point",
+                    img: "imgRondPoint",
+                    imgUrl: "./transito/rond_point.png",
+                    desc: "est une intersection circulaire qui permet de réguler le flux de véhicules."
+                },
+                "La route à sens unique": {
+                    name: "Une route à sens unique",
+                    img: "imgRouteSensUnique",
+                    imgUrl: "./transito/route_sens_unique.png",
+                    desc: "est une rue où les véhicules ne peuvent circuler que dans une seule direction."
+                },
+                "Le parking souterrain": {
+                    name: "Un parking souterrain",
+                    img: "imgParkingSouterrain",
+                    imgUrl: "./transito/parking_souterrain.png",
+                    desc: "est un parking situé sous terre."
+                },
+                "Le passage piéton": {
+                    name: "Un passage piéton",
+                    img: "imgPassagePieton",
+                    imgUrl: "./transito/passage_pieton.png",
+                    desc: "est un endroit où les piétons peuvent traverser la route en toute sécurité."
+                },
             },
             directions: {
                 "Tournez à gauche": {
