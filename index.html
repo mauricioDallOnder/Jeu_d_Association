@@ -4954,69 +4954,78 @@
             loadCategoryItems(selectedCategory, true);
 
         };
- function playSound(text) {
+ //--------------------------------------------------------------------------------------------------------------
+let voicesLoaded = false;
+
+function loadVoices() {
+    return new Promise((resolve) => {
+        let voices = window.speechSynthesis.getVoices();
+        if (voices.length > 0) {
+            voicesLoaded = true;
+            resolve(voices);
+        } else {
+            // Carregar vozes de forma assíncrona
+            window.speechSynthesis.onvoiceschanged = () => {
+                voices = window.speechSynthesis.getVoices();
+                voicesLoaded = true;
+                resolve(voices);
+            };
+        }
+    });
+}
+
+function playSound(text) {
     if ('speechSynthesis' in window) {
-        const utterance = new SpeechSynthesisUtterance(text);
-        
-        // Ajustes para melhorar a naturalidade da fala
-        utterance.rate = 0.9;  // Fala um pouco mais lenta (1 é o padrão)
-        utterance.pitch = 1.1; // Aumenta levemente o tom (1 é o padrão)
-        utterance.volume = 1;  // Volume máximo (1 é o máximo)
+        // Certifique-se de que as vozes foram carregadas
+        loadVoices().then((voices) => {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.9;  // Fala um pouco mais lenta
+            utterance.pitch = 1.1; // Aumenta levemente o tom
+            utterance.volume = 1;  // Volume máximo
 
-        // Obtém todas as vozes disponíveis
-        const voices = window.speechSynthesis.getVoices();
+            // Verifica se é Safari no iOS
+            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-        // Verifica se o navegador é Safari
-        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
-        if (isSafari) {
-            // Tenta usar a voz "Thomas" em Safari
-            const safariFrenchVoice = voices.find(voice => voice.name === "Thomas" && voice.lang === 'fr-FR');
-            if (safariFrenchVoice) {
-                utterance.voice = safariFrenchVoice; // Define "Thomas" como a voz
-                console.log("Usando a voz Thomas no Safari.");
-
-                // Ajustes adicionais para Safari e voz "Thomas"
-                utterance.rate = 0.95; // Um pouco mais próximo do ritmo natural
-                utterance.pitch = 1.05; // Ajusta o tom para soar mais agradável
+            if (isSafari) {
+                // Usar a voz Thomas no Safari, se disponível
+                const safariFrenchVoice = voices.find(voice => voice.name === "Thomas" && voice.lang === 'fr-FR');
+                if (safariFrenchVoice) {
+                    utterance.voice = safariFrenchVoice;
+                    utterance.lang = 'fr-FR';
+                    console.log("Usando a voz Thomas no Safari.");
+                } else {
+                    console.warn("A voz Thomas não foi encontrada no Safari.");
+                }
             } else {
-                console.warn("A voz Thomas não foi encontrada no Safari.");
+                // Para Chrome e outros navegadores
+                const chromeFrenchVoice = voices.find(voice => voice.lang === 'fr-FR' && voice.name.includes('Google')) ||
+                    voices.find(voice => voice.lang === 'fr-FR');
+                if (chromeFrenchVoice) {
+                    utterance.voice = chromeFrenchVoice;
+                    utterance.lang = 'fr-FR';
+                    console.log("Usando a voz Google no Chrome.");
+                } else {
+                    console.warn("Nenhuma voz francesa foi encontrada.");
+                }
             }
-        } else {
-            // Para outros navegadores (Chrome, Firefox, etc.), usa a voz francesa padrão
-            const chromeFrenchVoice = voices.find(voice => voice.lang === 'fr-FR' && voice.name.includes('Google')) ||
-            voices.find(voice => voice.lang === 'fr-FR'); // Prioriza vozes do Google, se disponíveis
 
-            if (chromeFrenchVoice) {
-                utterance.voice = chromeFrenchVoice;
-                utterance.lang = 'fr-FR'; // Define o idioma como francês
-                console.log("Usando a voz francesa padrão no Google Chrome.");
+            // Falar apenas após a interação do usuário
+            if (!window.speechSynthesis.speaking) {
+                window.speechSynthesis.speak(utterance);
             } else {
-                console.warn("Nenhuma voz em francês foi encontrada.");
+                console.log("A fala está em andamento, aguarde.");
             }
-        }
-
-        // Testar se o sintetizador não está ocupado
-        if (!window.speechSynthesis.speaking) {
-            window.speechSynthesis.speak(utterance);
-        } else {
-            console.log("A fala está em andamento, aguarde.");
-        }
+        });
     } else {
         console.error("API de síntese de fala não suportada.");
     }
 }
 
-        window.speechSynthesis.onvoiceschanged = function () {
-            // Função será chamada quando as vozes estiverem disponíveis
-            console.log("Vozes carregadas:", window.speechSynthesis.getVoices());
-        };
 
-        const voices = window.speechSynthesis.getVoices();
-        voices.forEach(voice => {
-            console.log(voice.name, voice.lang);
-        });
 
+
+
+//-----------------------------------------------------------------------------------------
 
 
         function generateNewItems() {
