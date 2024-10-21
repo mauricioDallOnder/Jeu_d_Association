@@ -4941,7 +4941,8 @@
             }
         }
 
-  window.onload = function () {
+ 
+        window.onload = function () {
             // Eventos para os botões
             document.getElementById('startGameBtn').addEventListener('click', loadSelectedCategory);
             document.getElementById('randomButton').addEventListener('click', loadRandomCategory);
@@ -5091,11 +5092,13 @@
                 zone.ondrop = drop;
                 zone.ondragover = allowDrop;
 
-                // Usa createElement para garantir que as aspas não causem problemas
-                const soundIcon = document.createElement('span');
-                soundIcon.className = 'sound-icon';
-                soundIcon.innerText = "🔊"; // Ícone de som
-                soundIcon.style.cursor = 'pointer'; // Adicionar o cursor pointer
+                const soundIcon = document.createElement('img');
+                soundIcon.src = "https://i.ibb.co/YPw1Z7y/2058142.png"; // URL da imagem do ícone de som
+                soundIcon.alt = "Ícone de som"; // Texto alternativo para acessibilidade
+                soundIcon.style.cursor = 'pointer'; // Mudar o cursor ao passar sobre a imagem
+                soundIcon.style.width = '24px'; // Ajusta o tamanho da imagem, se necessário
+                soundIcon.style.height = '24px';
+
 
                 // Corrigir o clique do ícone de som
                 soundIcon.addEventListener('click', function () {
@@ -5222,11 +5225,12 @@
                 feedbackText.innerText = message;
 
                 // Cria o ícone de som
-                const soundIcon = document.createElement('span');
-                soundIcon.className = 'sound-icon';
-                soundIcon.innerText = '🔊'; // Ícone de som
-                soundIcon.style.cursor = 'pointer'; // Mostrar que é clicável
-                soundIcon.style.marginLeft = '10px'; // Margem para dar espaço ao ícone
+                const soundIcon = document.createElement('img');
+                soundIcon.src = "https://i.ibb.co/YPw1Z7y/2058142.png"; // URL da imagem do ícone de som
+                soundIcon.alt = "Ícone de som"; // Texto alternativo para acessibilidade
+                soundIcon.style.cursor = 'pointer'; // Mudar o cursor ao passar sobre a imagem
+                soundIcon.style.width = '32px'; // Ajusta o tamanho da imagem, se necessário
+                soundIcon.style.height = '32px';
 
                 // Adiciona evento de clique ao ícone de som para tocar o feedback
                 soundIcon.addEventListener('click', function () {
