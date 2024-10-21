@@ -567,10 +567,7 @@
     <div id="boxCategoria">
         <label for="categorySelect" id="labelCategoria">Choisissez une catégorie:</label>
         <select id="categorySelect">
-            <!-- Atividades e rotinas diárias -->
-            <optgroup label="Activités quotidiennes">
-                <option value="activites_quotidiennes">Activités quotidiennes</option>
-            </optgroup>
+          
 
             <!-- Alimentação e cozinha -->
             <optgroup label="Cuisine et Nourriture">
@@ -663,130 +660,6 @@
         let playedItems = [];
         let itemAttempts = {};
         const correctAnswers = {
-            activites_quotidiennes: {
-                "nettoyer la maison": {
-                    "name": "Nettoyer la maison",
-                    "img": "imgNettoyerLaMaison",
-                    "imgUrl": "./daily_activities/nettoyer_la_maison.png",
-                    "desc": "est l'action de rendre la maison propre en passant l'aspirateur, en essuyant et en rangeant."
-                },
-                "dîner": {
-                    "name": "Dîner",
-                    "img": "imgDiner",
-                    "imgUrl": "./daily_activities/diner.png",
-                    "desc": "est le repas du soir, généralement pris en famille."
-                },
-                "vérifier son courriel": {
-                    "name": "Vérifier son courriel",
-                    "img": "imgVerifierEmail",
-                    "imgUrl": "./daily_activities/verifier_email.png",
-                    "desc": "est l'action de consulter les messages électroniques sur l'ordinateur ou le téléphone."
-                },
-                "faire de l'exercice": {
-                    "name": "Faire de l'exercice",
-                    "img": "imgFaireDeLExercice",
-                    "imgUrl": "./daily_activities/faire_de_l_exercice.png",
-                    "desc": "est une activité physique pour rester en forme et en bonne santé."
-                },
-                "faire ses devoirs": {
-                    "name": "Faire ses devoirs",
-                    "img": "imgFaireSesDevoirs",
-                    "imgUrl": "./daily_activities/faire_ses_devoirs.png",
-                    "desc": "est l'activité de compléter les tâches scolaires à la maison."
-                },
-                "regarder la télévision": {
-                    "name": "Regarder la télévision",
-                    "img": "imgRegarderLaTelevision",
-                    "imgUrl": "./daily_activities/regarder_la_television.png",
-                    "desc": "est l'activité de visionner des programmes sur la télévision pour se divertir ou s'informer."
-                },
-                "cuisiner le dîner": {
-                    "name": "Cuisiner le dîner",
-                    "img": "imgCuisinerLeDiner",
-                    "imgUrl": "./daily_activities/cuisiner_le_diner.png",
-                    "desc": "est l'action de préparer le repas du soir pour soi-même ou pour la famille."
-                },
-                "se détendre": {
-                    "name": "Se détendre",
-                    "img": "imgSeDetendre",
-                    "imgUrl": "./daily_activities/se_detendre.png",
-                    "desc": "est l'action de se relaxer après une journée de travail ou d'activités."
-                },
-                "aller se coucher": {
-                    "name": "Aller se coucher",
-                    "img": "imgAllerSeCoucher",
-                    "imgUrl": "./daily_activities/aller_se_coucher.png",
-                    "desc": "est l'action de se mettre au lit pour dormir la nuit."
-                },
-                "revenir à la maison": {
-                    "name": "Revenir à la maison",
-                    "img": "imgRevenirALaMaison",
-                    "imgUrl": "./daily_activities/revenir_a_la_maison.png",
-                    "desc": "est l'action de retourner chez soi après une journée à l'extérieur."
-                },
-                "lire le journal": {
-                    "name": "Lire le journal",
-                    "img": "imgLireLeJournal",
-                    "imgUrl": "./daily_activities/lire_le_journal.png",
-                    "desc": "est l'action de consulter les nouvelles et les événements dans un journal imprimé ou numérique."
-                },
-                "s'endormir": {
-                    "name": "S'endormir",
-                    "img": "imgSEndormir",
-                    "imgUrl": "./daily_activities/s_endormir.png",
-                    "desc": "est le processus de tomber dans un sommeil réparateur."
-                },
-                "se réveiller": {
-                    "name": "Se réveiller",
-                    "img": "imgSeReveiller",
-                    "imgUrl": "./daily_activities/se_reveiller.png",
-                    "desc": "est l'action d'ouvrir les yeux et de se lever après une nuit de sommeil."
-                },
-                "prendre une douche": {
-                    "name": "Prendre une douche",
-                    "img": "imgPrendreUneDouche",
-                    "imgUrl": "./daily_activities/prendre_une_douche.png",
-                    "desc": "est l'action de se laver sous un jet d'eau."
-                },
-                "s'habiller": {
-                    "name": "S'habiller",
-                    "img": "imgSHabiller",
-                    "imgUrl": "./daily_activities/s_habiller.png",
-                    "desc": "est l'action de mettre ses vêtements pour la journée."
-                },
-                "manger le petit déjeuner": {
-                    "name": "Manger le petit déjeuner",
-                    "img": "imgMangerLePetitDejeuner",
-                    "imgUrl": "./daily_activities/manger_le_petit_dejeuner.png",
-                    "desc": "est le premier repas de la journée, souvent pris le matin."
-                },
-                "préparer le déjeuner": {
-                    "name": "Préparer le déjeuner",
-                    "img": "imgPreparerLeDejeuner",
-                    "imgUrl": "./daily_activities/preparer_le_dejeuner.png",
-                    "desc": "est l'action de préparer un repas pour la mi-journée."
-                },
-                "prendre l'autobus": {
-                    "name": "Prendre l'autobus pour aller à une lie",
-                    "img": "imgPrendreLeBusEcole",
-                    "imgUrl": "./daily_activities/prendre_le_bus_ecole.png",
-                    "desc": "est l'action de monter dans un autobus pour se rendre à une lie."
-                },
-                "aller travailler en voiture": {
-                    "name": "Aller travailler en voiture",
-                    "img": "imgAllerTravaillerVoiture",
-                    "imgUrl": "./daily_activities/aller_travailler_voiture.png",
-                    "desc": "est l'action de se rendre au travail en conduisant une voiture."
-                },
-                "travailler": {
-                    "name": "Travailler",
-                    "img": "imgTravailler",
-                    "imgUrl": "./daily_activities/travailler.png",
-                    "desc": "est l'action d'accomplir des tâches professionnelles ou personnelles."
-                }
-            },
-
-
             lieux_de_la_ville: {
                 "le stationnement": {
                     name: "Un stationnement / parc de stationnement",
