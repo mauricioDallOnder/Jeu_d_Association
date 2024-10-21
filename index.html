@@ -4937,7 +4937,7 @@
             }
         }
 
-        window.onload = function () {
+  window.onload = function () {
             // Eventos para os botões
             document.getElementById('startGameBtn').addEventListener('click', loadSelectedCategory);
             document.getElementById('randomButton').addEventListener('click', loadRandomCategory);
@@ -4947,7 +4947,55 @@
             // Carrega a categoria selecionada inicialmente
             const selectedCategory = document.getElementById('categorySelect').value;
             loadCategoryItems(selectedCategory, true);
+
         };
+
+        function playSound(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+
+                // Filtrar as vozes disponíveis e selecionar uma voz em francês
+                const voices = window.speechSynthesis.getVoices();
+                const frenchVoice = voices.find(voice => voice.lang === 'fr-FR' && voice.name.includes('Google')) ||
+                    voices.find(voice => voice.lang === 'fr-FR'); // Tenta pegar a voz da Google, se disponível
+
+                if (frenchVoice) {
+                    utterance.voice = frenchVoice; // Definir a voz em francês
+                    utterance.lang = 'fr-FR'; // Definir o idioma como francês
+                } else {
+                    console.warn("Nenhuma voz em francês foi encontrada.");
+                }
+
+                // Ajustes para melhorar a naturalidade
+                utterance.rate = 0.9;  // Definir uma taxa de fala mais lenta (1 é o padrão)
+                utterance.pitch = 1.1; // Ajustar o tom para um pouco mais agudo (1 é o padrão)
+                utterance.volume = 1;  // Definir o volume (1 é o máximo)
+
+                // Testar se o sintetizador está falando; se sim, cancela a fala atual antes de iniciar a nova
+                if (window.speechSynthesis.speaking) {
+                    window.speechSynthesis.cancel(); // Cancela qualquer fala em andamento
+                }
+
+                // Falar o texto
+                window.speechSynthesis.speak(utterance);
+
+            } else {
+                console.error("API de síntese de fala não suportada.");
+            }
+        }
+
+
+        window.speechSynthesis.onvoiceschanged = function () {
+            // Função será chamada quando as vozes estiverem disponíveis
+            console.log("Vozes carregadas:", window.speechSynthesis.getVoices());
+        };
+
+        const voices = window.speechSynthesis.getVoices();
+        voices.forEach(voice => {
+            console.log(voice.name, voice.lang);
+        });
+
+
 
         function generateNewItems() {
             const selectedCategory = document.getElementById('categorySelect').value;
@@ -4978,6 +5026,7 @@
             loadCategoryItems(randomCategory, true);
         }
 
+        //---------------------------------------
         function loadCategoryItems(category, resetScore = false) {
             // Reabilita o botão "Generate Items"
             document.getElementById("generateItemsBtn").disabled = false;
@@ -4995,6 +5044,7 @@
             document.getElementById("feedback").style.display = 'none';
             document.getElementById("feedback").innerText = '';
 
+            // Reinicia o placar e as tentativas, se necessário
             if (resetScore) {
                 score = 0;
                 updateScore();
@@ -5036,7 +5086,20 @@
                 zone.id = word;
                 zone.ondrop = drop;
                 zone.ondragover = allowDrop;
-                zone.innerText = word;
+
+                // Usa createElement para garantir que as aspas não causem problemas
+                const soundIcon = document.createElement('span');
+                soundIcon.className = 'sound-icon';
+                soundIcon.innerText = "🔊"; // Ícone de som
+                soundIcon.style.cursor = 'pointer'; // Adicionar o cursor pointer
+
+                // Corrigir o clique do ícone de som
+                soundIcon.addEventListener('click', function () {
+                    playSound(word); // Chama a função de tocar o som da palavra
+                });
+
+                zone.appendChild(document.createTextNode(word));
+                zone.appendChild(soundIcon);
                 professionsContainer.appendChild(zone);
             });
 
@@ -5054,18 +5117,21 @@
                 div.dataset.category = category;
                 div.dataset.word = item;
 
+                // Adicionar evento de clique para mostrar a descrição
                 div.addEventListener('click', function () {
-                    const category = this.dataset.category;
-                    const word = this.dataset.word;
-                    const item = correctAnswers[category][word];
-                    const description = item.desc;
-                    showFeedback(null, description, true);
+                    const description = correctAnswers[category][item].desc;
+                    showFeedback(null, description, true); // Mostra a descrição da imagem
                 });
 
                 itemContainer.appendChild(div);
             });
         }
 
+
+
+
+
+        //----------------------------------------------------
         function allowDrop(event) {
             event.preventDefault();
         }
@@ -5134,19 +5200,46 @@
 
         function showFeedback(isCorrect, message, isDescription = false) {
             const feedback = document.getElementById("feedback");
+
             if (message && message.trim() !== '') {
                 feedback.style.display = 'block'; // Mostra a div de feedback
+
                 if (isDescription) {
                     feedback.style.color = "#333333";
                 } else {
                     feedback.style.color = isCorrect ? "#4CAF50" : "#ff8a80";
                 }
-                feedback.innerText = message;
+
+                // Limpa o conteúdo anterior
+                feedback.innerHTML = '';
+
+                // Cria o texto do feedback
+                const feedbackText = document.createElement('span');
+                feedbackText.innerText = message;
+
+                // Cria o ícone de som
+                const soundIcon = document.createElement('span');
+                soundIcon.className = 'sound-icon';
+                soundIcon.innerText = '🔊'; // Ícone de som
+                soundIcon.style.cursor = 'pointer'; // Mostrar que é clicável
+                soundIcon.style.marginLeft = '10px'; // Margem para dar espaço ao ícone
+
+                // Adiciona evento de clique ao ícone de som para tocar o feedback
+                soundIcon.addEventListener('click', function () {
+                    playSound(message); // Reproduz o feedback quando o ícone é clicado
+                });
+
+                // Adiciona o texto e o ícone ao feedback
+                feedback.appendChild(feedbackText);
+                feedback.appendChild(soundIcon);
+
             } else {
                 feedback.style.display = 'none'; // Oculta a div de feedback
                 feedback.innerText = '';
             }
         }
+
+
 
         function shuffle(array) {
             for (let i = array.length - 1; i > 0; i--) {
