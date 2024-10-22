@@ -29,13 +29,11 @@
             background-image: url('https://firebasestorage.googleapis.com/v0/b/mauriciodallonder-64688.appspot.com/o/bandeira.jpg?alt=media&token=93383751-b852-4b4a-89e9-82037c09f9da');
 
         }
-
-        .sound-icon {
+ .sound-icon {
             font-size: 20px;
             cursor: pointer;
             display: inline-block;
         }
-
         /* Adiciona um fundo semitransparente aos textos */
         h1,
         #score,
@@ -547,13 +545,7 @@
             #boxfeedback {
                 width: 100%;
             }
-
-            .draggable {
-                touch-action: none;
-                -webkit-user-drag: none;
-                user-select: none;
-                -webkit-tap-highlight-color: transparent;
-            }
+ 
 
         }
 
@@ -577,7 +569,7 @@
     <div id="boxCategoria">
         <label for="categorySelect" id="labelCategoria">Choisissez une catégorie:</label>
         <select id="categorySelect">
-
+          
 
             <!-- Alimentação e cozinha -->
             <optgroup label="Cuisine et Nourriture">
@@ -929,14 +921,14 @@
                     imgUrl: "./lieux/unepetiteville.png",
                     desc: "est un endroit avec peu de maisons et des rues tranquilles."
                 },
-                "Agence immobilière": {
+                 "Agence immobilière": {
                     name: "Une agence immobilière",
                     img: "imgimmobilier",
                     imgUrl: "./ville/immobilier.png",
                     desc: "est une entreprise spécialisée dans la mise en relation entre les propriétaires et les locataires"
                 },
-
-
+                
+                
             },
 
 
@@ -4736,7 +4728,7 @@
             }
         }
 
-
+ 
         window.onload = function () {
             // Eventos para os botões
             document.getElementById('startGameBtn').addEventListener('click', loadSelectedCategory);
@@ -4749,107 +4741,78 @@
             loadCategoryItems(selectedCategory, true);
 
         };
-        //--------------------------------------------------------------------------------------------------------------
-        let voicesLoaded = false;
+ //--------------------------------------------------------------------------------------------------------------
+let voicesLoaded = false;
 
-        function loadVoices() {
-            return new Promise((resolve) => {
-                let voices = window.speechSynthesis.getVoices();
-                if (voices.length > 0) {
-                    voicesLoaded = true;
-                    resolve(voices);
+function loadVoices() {
+    return new Promise((resolve) => {
+        let voices = window.speechSynthesis.getVoices();
+        if (voices.length > 0) {
+            voicesLoaded = true;
+            resolve(voices);
+        } else {
+            // Carregar vozes de forma assíncrona
+            window.speechSynthesis.onvoiceschanged = () => {
+                voices = window.speechSynthesis.getVoices();
+                voicesLoaded = true;
+                resolve(voices);
+            };
+        }
+    });
+}
+
+function playSound(text) {
+    if ('speechSynthesis' in window) {
+        // Certifique-se de que as vozes foram carregadas
+        loadVoices().then((voices) => {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.9;  // Fala um pouco mais lenta
+            utterance.pitch = 1.1; // Aumenta levemente o tom
+            utterance.volume = 1;  // Volume máximo
+
+            // Verifica se é Safari no iOS
+            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+            if (isSafari) {
+                // Usar a voz Thomas no Safari, se disponível
+                const safariFrenchVoice = voices.find(voice => voice.name === "Thomas" && voice.lang === 'fr-FR');
+                if (safariFrenchVoice) {
+                    utterance.voice = safariFrenchVoice;
+                    utterance.lang = 'fr-FR';
+                    console.log("Usando a voz Thomas no Safari.");
                 } else {
-                    // Carregar vozes de forma assíncrona
-                    window.speechSynthesis.onvoiceschanged = () => {
-                        voices = window.speechSynthesis.getVoices();
-                        voicesLoaded = true;
-                        resolve(voices);
-                    };
+                    console.warn("A voz Thomas não foi encontrada no Safari.");
                 }
-            });
-        }
-
-        function playSound(text) {
-            if ('speechSynthesis' in window) {
-                // Certifique-se de que as vozes foram carregadas
-                loadVoices().then((voices) => {
-                    const utterance = new SpeechSynthesisUtterance(text);
-                    utterance.rate = 0.9;  // Fala um pouco mais lenta
-                    utterance.pitch = 1.1; // Aumenta levemente o tom
-                    utterance.volume = 1;  // Volume máximo
-
-                    // Verifica se é Safari no iOS
-                    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
-                    if (isSafari) {
-                        // Usar a voz Thomas no Safari, se disponível
-                        const safariFrenchVoice = voices.find(voice => voice.name === "Thomas" && voice.lang === 'fr-FR');
-                        if (safariFrenchVoice) {
-                            utterance.voice = safariFrenchVoice;
-                            utterance.lang = 'fr-FR';
-                            console.log("Usando a voz Thomas no Safari.");
-                        } else {
-                            console.warn("A voz Thomas não foi encontrada no Safari.");
-                        }
-                    } else {
-                        // Para Chrome e outros navegadores
-                        const chromeFrenchVoice = voices.find(voice => voice.lang === 'fr-FR' && voice.name.includes('Google')) ||
-                            voices.find(voice => voice.lang === 'fr-FR');
-                        if (chromeFrenchVoice) {
-                            utterance.voice = chromeFrenchVoice;
-                            utterance.lang = 'fr-FR';
-                            console.log("Usando a voz Google no Chrome.");
-                        } else {
-                            console.warn("Nenhuma voz francesa foi encontrada.");
-                        }
-                    }
-
-                    // Falar apenas após a interação do usuário
-                    if (!window.speechSynthesis.speaking) {
-                        window.speechSynthesis.speak(utterance);
-                    } else {
-                        console.log("A fala está em andamento, aguarde.");
-                    }
-                });
             } else {
-                console.error("API de síntese de fala não suportada.");
+                // Para Chrome e outros navegadores
+                const chromeFrenchVoice = voices.find(voice => voice.lang === 'fr-FR' && voice.name.includes('Google')) ||
+                    voices.find(voice => voice.lang === 'fr-FR');
+                if (chromeFrenchVoice) {
+                    utterance.voice = chromeFrenchVoice;
+                    utterance.lang = 'fr-FR';
+                    console.log("Usando a voz Google no Chrome.");
+                } else {
+                    console.warn("Nenhuma voz francesa foi encontrada.");
+                }
             }
-        }
+
+            // Falar apenas após a interação do usuário
+            if (!window.speechSynthesis.speaking) {
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.log("A fala está em andamento, aguarde.");
+            }
+        });
+    } else {
+        console.error("API de síntese de fala não suportada.");
+    }
+}
 
 
 
 
 
-        //-----------------------------------------------------------------------------------------
-
-        function enableTouchDrag(element) {
-            let initialX, initialY, offsetX, offsetY;
-
-            element.addEventListener('touchstart', function (event) {
-                const touch = event.touches[0];
-                initialX = touch.clientX;
-                initialY = touch.clientY;
-
-                element.style.position = 'absolute';
-                element.style.zIndex = '1000'; // Trazer o item para frente
-            });
-
-            element.addEventListener('touchmove', function (event) {
-                const touch = event.touches[0];
-                offsetX = touch.clientX - initialX;
-                offsetY = touch.clientY - initialY;
-
-                element.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-            });
-
-            element.addEventListener('touchend', function () {
-                element.style.zIndex = ''; // Voltar o zIndex para o padrão
-                element.style.transform = ''; // Resetar transformações ao soltar
-            });
-        }
-
-
-
+//-----------------------------------------------------------------------------------------
 
 
         function generateNewItems() {
@@ -4973,12 +4936,11 @@
                 div.id = correctAnswers[category][item].img;
                 div.dataset.category = category;
                 div.dataset.word = item;
-                enableTouchDrag(div);  // Aqui você aplica a função para dispositivos móveis
 
                 // Adicionar evento de clique para mostrar a descrição
                 div.addEventListener('click', function () {
                     const description = correctAnswers[category][item].desc;
-                    showFeedback(null, description, true);
+                    showFeedback(null, description, true); // Mostra a descrição da imagem
                 });
 
                 itemContainer.appendChild(div);
