@@ -29,11 +29,13 @@
             background-image: url('https://firebasestorage.googleapis.com/v0/b/mauriciodallonder-64688.appspot.com/o/bandeira.jpg?alt=media&token=93383751-b852-4b4a-89e9-82037c09f9da');
 
         }
- .sound-icon {
+
+        .sound-icon {
             font-size: 20px;
             cursor: pointer;
             display: inline-block;
         }
+
         /* Adiciona um fundo semitransparente aos textos */
         h1,
         #score,
@@ -545,7 +547,7 @@
             #boxfeedback {
                 width: 100%;
             }
- 
+
 
         }
 
@@ -569,7 +571,7 @@
     <div id="boxCategoria">
         <label for="categorySelect" id="labelCategoria">Choisissez une catégorie:</label>
         <select id="categorySelect">
-          
+
 
             <!-- Alimentação e cozinha -->
             <optgroup label="Cuisine et Nourriture">
@@ -578,11 +580,15 @@
             </optgroup>
 
             <!-- Casa e móveis -->
-            <optgroup label="Maison et Meubles">
-                <option value="maisonLieux">Les pièces de la maison</option>
+            <optgroup label="La Maison">
+                <option value="maisonLieux">La maison</option>
+                <option value="exterieurMaison">L'exterieur de la maison</option>
+                <option value="apartmentsLieux">Le apartment</option>
                 <option value="maisonMeubles">Les meubles</option>
                 <option value="nettoyage">Les accessoires de nettoyage</option>
             </optgroup>
+
+
 
             <!-- Corpo humano e saúde -->
             <optgroup label="Santé et Corps Humain">
@@ -921,14 +927,14 @@
                     imgUrl: "./lieux/unepetiteville.png",
                     desc: "est un endroit avec peu de maisons et des rues tranquilles."
                 },
-                 "Agence immobilière": {
+                "Agence immobilière": {
                     name: "Une agence immobilière",
                     img: "imgimmobilier",
                     imgUrl: "./ville/immobilier.png",
                     desc: "est une entreprise spécialisée dans la mise en relation entre les propriétaires et les locataires"
                 },
-                
-                
+
+
             },
 
 
@@ -1133,721 +1139,6 @@
                     desc: "est une fracture d'un os."
                 }
             },
-
-
-            maisonLieux: {
-                "le salon": {
-                    name: "Le salon",
-                    img: "imgSalon",
-                    imgUrl: "./maisonLie/salon.png",
-                    desc: "est l'endroit où la famille se réunit pour se détendre ou recevoir des invités."
-                },
-                "la cuisine": {
-                    name: "La cuisine",
-                    img: "imgCuisine",
-                    imgUrl: "./maisonLie/cuisine.png",
-                    desc: "est l'espace où l'on prépare et cuisine les repas."
-                },
-                "la chambre": {
-                    name: "La chambre",
-                    img: "imgChambre",
-                    imgUrl: "./maisonLie/chambre.png",
-                    desc: "est l'endroit où l'on dort et se repose."
-                },
-                "la salle de bain": {
-                    name: "La salle de bain",
-                    img: "imgSalleDeBain",
-                    imgUrl: "./maisonLie/salle_de_bain.png",
-                    desc: "est utilisée pour se laver et prendre soin de soi."
-                },
-                "la salle à manger": {
-                    name: "La salle à manger",
-                    img: "imgSalleAManger",
-                    imgUrl: "./maisonLie/salle_a_manger.png",
-                    desc: "est l'endroit où l'on prend les repas."
-                },
-                "le bureau": {
-                    name: "Le bureau",
-                    img: "imgBureau",
-                    imgUrl: "./maisonLie/bureau.png",
-                    desc: "est un espace de travail ou d'étude dans la maison."
-                },
-                "le grenier": {
-                    name: "Le grenier",
-                    img: "imgGrenier",
-                    imgUrl: "./maisonLie/grenier.png",
-                    desc: "est souvent utilisé pour stocker des objets ou des souvenirs."
-                },
-                "la cave": {
-                    name: "La cave",
-                    img: "imgCave",
-                    imgUrl: "./maisonLie/cave.png",
-                    desc: "est un sous-sol utilisé pour le stockage ou parfois pour conserver du vin."
-                },
-                "le jardin": {
-                    name: "Le jardin",
-                    img: "imgJardin",
-                    imgUrl: "./maisonLie/jardin.png",
-                    desc: "est un espace extérieur où l'on peut planter des fleurs ou se détendre."
-                },
-                "le garage": {
-                    name: "Le garage",
-                    img: "imgGarage",
-                    imgUrl: "./maisonLie/garage.png",
-                    desc: "est utilisé pour garer des voitures ou stocker des outils."
-                }
-            },
-
-            maisonMeubles: {
-                "la table": {
-                    name: "La table",
-                    img: "imgTable",
-                    imgUrl: "./maison/table.png",
-                    desc: "est utilisée pour manger."
-                },
-                "une chaise": {
-                    name: "Une chaise",
-                    img: "imgChaise",
-                    imgUrl: "./maison/chaise.png",
-                    desc: "est pour s'asseoir."
-                },
-                "un lit": {
-                    name: "Un lit",
-                    img: "imgLit",
-                    imgUrl: "./maison/lit.png",
-                    desc: "est où l'on dort."
-                },
-                "un canapé": {
-                    name: "Un canapé",
-                    img: "imgCanape",
-                    imgUrl: "./maison/canape.png",
-                    desc: "est où l'on s'assoit dans le salon."
-                },
-                "une armoire": {
-                    name: "Une armoire",
-                    img: "imgArmoire",
-                    imgUrl: "./maison/armoire.png",
-                    desc: "est utilisée pour ranger les vêtements."
-                },
-                "un bureau": {
-                    name: "Un bureau",
-                    img: "imgBureau",
-                    imgUrl: "./maison/bureau.png",
-                    desc: "est utilisé pour travailler ou étudier."
-                },
-                "une étagère": {
-                    name: "Une étagère",
-                    img: "imgEtagere",
-                    imgUrl: "./maison/etagere.png",
-                    desc: "est utilisée pour ranger des livres et autres objets."
-                },
-                "une commode": {
-                    name: "Une commode",
-                    img: "imgCommode",
-                    imgUrl: "./maison/commode.png",
-                    desc: "est un meuble avec des tiroirs pour ranger des vêtements ou des objets."
-                },
-                "une lampe": {
-                    name: "Une lampe",
-                    img: "imgLampe",
-                    imgUrl: "./maison/lampe.png",
-                    desc: "est utilisée pour éclairer une pièce."
-                },
-                "un fauteuil": {
-                    name: "Un fauteuil",
-                    img: "imgFauteuil",
-                    imgUrl: "./maison/fauteuil.png",
-                    desc: "est une chaise confortable avec des accoudoirs."
-                },
-                "une table basse": {
-                    name: "Une table basse",
-                    img: "imgTableBasse",
-                    imgUrl: "./maison/table-basse.png",
-                    desc: "est un meuble bas placé devant un canapé pour poser des objets."
-                },
-                "un réfrigérateur": {
-                    name: "Un réfrigérateur",
-                    img: "imgRefrigerateur",
-                    imgUrl: "./maison/refrigerateur.png",
-                    desc: "est utilisé pour conserver les aliments au frais."
-                },
-                "un four": {
-                    name: "Un four",
-                    img: "imgFour",
-                    imgUrl: "./maison/four.png",
-                    desc: "est utilisé pour cuisiner des aliments en les chauffant."
-                },
-                "un micro-ondes": {
-                    name: "Un micro-ondes",
-                    img: "imgMicroOndes",
-                    imgUrl: "./maison/micro-ondes.png",
-                    desc: "est utilisé pour chauffer rapidement les aliments."
-                },
-                "un lave-vaisselle": {
-                    name: "Un lave-vaisselle",
-                    img: "imgLaveVaisselle",
-                    imgUrl: "./maison/lave-vaisselle.png",
-                    desc: "est utilisé pour nettoyer la vaisselle automatiquement."
-                },
-                "un lave-linge": {
-                    name: "Un lave-linge",
-                    img: "imgLaveLinge",
-                    imgUrl: "./maison/lave-linge.png",
-                    desc: "est une machine utilisée pour laver les vêtements."
-                },
-                "un placard": {
-                    name: "Un placard",
-                    img: "imgPlacard",
-                    imgUrl: "./maison/placard.png",
-                    desc: "est un espace de rangement souvent encastré dans un mur."
-                },
-                "un climatiseur": {
-                    name: "Un climatiseur",
-                    img: "imgClimatiseur",
-                    imgUrl: "./maison/climatiseur.png",
-                    desc: "est utilisé pour rafraîchir l'air d'une pièce."
-                },
-                "un radiateur": {
-                    name: "Un radiateur",
-                    img: "imgRadiateur",
-                    imgUrl: "./maison/radiateur.png",
-                    desc: "est utilisé pour chauffer une pièce."
-                },
-                "une causeuse": {
-                    name: "Une causeuse",
-                    img: "imgCauseuse",
-                    imgUrl: "./maison/causeuse.png",
-                    desc: "est un petit canapé conçu pour deux personnes."
-                },
-                "un coussin": {
-                    name: "Un coussin",
-                    img: "imgCoussin",
-                    imgUrl: "./maison/coussin.png",
-                    desc: "est utilisé pour ajouter du confort ou de la décoration à un canapé ou un lit."
-                },
-                "un panier": {
-                    name: "Un panier",
-                    img: "imgPanier",
-                    imgUrl: "./maison/panier.png",
-                    desc: "est utilisé pour ranger divers objets."
-                },
-                "une plante d'intérieur": {
-                    name: "Une plante d'intérieur",
-                    img: "imgPlanteInterieur",
-                    imgUrl: "./maison/plante_d_interieur.png",
-                    desc: "est utilisée pour décorer l'intérieur avec de la verdure."
-                },
-                "un centre de divertissement": {
-                    name: "Un centre de divertissement",
-                    img: "imgCentreDivertissement",
-                    imgUrl: "./maison/centre_de_divertissement.png",
-                    desc: "est un meuble pour placer la télévision et d'autres appareils multimédias."
-                },
-                "une télévision": {
-                    name: "Une télévision",
-                    img: "imgTelevision",
-                    imgUrl: "./maison/tele_vision.png",
-                    desc: "est utilisée pour regarder des émissions et des films."
-                },
-                "un lecteur de DVD": {
-                    name: "Un lecteur de DVD",
-                    img: "imgLecteurDVD",
-                    imgUrl: "./maison/lecteur_de_DVD.png",
-                    desc: "est utilisé pour lire des disques DVD."
-                },
-                "une chaîne stéréo": {
-                    name: "Une chaîne stéréo",
-                    img: "imgChaineStereo",
-                    imgUrl: "./maison/chaîne___stereo.png",
-                    desc: "est utilisée pour écouter de la musique."
-                },
-                "un tableau": {
-                    name: "Un tableau",
-                    img: "imgTableau",
-                    imgUrl: "./maison/tableau.png",
-                    desc: "est une œuvre d'art accrochée au mur pour décorer une pièce."
-                },
-                "un mur": {
-                    name: "Un mur",
-                    img: "imgMur",
-                    imgUrl: "./maison/mur.jpeg",
-                    desc: "est une structure verticale qui sépare les pièces d'une maison."
-                },
-                "une cheminée": {
-                    name: "Une cheminée",
-                    img: "imgCheminee",
-                    imgUrl: "./maison/cheminee.png",
-                    desc: "est un dispositif de chauffage qui utilise du feu."
-                },
-                "un écran de cheminée": {
-                    name: "Un écran de cheminée",
-                    img: "imgEcranCheminee",
-                    imgUrl: "./maison/ecran___de___cheminee.png",
-                    desc: "est utilisé pour protéger la pièce des étincelles venant de la cheminée."
-                },
-                "un foyer": {
-                    name: "Un foyer",
-                    img: "imgFoyer",
-                    imgUrl: "./maison/foyer.png",
-                    desc: "est la partie d'une cheminée où le feu est allumé."
-                },
-                "une table d'extrémité": {
-                    name: "Une table d'extrémité",
-                    img: "imgTableExtremite",
-                    imgUrl: "./maison/table___d_extremite.png",
-                    desc: "est une petite table placée à côté d'un canapé ou d'un fauteuil."
-                },
-                "une lampe sur pied": {
-                    name: "Une lampe sur pied",
-                    img: "imgLampeSurPied",
-                    imgUrl: "./maison/lampe___sur___pied.png",
-                    desc: "est une grande lampe placée directement sur le sol."
-                },
-                "des tentures": {
-                    name: "Des tentures",
-                    img: "imgTentures",
-                    imgUrl: "./maison/tentures.jpeg",
-                    desc: "sont des tissus suspendus pour décorer ou couvrir un mur."
-                },
-                "une fenêtre": {
-                    name: "Une fenêtre",
-                    img: "imgFenetre",
-                    imgUrl: "./maison/fenetre.png",
-                    desc: "permet d'éclairer une pièce et de voir à l'extérieur."
-                },
-                "un canape": {
-                    name: "Un canape",
-                    img: "imgCanape",
-                    imgUrl: "./maison/canape.png",
-                    desc: "est un siège large et confortable pour plusieurs personnes."
-                },
-                "une table de salon": {
-                    name: "Une table de salon",
-                    img: "imgTableSalon",
-                    imgUrl: "./maison/table___de___salon.png",
-                    desc: "est une table utilisée dans le salon pour divers usages."
-                },
-                "une chandelle": {
-                    name: "Une chandelle",
-                    img: "imgChandelle",
-                    imgUrl: "./maison/chandelle.png",
-                    desc: "est une bougie utilisée pour éclairer ou décorer une pièce."
-                },
-                "un bougeoir": {
-                    name: "Un bougeoir",
-                    img: "imgBougeoir",
-                    imgUrl: "./maison/bougeoir.jpeg",
-                    desc: "est un support pour tenir une ou plusieurs bougies."
-                },
-                "un porte-journaux": {
-                    name: "Un porte-journaux",
-                    img: "imgPorteJournaux",
-                    imgUrl: "./maison/porte___journaux.png",
-                    desc: "est un petit meuble pour ranger les journaux et magazines."
-                },
-                "un tapis": {
-                    name: "Un tapis",
-                    img: "imgTapis",
-                    imgUrl: "./maison/tapis.png",
-                    desc: "est un revêtement de sol doux et décoratif."
-                },
-                "un panier à linge": {
-                    name: "Un panier à linge",
-                    img: "imgPanierLinge",
-                    imgUrl: "./maison/panier__a__linge.png",
-                    desc: "est utilisé pour stocker les vêtements sales avant le lavage."
-                },
-                "une baignoire": {
-                    name: "Une baignoire",
-                    img: "imgBaignoire",
-                    imgUrl: "./maison/baignoire.png",
-                    desc: "est utilisée pour prendre des bains."
-                },
-                "un porte-savon": {
-                    name: "Un porte-savon",
-                    img: "imgPorteSavon",
-                    imgUrl: "./maison/porte___savon.png",
-                    desc: "est un support pour ranger le savon."
-                },
-                "un savon": {
-                    name: "Un savon",
-                    img: "imgSavon",
-                    imgUrl: "./maison/savon.png",
-                    desc: "est utilisé pour se laver."
-                },
-                "un gant de toilette": {
-                    name: "Un gant de toilette",
-                    img: "imgGantToilette",
-                    imgUrl: "./maison/gant___de___toilette.png",
-                    desc: "est un gant en tissu utilisé pour se laver le corps."
-                },
-                "un drain": {
-                    name: "Un drain",
-                    img: "imgDrain",
-                    imgUrl: "./maison/drain.jpeg",
-                    desc: "est utilisé pour évacuer l'eau de la baignoire ou de l'évier."
-                },
-                "un robinet": {
-                    name: "Un robinet",
-                    img: "imgRobinet",
-                    imgUrl: "./maison/robinet.png",
-                    desc: "est utilisé pour contrôler le débit d'eau dans une baignoire ou un évier."
-                },
-                "de l'eau chaude": {
-                    name: "De l'eau chaude",
-                    img: "imgEauChaude",
-                    imgUrl: "./maison/eau___chaude.png",
-                    desc: "est utilisée pour se laver ou cuisiner à des températures élevées."
-                },
-                "de l'eau froide": {
-                    name: "De l'eau froide",
-                    img: "imgEauFroide",
-                    imgUrl: "./maison/eau___froide.png",
-                    desc: "est utilisée pour se rafraîchir ou cuisiner à des températures basses."
-                },
-                "une barre d'appui": {
-                    name: "Une barre d'appui",
-                    img: "imgBarreAppui",
-                    imgUrl: "./maison/barre___d_appui.png",
-                    desc: "est installée dans une baignoire ou une douche pour offrir un soutien supplémentaire."
-                },
-                "du carrelage": {
-                    name: "Du carrelage",
-                    img: "imgCarrelage",
-                    imgUrl: "./maison/carrelage.png",
-                    desc: "est un revêtement en céramique utilisé pour les murs ou les sols dans les salles de bain et cuisines."
-                },
-                "un pommeau de douche": {
-                    name: "Un pommeau de douche",
-                    img: "imgPommeauDouche",
-                    imgUrl: "./maison/pommeau___de___douche.png",
-                    desc: "est utilisé pour diffuser l'eau dans une douche."
-                },
-                "un rideau de douche": {
-                    name: "Un rideau de douche",
-                    img: "imgRideauDouche",
-                    imgUrl: "./maison/rideau___de___douche.png",
-                    desc: "est utilisé pour empêcher l'eau de se répandre hors de la douche."
-                },
-                "un porte-serviettes": {
-                    name: "Un porte-serviettes",
-                    img: "imgPorteServiettes",
-                    imgUrl: "./maison/porte___serviettes.png",
-                    desc: "est un support pour accrocher les serviettes."
-                },
-                "une serviette de bain": {
-                    name: "Une serviette de bain",
-                    img: "imgServietteBain",
-                    imgUrl: "./maison/serviette___de___bain.png",
-                    desc: "est utilisée pour se sécher après un bain ou une douche."
-                },
-                "un essuie-mains": {
-                    name: "Un essuie-mains",
-                    img: "imgEssuieMains",
-                    imgUrl: "./maison/essuie___mains.png",
-                    desc: "est utilisé pour se sécher les mains après les avoir lavées."
-                },
-                "un miroir": {
-                    name: "Un miroir",
-                    img: "imgMiroir",
-                    imgUrl: "./maison/miroir.png",
-                    desc: "est utilisé pour se regarder et se préparer."
-                },
-                "du papier hygiénique": {
-                    name: "Du papier hygiénique",
-                    img: "imgPapierHygienique",
-                    imgUrl: "./maison/papier___hygienique.png",
-                    desc: "est utilisé pour l'hygiène personnelle après avoir utilisé les toilettes."
-                },
-                "une balayette": {
-                    name: "Une balayette",
-                    img: "imgBalayette",
-                    imgUrl: "./maison/balayette.png",
-                    desc: "est utilisée pour nettoyer les toilettes."
-                },
-                "une cuvette": {
-                    name: "Une cuvette",
-                    img: "imgCuvette",
-                    imgUrl: "./maison/cuvette.png",
-                    desc: "est utilisée dans les toilettes pour recueillir les déchets."
-                },
-                "un lavabo": {
-                    name: "Un lavabo",
-                    img: "imgLavabo",
-                    imgUrl: "./maison/lavabo.png",
-                    desc: "est utilisé pour se laver les mains ou le visage."
-                },
-                "une corbeille à déchets": {
-                    name: "Une corbeille à déchets",
-                    img: "imgCorbeilleDechets",
-                    imgUrl: "./maison/corbeille__a__dechets.png",
-                    desc: "est utilisée pour jeter les déchets."
-                },
-                "une brosse à dents": {
-                    name: "Une brosse à dents",
-                    img: "imgBrosseDents",
-                    imgUrl: "./maison/brosse___a___dents.png",
-                    desc: "est utilisée pour nettoyer les dents."
-                },
-                "un porte-brosses à dents": {
-                    name: "Un porte-brosses à dents",
-                    img: "imgPorteBrossesDents",
-                    imgUrl: "./maison/porte___brosses___a___dents.png",
-                    desc: "est utilisé pour ranger les brosses à dents."
-                },
-                "un tiroir": {
-                    name: "Un tiroir",
-                    img: "imgTiroir",
-                    imgUrl: "./maison/tiroir.png",
-                    desc: "est un compartiment coulissant utilisé pour ranger des objets."
-                },
-                "un cadre à photo": {
-                    name: "Un cadre à photo",
-                    img: "imgCadrePhoto",
-                    imgUrl: "./maison/cadre___a___photo.png",
-                    desc: "est utilisé pour afficher des photos."
-                },
-                "un miroir en pied": {
-                    name: "Un miroir en pied",
-                    img: "imgMiroirPied",
-                    imgUrl: "./maison/miroir___en___pied.png",
-                    desc: "est un grand miroir permettant de voir tout le corps."
-                },
-                "des rideaux": {
-                    name: "Des rideaux",
-                    img: "imgRideaux",
-                    imgUrl: "./maison/rideaux.png",
-                    desc: "sont utilisés pour couvrir les fenêtres et bloquer la lumière."
-                },
-                "un store à lamelles": {
-                    name: "Un store à lamelles",
-                    img: "imgStoreLamelles",
-                    imgUrl: "./maison/store___a___lamelles.png",
-                    desc: "est un dispositif de protection solaire composé de lames horizontales."
-                },
-                "une tête de lit": {
-                    name: "Une tête de lit",
-                    img: "imgTeteLit",
-                    imgUrl: "./maison/tête___de___lit.png",
-                    desc: "est la partie du lit située à la tête pour appuyer le dos."
-                },
-                "un oreiller": {
-                    name: "Un oreiller",
-                    img: "imgOreiller",
-                    imgUrl: "./maison/oreiller.png",
-                    desc: "est utilisé pour soutenir la tête pendant le sommeil."
-                },
-                "un drap housse": {
-                    name: "Un drap housse",
-                    img: "imgDrapHousse",
-                    imgUrl: "./maison/drap___housse.jpeg",
-                    desc: "est un drap avec des coins élastiques qui s'ajuste au matelas."
-                },
-                "un drap plat": {
-                    name: "Un drap plat",
-                    img: "imgDrapPlat",
-                    imgUrl: "./maison/drap_plat.jpeg",
-                    desc: "est un drap utilisé pour se couvrir pendant le sommeil."
-                },
-                "une taie d'oreiller": {
-                    name: "Une taie d'oreiller",
-                    img: "imgTaieOreiller",
-                    imgUrl: "./maison/taie_d_oreiller.png",
-                    desc: "est une housse protectrice pour les oreillers."
-                },
-                "une couverture de lit": {
-                    name: "Une couverture de lit",
-                    img: "imgCouvertureLit",
-                    imgUrl: "./maison/couverture_de_lit.png",
-                    desc: "est utilisée pour se réchauffer pendant la nuit."
-                },
-                "une couette": {
-                    name: "Une couette",
-                    img: "imgCouette",
-                    imgUrl: "./maison/courtepointe.png",
-                    desc: "est une couverture garnie de plumes ou matière synthétique, utilisée pour se réchauffer."
-                },
-                "un volant de lit": {
-                    name: "Un volant de lit",
-                    img: "imgVolantLit",
-                    imgUrl: "./maison/volant_de_lit.png",
-                    desc: "est un tissu décoratif qui recouvre le bas du lit."
-                },
-                "un cadre de lit": {
-                    name: "Un cadre de lit",
-                    img: "imgCadreLit",
-                    imgUrl: "./maison/cadre_de_lit.png",
-                    desc: "est la structure en bois ou en métal qui soutient le matelas."
-                },
-                "un sommier": {
-                    name: "Un sommier",
-                    img: "imgSommier",
-                    imgUrl: "./maison/sommier.png",
-                    desc: "est une base rigide sur laquelle repose le matelas."
-                },
-                "un matelas": {
-                    name: "Un matelas",
-                    img: "imgMatelas",
-                    imgUrl: "./maison/matelas.png",
-                    desc: "est utilisé pour dormir confortablement."
-                },
-                "un plancher en bois": {
-                    name: "Un plancher en bois",
-                    img: "imgPlancherBois",
-                    imgUrl: "./maison/plancher_en_bois.png",
-                    desc: "est un type de revêtement de sol en bois naturel ou traité."
-                }
-            },
-
-            nettoyage: {
-                "un plumeau": {
-                    name: "Un plumeau",
-                    img: "imgPlumeau",
-                    imgUrl: "./nettoyage/plumeau.png",
-                    desc: "est utilisé pour dépoussiérer les surfaces."
-                },
-                "des chiffons": {
-                    name: "Des chiffons",
-                    img: "imgChiffons",
-                    imgUrl: "./nettoyage/chiffons.png",
-                    desc: "sont utilisés pour nettoyer et essuyer les surfaces."
-                },
-                "un ramasse poussière": {
-                    name: "Un ramasse-poussière",
-                    img: "imgRamassePoussiere",
-                    imgUrl: "./nettoyage/ramasse_poussiere.png",
-                    desc: "est utilisé pour ramasser la poussière et les débris."
-                },
-                "un bac de recyclage": {
-                    name: "Un bac de recyclage",
-                    img: "imgBacDeRecyclage",
-                    imgUrl: "./nettoyage/bac_de_recyclage.png",
-                    desc: "est un récipient destiné au tri des déchets recyclables."
-                },
-                "un aspirateur": {
-                    name: "Un aspirateur",
-                    img: "imgAspirateur",
-                    imgUrl: "./nettoyage/aspirateur.png",
-                    desc: "est un appareil utilisé pour aspirer la poussière et les saletés."
-                },
-                "un détergent": {
-                    name: "Un détergent",
-                    img: "imgDetergent",
-                    imgUrl: "./nettoyage/detergent.png",
-                    desc: "est un produit utilisé pour nettoyer les surfaces."
-                },
-                "un nettoyant à four": {
-                    name: "Un nettoyant à four",
-                    img: "imgNettoyantAFour",
-                    imgUrl: "./nettoyage/nettoyant_a_four.png",
-                    desc: "est un produit utilisé pour dégraisser et nettoyer les fours."
-                },
-                "des accessoires d aspirateur": {
-                    name: "Des accessoires d'aspirateur",
-                    img: "imgAccessoiresAspirateur",
-                    imgUrl: "./nettoyage/accessoires_d_aspirateur.png",
-                    desc: "sont des pièces détachées pour améliorer le nettoyage."
-                },
-                "une éponge": {
-                    name: "Une éponge",
-                    img: "imgEponge",
-                    imgUrl: "./nettoyage/eponge.png",
-                    desc: "est utilisée pour laver les surfaces."
-                },
-                "une brosse à récurer": {
-                    name: "Une brosse à récurer",
-                    img: "imgBrosseARecurer",
-                    imgUrl: "./nettoyage/brosse_a_recurer.png",
-                    desc: "est utilisée pour nettoyer en profondeur les surfaces."
-                },
-                "des gants de caoutchouc": {
-                    name: "Des gants de caoutchouc",
-                    img: "imgGantsDeCaoutchouc",
-                    imgUrl: "./nettoyage/gants_de_caoutchouc.png",
-                    desc: "protègent les mains pendant le nettoyage."
-                },
-                "des sacs d aspirateur": {
-                    name: "Des sacs d'aspirateur",
-                    img: "imgSacsDAspirateur",
-                    imgUrl: "./nettoyage/sacs_d_aspirateur.png",
-                    desc: "sont des sacs utilisés pour collecter la poussière dans l'aspirateur."
-                },
-                "un escabeau": {
-                    name: "Un escabeau",
-                    img: "imgEscabeau",
-                    imgUrl: "./nettoyage/escabeau.png",
-                    desc: "est une petite échelle utilisée pour atteindre des endroits élevés."
-                },
-                "un nettoyant à vitres": {
-                    name: "Un nettoyant à vitres",
-                    img: "imgNettoyantAVitres",
-                    imgUrl: "./nettoyage/nettoyant_a_vitres.png",
-                    desc: "est un produit utilisé pour nettoyer les fenêtres et les miroirs."
-                },
-                "une raclette": {
-                    name: "Une raclette",
-                    img: "imgRaclette",
-                    imgUrl: "./nettoyage/raclette.png",
-                    desc: "est utilisée pour essuyer les surfaces lisses."
-                },
-                "un seau": {
-                    name: "Un seau",
-                    img: "imgSeau",
-                    imgUrl: "./nettoyage/seau.png",
-                    desc: "est un récipient utilisé pour transporter de l'eau."
-                },
-                "de l encaustique pour meubles": {
-                    name: "De l'encaustique pour meubles",
-                    img: "imgEncaustiqueMeubles",
-                    imgUrl: "./nettoyage/encaustique_pour_meubles.png",
-                    desc: "est utilisée pour polir et protéger les meubles."
-                },
-                "un balai": {
-                    name: "Un balai",
-                    img: "imgBalai",
-                    imgUrl: "./nettoyage/balai.png",
-                    desc: "est utilisé pour balayer les sols."
-                },
-                "des sacs à ordures": {
-                    name: "Des sacs à ordures",
-                    img: "imgSacsAOrdures",
-                    imgUrl: "./nettoyage/sacs_a_ordures.png",
-                    desc: "sont utilisés pour collecter les déchets."
-                },
-                "des tampons à récurer en laine d acier": {
-                    name: "Des tampons à récurer en laine d'acier",
-                    img: "imgTamponsRecurerLaineAcier",
-                    imgUrl: "./nettoyage/tampons_a_recurer_en_laine_d_acier.png",
-                    desc: "sont utilisés pour nettoyer les surfaces difficiles."
-                },
-                "un balai éponge": {
-                    name: "Un balai-éponge",
-                    img: "imgBalaiEponge",
-                    imgUrl: "./nettoyage/balai_eponge.png",
-                    desc: "est utilisé pour essuyer et nettoyer les sols."
-                },
-                "du détergent à vaisselle": {
-                    name: "Du détergent à vaisselle",
-                    img: "imgDetergentAVaisselle",
-                    imgUrl: "./nettoyage/detergent_a_vaisselle.png",
-                    desc: "est un produit utilisé pour laver la vaisselle."
-                },
-                "un linge à vaisselle": {
-                    name: "Un linge à vaisselle",
-                    img: "imgLingeVaisselle",
-                    imgUrl: "./nettoyage/linge_a_vaisselle.png",
-                    desc: "est utilisé pour essuyer la vaisselle après lavage."
-                },
-                "des serviettes désinfectantes": {
-                    name: "Des serviettes désinfectantes",
-                    img: "imgServiettesDesinfectantes",
-                    imgUrl: "./nettoyage/serviettes_desinfectantes.png",
-                    desc: "sont utilisées pour désinfecter rapidement les surfaces."
-                }
-            },
-
-
-
             nourriture: {
                 "la farine": {
                     name: "La farine",
@@ -4725,10 +4016,1033 @@
                     imgUrl: "./directions/entre_batiments.png",
                     desc: "indique que vous devez passer entre les deux bâtiments."
                 }
+            },
+            maisonLieux: {
+                "le salon": {
+                    name: "Le salon",
+                    img: "imgSalon",
+                    imgUrl: "./maisonLie/salon.png",
+                    desc: "est l'endroit où la famille se réunit pour se détendre ou recevoir des invités."
+                },
+                "la cuisine": {
+                    name: "La cuisine",
+                    img: "imgCuisine",
+                    imgUrl: "./maisonLie/cuisine.png",
+                    desc: "est l'espace où l'on prépare et cuisine les repas."
+                },
+                "la chambre": {
+                    name: "La chambre",
+                    img: "imgChambre",
+                    imgUrl: "./maisonLie/chambre.png",
+                    desc: "est l'endroit où l'on dort et se repose."
+                },
+                "la salle de bain": {
+                    name: "La salle de bain",
+                    img: "imgSalleDeBain",
+                    imgUrl: "./maisonLie/salle_de_bain.png",
+                    desc: "est utilisée pour se laver et prendre soin de soi."
+                },
+                "la salle à manger": {
+                    name: "La salle à manger",
+                    img: "imgSalleAManger",
+                    imgUrl: "./maisonLie/salle_a_manger.png",
+                    desc: "est l'endroit où l'on prend les repas."
+                },
+                "le bureau": {
+                    name: "Le bureau",
+                    img: "imgBureau",
+                    imgUrl: "./maisonLie/bureau.png",
+                    desc: "est un espace de travail ou d'étude dans la maison."
+                },
+                "le grenier": {
+                    name: "Le grenier",
+                    img: "imgGrenier",
+                    imgUrl: "./maisonLie/grenier.png",
+                    desc: "est souvent utilisé pour stocker des objets ou des souvenirs."
+                },
+                "la cave": {
+                    name: "La cave",
+                    img: "imgCave",
+                    imgUrl: "./maisonLie/cave.png",
+                    desc: "est un sous-sol utilisé pour le stockage ou parfois pour conserver du vin."
+                },
+                "le jardin": {
+                    name: "Le jardin",
+                    img: "imgJardin",
+                    imgUrl: "./maisonLie/jardin.png",
+                    desc: "est un espace extérieur où l'on peut planter des fleurs ou se détendre."
+                },
+                "le garage": {
+                    name: "Le garage",
+                    img: "imgGarage",
+                    imgUrl: "./maisonLie/garage.png",
+                    desc: "est utilisé pour garer des voitures ou stocker des outils."
+                },
+                "le toit": {
+                    name: "Le toit",
+                    img: "imgToit",
+                    imgUrl: "./maisonLie/toit.png",
+                    desc: "protège la maison des intempéries et des éléments extérieurs."
+                },
+                "la porte": {
+                    name: "La porte",
+                    img: "imgPorte",
+                    imgUrl: "./maisonLie/porte.png",
+                    desc: "permet d'entrer et de sortir de la maison tout en offrant sécurité et intimité."
+                },
+                "le plancher": {
+                    name: "Le plancher",
+                    img: "imgPlancher",
+                    imgUrl: "./maisonLie/plancher.png",
+                    desc: "est la surface sur laquelle on marche à l'intérieur de la maison."
+                },
+                "le coin repas": {
+                    name: "Le coin repas",
+                    img: "imgCoinRepas",
+                    imgUrl: "./maisonLie/coin_repas.png",
+                    desc: "est un petit espace réservé pour prendre des repas en toute simplicité."
+                },
+                "la fenêtre": {
+                    name: "La fenêtre",
+                    img: "imgFenetre",
+                    imgUrl: "./maisonLie/fenetre.png",
+                    desc: "offre une ouverture pour laisser entrer la lumière et l'air dans la maison."
+                },
+                "le couloir": {
+                    name: "Le couloir",
+                    img: "imgCouloir",
+                    imgUrl: "./maisonLie/couloir.png",
+                    desc: "est un passage qui relie différentes pièces de la maison."
+                },
+                "le sous-sol": {
+                    name: "Le sous-sol",
+                    img: "imgSousSol",
+                    imgUrl: "./maisonLie/sous_sol.png",
+                    desc: "est un espace en dessous de la maison utilisé souvent pour le stockage ou des activités supplémentaires."
+                },
+
+                apartmentsLieux: {
+                    "immeuble à appartements": {
+                        name: "Immeuble à appartements",
+                        img: "imgImmeubleAppartments",
+                        imgUrl: "./apartmentsLie/immeuble_appartments.png",
+                        desc: "est un bâtiment contenant plusieurs appartements pour y habiter."
+                    },
+                    "escalier de secours": {
+                        name: "Escalier de secours",
+                        img: "imgEscalierSecours",
+                        imgUrl: "./apartmentsLie/escalier_secours.png",
+                        desc: "est utilisé en cas d'urgence pour évacuer le bâtiment en toute sécurité."
+                    },
+                    "terrain de jeux": {
+                        name: "Terrain de jeux",
+                        img: "imgTerrainJeux",
+                        imgUrl: "./apartmentsLie/terrain_jeux.png",
+                        desc: "est un espace réservé aux enfants pour jouer et se divertir."
+                    },
+                    "jardin sur le toit": {
+                        name: "Jardin sur le toit",
+                        img: "imgJardinToit",
+                        imgUrl: "./apartmentsLie/jardin_toit.png",
+                        desc: "est un espace vert situé sur le toit de l'immeuble, idéal pour se détendre."
+                    },
+                    "haut-parleur": {
+                        name: "Haut-parleur",
+                        img: "imgHautParleur",
+                        imgUrl: "./apartmentsLie/haut_parleur.png",
+                        desc: "est utilisé pour diffuser des annonces à tous les résidents."
+                    },
+                    "affiche de disponibilité": {
+                        name: "Affiche de disponibilité",
+                        img: "imgAfficheDisponibilite",
+                        imgUrl: "./apartmentsLie/affiche_disponibilite.png",
+                        desc: "indique les appartements disponibles à louer ou acheter dans l'immeuble."
+                    },
+                    "ascenseur": {
+                        name: "Ascenseur",
+                        img: "imgAscenseur",
+                        imgUrl: "./apartmentsLie/ascenseur.png",
+                        desc: "permet de se déplacer entre les étages sans utiliser les escaliers."
+                    },
+                    "escaliers": {
+                        name: "Escaliers",
+                        img: "imgEscaliers",
+                        imgUrl: "./apartmentsLie/escaliers.png",
+                        desc: "sont utilisés pour se déplacer d'un étage à l'autre à pied."
+                    },
+                    "boîte aux lettres": {
+                        name: "Boîte aux lettres",
+                        img: "imgBoiteLettres",
+                        imgUrl: "./apartmentsLie/boite_lettres.png",
+                        desc: "sert à recevoir le courrier des résidents de l'immeuble."
+                    },
+                    "balcon": {
+                        name: "Balcon",
+                        img: "imgBalcon",
+                        imgUrl: "./apartmentsLie/balcon.png",
+                        desc: "est un espace extérieur attenant à un appartement, offrant une vue sur l'extérieur."
+                    },
+                    "cour": {
+                        name: "Cour",
+                        img: "imgCour",
+                        imgUrl: "./apartmentsLie/cour.png",
+                        desc: "est un espace extérieur central partagé entre les résidents, souvent utilisé pour se détendre."
+                    },
+                    "piscine": {
+                        name: "Piscine",
+                        img: "imgPiscine",
+                        imgUrl: "./apartmentsLie/piscine.png",
+                        desc: "est un espace aquatique utilisé pour nager et se rafraîchir."
+                    },
+                    "bac à ordures": {
+                        name: "Bac à ordures",
+                        img: "imgBacOrdures",
+                        imgUrl: "./apartmentsLie/bac_ordures.png",
+                        desc: "est utilisé pour jeter les ordures ménagères des résidents."
+                    },
+                    "ruelle": {
+                        name: "Ruelle",
+                        img: "imgRuelle",
+                        imgUrl: "./apartmentsLie/ruelle.png",
+                        desc: "est une voie située derrière ou à côté de l'immeuble, souvent utilisée pour l'accès au stationnement ou à la livraison."
+                    },
+                    "barrière de sécurité": {
+                        name: "Barrière de sécurité",
+                        img: "imgBarriereSecurite",
+                        imgUrl: "./apartmentsLie/barriere_securite.png",
+                        desc: "est utilisée pour contrôler l'accès à l'immeuble et protéger les résidents."
+                    },
+                    "casier de rangement": {
+                        name: "Casier de rangement",
+                        img: "imgCasierRangement",
+                        imgUrl: "./apartmentsLie/casier_rangement.png",
+                        desc: "est un petit espace privé dans lequel les résidents peuvent stocker des objets supplémentaires."
+                    }
+                },
+
+
+                exterieurMaison: {
+                    "boîte aux lettres": {
+                        name: "Boîte aux lettres",
+                        img: "imgBoiteLettres",
+                        imgUrl: "./exterieurMaison/boite_lettres.png",
+                        desc: "sert à recevoir le courrier et les colis à l'extérieur de la maison."
+                    },
+                    "trottoir": {
+                        name: "Trottoir",
+                        img: "imgTrottoir",
+                        imgUrl: "./exterieurMaison/trottoir.png",
+                        desc: "est une voie piétonne située devant la maison."
+                    },
+                    "marches": {
+                        name: "Marches",
+                        img: "imgMarches",
+                        imgUrl: "./exterieurMaison/marches.png",
+                        desc: "permettent d'accéder à l'entrée principale de la maison."
+                    },
+                    "gouttière": {
+                        name: "Gouttière",
+                        img: "imgGouttiere",
+                        imgUrl: "./exterieurMaison/gouttiere.png",
+                        desc: "sert à évacuer l'eau de pluie du toit de la maison."
+                    },
+                    "cheminée": {
+                        name: "Cheminée",
+                        img: "imgCheminee",
+                        imgUrl: "./exterieurMaison/cheminee.png",
+                        desc: "permet d'évacuer la fumée du feu ou du chauffage intérieur."
+                    },
+                    "porte de garage": {
+                        name: "Porte de garage",
+                        img: "imgPorteGarage",
+                        imgUrl: "./exterieurMaison/porte_garage.png",
+                        desc: "s'ouvre pour permettre l'accès au garage pour les véhicules."
+                    },
+                    "allée": {
+                        name: "Allée",
+                        img: "imgAllee",
+                        imgUrl: "./exterieurMaison/allee.png",
+                        desc: "est le chemin qui mène de la rue à la maison ou au garage."
+                    },
+                    "portail": {
+                        name: "Portail",
+                        img: "imgPortail",
+                        imgUrl: "./exterieurMaison/portail.png",
+                        desc: "sert à sécuriser et délimiter l'entrée de la propriété."
+                    },
+                    "porte d'entrée": {
+                        name: "Porte d'entrée",
+                        img: "imgPorteEntree",
+                        imgUrl: "./exterieurMaison/porte_entree.png",
+                        desc: "est l'entrée principale de la maison, où les visiteurs sont accueillis."
+                    },
+                    "poignée de porte": {
+                        name: "Poignée de porte",
+                        img: "imgPoigneePorte",
+                        imgUrl: "./exterieurMaison/poignee_porte.png",
+                        desc: "est utilisée pour ouvrir et fermer la porte d'entrée."
+                    },
+                    "lampe de porte": {
+                        name: "Lampe de porte",
+                        img: "imgLampePorte",
+                        imgUrl: "./exterieurMaison/lampe_porte.png",
+                        desc: "éclaire l'entrée de la maison pendant la nuit."
+                    },
+                    "sonnette": {
+                        name: "Sonnette",
+                        img: "imgSonnette",
+                        imgUrl: "./exterieurMaison/sonnette.png",
+                        desc: "permet aux visiteurs d'avertir de leur arrivée en sonnant à la porte."
+                    },
+                    "patio": {
+                        name: "Patio",
+                        img: "imgPatio",
+                        imgUrl: "./exterieurMaison/patio.png",
+                        desc: "est un espace extérieur où l'on peut se détendre ou dîner en plein air."
+                    },
+                    "gril": {
+                        name: "Gril",
+                        img: "imgGril",
+                        imgUrl: "./exterieurMaison/gril.png",
+                        desc: "est utilisé pour cuisiner à l'extérieur, souvent pour des barbecues."
+                    },
+                    "porte vitrée coulissante": {
+                        name: "Porte vitrée coulissante",
+                        img: "imgPorteVitreCoulissante",
+                        imgUrl: "./exterieurMaison/porte_vitre_coulissante.png",
+                        desc: "permet de passer facilement entre la maison et le patio ou le jardin."
+                    },
+                    "plante-bande": {
+                        name: "Plante-bande",
+                        img: "imgPlanteBande",
+                        imgUrl: "./exterieurMaison/plante_bande.png",
+                        desc: "est un espace destiné aux plantes et aux fleurs, souvent décoratif."
+                    },
+                    "boyau": {
+                        name: "Boyau",
+                        img: "imgBoyau",
+                        imgUrl: "./exterieurMaison/boyau.png",
+                        desc: "est utilisé pour arroser les plantes et le jardin."
+                    },
+                    "arroser": {
+                        name: "Arroser",
+                        img: "imgArroser",
+                        imgUrl: "./exterieurMaison/arroser.png",
+                        desc: "consiste à donner de l'eau aux plantes ou au jardin."
+                    },
+                    "hamac": {
+                        name: "Hamac",
+                        img: "imgHamac",
+                        imgUrl: "./exterieurMaison/hamac.png",
+                        desc: "est un lit suspendu utilisé pour se reposer à l'extérieur."
+                    },
+                    "poubelle": {
+                        name: "Poubelle",
+                        img: "imgPoubelle",
+                        imgUrl: "./exterieurMaison/poubelle.png",
+                        desc: "sert à déposer les déchets ménagers pour qu'ils soient collectés."
+                    },
+                    "tas de compost": {
+                        name: "Tas de compost",
+                        img: "imgTasCompost",
+                        imgUrl: "./exterieurMaison/tas_compost.png",
+                        desc: "est un endroit où l'on dépose les déchets organiques pour les transformer en compost."
+                    },
+                    "pelouse": {
+                        name: "Pelouse",
+                        img: "imgPelouse",
+                        imgUrl: "./exterieurMaison/pelouse.png",
+                        desc: "est un espace de gazon autour de la maison, souvent utilisé pour le jeu ou la détente."
+                    },
+                    "jardin potager": {
+                        name: "Jardin potager",
+                        img: "imgJardinPotager",
+                        imgUrl: "./exterieurMaison/jardin_potager.png",
+                        desc: "est un espace extérieur où l'on cultive des légumes, des herbes et des fruits."
+                    }
+                },
+
+
+
+
+            },
+
+            maisonMeubles: {
+                "la table": {
+                    name: "La table",
+                    img: "imgTable",
+                    imgUrl: "./maison/table.png",
+                    desc: "est utilisée pour manger."
+                },
+                "une chaise": {
+                    name: "Une chaise",
+                    img: "imgChaise",
+                    imgUrl: "./maison/chaise.png",
+                    desc: "est pour s'asseoir."
+                },
+                "un lit": {
+                    name: "Un lit",
+                    img: "imgLit",
+                    imgUrl: "./maison/lit.png",
+                    desc: "est où l'on dort."
+                },
+                "un canapé": {
+                    name: "Un canapé",
+                    img: "imgCanape",
+                    imgUrl: "./maison/canape.png",
+                    desc: "est où l'on s'assoit dans le salon."
+                },
+                "une armoire": {
+                    name: "Une armoire",
+                    img: "imgArmoire",
+                    imgUrl: "./maison/armoire.png",
+                    desc: "est utilisée pour ranger les vêtements."
+                },
+                "un bureau": {
+                    name: "Un bureau",
+                    img: "imgBureau",
+                    imgUrl: "./maison/bureau.png",
+                    desc: "est utilisé pour travailler ou étudier."
+                },
+                "une étagère": {
+                    name: "Une étagère",
+                    img: "imgEtagere",
+                    imgUrl: "./maison/etagere.png",
+                    desc: "est utilisée pour ranger des livres et autres objets."
+                },
+                "une commode": {
+                    name: "Une commode",
+                    img: "imgCommode",
+                    imgUrl: "./maison/commode.png",
+                    desc: "est un meuble avec des tiroirs pour ranger des vêtements ou des objets."
+                },
+                "une lampe": {
+                    name: "Une lampe",
+                    img: "imgLampe",
+                    imgUrl: "./maison/lampe.png",
+                    desc: "est utilisée pour éclairer une pièce."
+                },
+                "un fauteuil": {
+                    name: "Un fauteuil",
+                    img: "imgFauteuil",
+                    imgUrl: "./maison/fauteuil.png",
+                    desc: "est une chaise confortable avec des accoudoirs."
+                },
+                "une table basse": {
+                    name: "Une table basse",
+                    img: "imgTableBasse",
+                    imgUrl: "./maison/table-basse.png",
+                    desc: "est un meuble bas placé devant un canapé pour poser des objets."
+                },
+                "un réfrigérateur": {
+                    name: "Un réfrigérateur",
+                    img: "imgRefrigerateur",
+                    imgUrl: "./maison/refrigerateur.png",
+                    desc: "est utilisé pour conserver les aliments au frais."
+                },
+                "un four": {
+                    name: "Un four",
+                    img: "imgFour",
+                    imgUrl: "./maison/four.png",
+                    desc: "est utilisé pour cuisiner des aliments en les chauffant."
+                },
+                "un micro-ondes": {
+                    name: "Un micro-ondes",
+                    img: "imgMicroOndes",
+                    imgUrl: "./maison/micro-ondes.png",
+                    desc: "est utilisé pour chauffer rapidement les aliments."
+                },
+                "un lave-vaisselle": {
+                    name: "Un lave-vaisselle",
+                    img: "imgLaveVaisselle",
+                    imgUrl: "./maison/lave-vaisselle.png",
+                    desc: "est utilisé pour nettoyer la vaisselle automatiquement."
+                },
+                "un lave-linge": {
+                    name: "Un lave-linge",
+                    img: "imgLaveLinge",
+                    imgUrl: "./maison/lave-linge.png",
+                    desc: "est une machine utilisée pour laver les vêtements."
+                },
+                "un placard": {
+                    name: "Un placard",
+                    img: "imgPlacard",
+                    imgUrl: "./maison/placard.png",
+                    desc: "est un espace de rangement souvent encastré dans un mur."
+                },
+                "un climatiseur": {
+                    name: "Un climatiseur",
+                    img: "imgClimatiseur",
+                    imgUrl: "./maison/climatiseur.png",
+                    desc: "est utilisé pour rafraîchir l'air d'une pièce."
+                },
+                "un radiateur": {
+                    name: "Un radiateur",
+                    img: "imgRadiateur",
+                    imgUrl: "./maison/radiateur.png",
+                    desc: "est utilisé pour chauffer une pièce."
+                },
+                "une causeuse": {
+                    name: "Une causeuse",
+                    img: "imgCauseuse",
+                    imgUrl: "./maison/causeuse.png",
+                    desc: "est un petit canapé conçu pour deux personnes."
+                },
+                "un coussin": {
+                    name: "Un coussin",
+                    img: "imgCoussin",
+                    imgUrl: "./maison/coussin.png",
+                    desc: "est utilisé pour ajouter du confort ou de la décoration à un canapé ou un lit."
+                },
+                "un panier": {
+                    name: "Un panier",
+                    img: "imgPanier",
+                    imgUrl: "./maison/panier.png",
+                    desc: "est utilisé pour ranger divers objets."
+                },
+                "une plante d'intérieur": {
+                    name: "Une plante d'intérieur",
+                    img: "imgPlanteInterieur",
+                    imgUrl: "./maison/plante_d_interieur.png",
+                    desc: "est utilisée pour décorer l'intérieur avec de la verdure."
+                },
+                "un centre de divertissement": {
+                    name: "Un centre de divertissement",
+                    img: "imgCentreDivertissement",
+                    imgUrl: "./maison/centre_de_divertissement.png",
+                    desc: "est un meuble pour placer la télévision et d'autres appareils multimédias."
+                },
+                "une télévision": {
+                    name: "Une télévision",
+                    img: "imgTelevision",
+                    imgUrl: "./maison/tele_vision.png",
+                    desc: "est utilisée pour regarder des émissions et des films."
+                },
+                "un lecteur de DVD": {
+                    name: "Un lecteur de DVD",
+                    img: "imgLecteurDVD",
+                    imgUrl: "./maison/lecteur_de_DVD.png",
+                    desc: "est utilisé pour lire des disques DVD."
+                },
+                "une chaîne stéréo": {
+                    name: "Une chaîne stéréo",
+                    img: "imgChaineStereo",
+                    imgUrl: "./maison/chaîne___stereo.png",
+                    desc: "est utilisée pour écouter de la musique."
+                },
+                "un tableau": {
+                    name: "Un tableau",
+                    img: "imgTableau",
+                    imgUrl: "./maison/tableau.png",
+                    desc: "est une œuvre d'art accrochée au mur pour décorer une pièce."
+                },
+                "un mur": {
+                    name: "Un mur",
+                    img: "imgMur",
+                    imgUrl: "./maison/mur.jpeg",
+                    desc: "est une structure verticale qui sépare les pièces d'une maison."
+                },
+                "une cheminée": {
+                    name: "Une cheminée",
+                    img: "imgCheminee",
+                    imgUrl: "./maison/cheminee.png",
+                    desc: "est un dispositif de chauffage qui utilise du feu."
+                },
+                "un écran de cheminée": {
+                    name: "Un écran de cheminée",
+                    img: "imgEcranCheminee",
+                    imgUrl: "./maison/ecran___de___cheminee.png",
+                    desc: "est utilisé pour protéger la pièce des étincelles venant de la cheminée."
+                },
+                "un foyer": {
+                    name: "Un foyer",
+                    img: "imgFoyer",
+                    imgUrl: "./maison/foyer.png",
+                    desc: "est la partie d'une cheminée où le feu est allumé."
+                },
+                "une table d'extrémité": {
+                    name: "Une table d'extrémité",
+                    img: "imgTableExtremite",
+                    imgUrl: "./maison/table___d_extremite.png",
+                    desc: "est une petite table placée à côté d'un canapé ou d'un fauteuil."
+                },
+                "une lampe sur pied": {
+                    name: "Une lampe sur pied",
+                    img: "imgLampeSurPied",
+                    imgUrl: "./maison/lampe___sur___pied.png",
+                    desc: "est une grande lampe placée directement sur le sol."
+                },
+                "des tentures": {
+                    name: "Des tentures",
+                    img: "imgTentures",
+                    imgUrl: "./maison/tentures.jpeg",
+                    desc: "sont des tissus suspendus pour décorer ou couvrir un mur."
+                },
+                "une fenêtre": {
+                    name: "Une fenêtre",
+                    img: "imgFenetre",
+                    imgUrl: "./maison/fenetre.png",
+                    desc: "permet d'éclairer une pièce et de voir à l'extérieur."
+                },
+                "un canape": {
+                    name: "Un canape",
+                    img: "imgCanape",
+                    imgUrl: "./maison/canape.png",
+                    desc: "est un siège large et confortable pour plusieurs personnes."
+                },
+                "une table de salon": {
+                    name: "Une table de salon",
+                    img: "imgTableSalon",
+                    imgUrl: "./maison/table___de___salon.png",
+                    desc: "est une table utilisée dans le salon pour divers usages."
+                },
+                "une chandelle": {
+                    name: "Une chandelle",
+                    img: "imgChandelle",
+                    imgUrl: "./maison/chandelle.png",
+                    desc: "est une bougie utilisée pour éclairer ou décorer une pièce."
+                },
+                "un bougeoir": {
+                    name: "Un bougeoir",
+                    img: "imgBougeoir",
+                    imgUrl: "./maison/bougeoir.jpeg",
+                    desc: "est un support pour tenir une ou plusieurs bougies."
+                },
+                "un porte-journaux": {
+                    name: "Un porte-journaux",
+                    img: "imgPorteJournaux",
+                    imgUrl: "./maison/porte___journaux.png",
+                    desc: "est un petit meuble pour ranger les journaux et magazines."
+                },
+                "un tapis": {
+                    name: "Un tapis",
+                    img: "imgTapis",
+                    imgUrl: "./maison/tapis.png",
+                    desc: "est un revêtement de sol doux et décoratif."
+                },
+                "un panier à linge": {
+                    name: "Un panier à linge",
+                    img: "imgPanierLinge",
+                    imgUrl: "./maison/panier__a__linge.png",
+                    desc: "est utilisé pour stocker les vêtements sales avant le lavage."
+                },
+                "une baignoire": {
+                    name: "Une baignoire",
+                    img: "imgBaignoire",
+                    imgUrl: "./maison/baignoire.png",
+                    desc: "est utilisée pour prendre des bains."
+                },
+                "un porte-savon": {
+                    name: "Un porte-savon",
+                    img: "imgPorteSavon",
+                    imgUrl: "./maison/porte___savon.png",
+                    desc: "est un support pour ranger le savon."
+                },
+                "un savon": {
+                    name: "Un savon",
+                    img: "imgSavon",
+                    imgUrl: "./maison/savon.png",
+                    desc: "est utilisé pour se laver."
+                },
+                "un gant de toilette": {
+                    name: "Un gant de toilette",
+                    img: "imgGantToilette",
+                    imgUrl: "./maison/gant___de___toilette.png",
+                    desc: "est un gant en tissu utilisé pour se laver le corps."
+                },
+                "un drain": {
+                    name: "Un drain",
+                    img: "imgDrain",
+                    imgUrl: "./maison/drain.jpeg",
+                    desc: "est utilisé pour évacuer l'eau de la baignoire ou de l'évier."
+                },
+                "un robinet": {
+                    name: "Un robinet",
+                    img: "imgRobinet",
+                    imgUrl: "./maison/robinet.png",
+                    desc: "est utilisé pour contrôler le débit d'eau dans une baignoire ou un évier."
+                },
+                "de l'eau chaude": {
+                    name: "De l'eau chaude",
+                    img: "imgEauChaude",
+                    imgUrl: "./maison/eau___chaude.png",
+                    desc: "est utilisée pour se laver ou cuisiner à des températures élevées."
+                },
+                "de l'eau froide": {
+                    name: "De l'eau froide",
+                    img: "imgEauFroide",
+                    imgUrl: "./maison/eau___froide.png",
+                    desc: "est utilisée pour se rafraîchir ou cuisiner à des températures basses."
+                },
+                "une barre d'appui": {
+                    name: "Une barre d'appui",
+                    img: "imgBarreAppui",
+                    imgUrl: "./maison/barre___d_appui.png",
+                    desc: "est installée dans une baignoire ou une douche pour offrir un soutien supplémentaire."
+                },
+                "du carrelage": {
+                    name: "Du carrelage",
+                    img: "imgCarrelage",
+                    imgUrl: "./maison/carrelage.png",
+                    desc: "est un revêtement en céramique utilisé pour les murs ou les sols dans les salles de bain et cuisines."
+                },
+                "un pommeau de douche": {
+                    name: "Un pommeau de douche",
+                    img: "imgPommeauDouche",
+                    imgUrl: "./maison/pommeau___de___douche.png",
+                    desc: "est utilisé pour diffuser l'eau dans une douche."
+                },
+                "un rideau de douche": {
+                    name: "Un rideau de douche",
+                    img: "imgRideauDouche",
+                    imgUrl: "./maison/rideau___de___douche.png",
+                    desc: "est utilisé pour empêcher l'eau de se répandre hors de la douche."
+                },
+                "un porte-serviettes": {
+                    name: "Un porte-serviettes",
+                    img: "imgPorteServiettes",
+                    imgUrl: "./maison/porte___serviettes.png",
+                    desc: "est un support pour accrocher les serviettes."
+                },
+                "une serviette de bain": {
+                    name: "Une serviette de bain",
+                    img: "imgServietteBain",
+                    imgUrl: "./maison/serviette___de___bain.png",
+                    desc: "est utilisée pour se sécher après un bain ou une douche."
+                },
+                "un essuie-mains": {
+                    name: "Un essuie-mains",
+                    img: "imgEssuieMains",
+                    imgUrl: "./maison/essuie___mains.png",
+                    desc: "est utilisé pour se sécher les mains après les avoir lavées."
+                },
+                "un miroir": {
+                    name: "Un miroir",
+                    img: "imgMiroir",
+                    imgUrl: "./maison/miroir.png",
+                    desc: "est utilisé pour se regarder et se préparer."
+                },
+                "du papier hygiénique": {
+                    name: "Du papier hygiénique",
+                    img: "imgPapierHygienique",
+                    imgUrl: "./maison/papier___hygienique.png",
+                    desc: "est utilisé pour l'hygiène personnelle après avoir utilisé les toilettes."
+                },
+                "une balayette": {
+                    name: "Une balayette",
+                    img: "imgBalayette",
+                    imgUrl: "./maison/balayette.png",
+                    desc: "est utilisée pour nettoyer les toilettes."
+                },
+                "une cuvette": {
+                    name: "Une cuvette",
+                    img: "imgCuvette",
+                    imgUrl: "./maison/cuvette.png",
+                    desc: "est utilisée dans les toilettes pour recueillir les déchets."
+                },
+                "un lavabo": {
+                    name: "Un lavabo",
+                    img: "imgLavabo",
+                    imgUrl: "./maison/lavabo.png",
+                    desc: "est utilisé pour se laver les mains ou le visage."
+                },
+                "une corbeille à déchets": {
+                    name: "Une corbeille à déchets",
+                    img: "imgCorbeilleDechets",
+                    imgUrl: "./maison/corbeille__a__dechets.png",
+                    desc: "est utilisée pour jeter les déchets."
+                },
+                "une brosse à dents": {
+                    name: "Une brosse à dents",
+                    img: "imgBrosseDents",
+                    imgUrl: "./maison/brosse___a___dents.png",
+                    desc: "est utilisée pour nettoyer les dents."
+                },
+                "un porte-brosses à dents": {
+                    name: "Un porte-brosses à dents",
+                    img: "imgPorteBrossesDents",
+                    imgUrl: "./maison/porte___brosses___a___dents.png",
+                    desc: "est utilisé pour ranger les brosses à dents."
+                },
+                "un tiroir": {
+                    name: "Un tiroir",
+                    img: "imgTiroir",
+                    imgUrl: "./maison/tiroir.png",
+                    desc: "est un compartiment coulissant utilisé pour ranger des objets."
+                },
+                "un cadre à photo": {
+                    name: "Un cadre à photo",
+                    img: "imgCadrePhoto",
+                    imgUrl: "./maison/cadre___a___photo.png",
+                    desc: "est utilisé pour afficher des photos."
+                },
+                "un miroir en pied": {
+                    name: "Un miroir en pied",
+                    img: "imgMiroirPied",
+                    imgUrl: "./maison/miroir___en___pied.png",
+                    desc: "est un grand miroir permettant de voir tout le corps."
+                },
+                "des rideaux": {
+                    name: "Des rideaux",
+                    img: "imgRideaux",
+                    imgUrl: "./maison/rideaux.png",
+                    desc: "sont utilisés pour couvrir les fenêtres et bloquer la lumière."
+                },
+                "un store à lamelles": {
+                    name: "Un store à lamelles",
+                    img: "imgStoreLamelles",
+                    imgUrl: "./maison/store___a___lamelles.png",
+                    desc: "est un dispositif de protection solaire composé de lames horizontales."
+                },
+                "une tête de lit": {
+                    name: "Une tête de lit",
+                    img: "imgTeteLit",
+                    imgUrl: "./maison/tête___de___lit.png",
+                    desc: "est la partie du lit située à la tête pour appuyer le dos."
+                },
+                "un oreiller": {
+                    name: "Un oreiller",
+                    img: "imgOreiller",
+                    imgUrl: "./maison/oreiller.png",
+                    desc: "est utilisé pour soutenir la tête pendant le sommeil."
+                },
+                "un drap housse": {
+                    name: "Un drap housse",
+                    img: "imgDrapHousse",
+                    imgUrl: "./maison/drap___housse.jpeg",
+                    desc: "est un drap avec des coins élastiques qui s'ajuste au matelas."
+                },
+                "un drap plat": {
+                    name: "Un drap plat",
+                    img: "imgDrapPlat",
+                    imgUrl: "./maison/drap_plat.jpeg",
+                    desc: "est un drap utilisé pour se couvrir pendant le sommeil."
+                },
+                "une taie d'oreiller": {
+                    name: "Une taie d'oreiller",
+                    img: "imgTaieOreiller",
+                    imgUrl: "./maison/taie_d_oreiller.png",
+                    desc: "est une housse protectrice pour les oreillers."
+                },
+                "une couverture de lit": {
+                    name: "Une couverture de lit",
+                    img: "imgCouvertureLit",
+                    imgUrl: "./maison/couverture_de_lit.png",
+                    desc: "est utilisée pour se réchauffer pendant la nuit."
+                },
+                "une couette": {
+                    name: "Une couette",
+                    img: "imgCouette",
+                    imgUrl: "./maison/courtepointe.png",
+                    desc: "est une couverture garnie de plumes ou matière synthétique, utilisée pour se réchauffer."
+                },
+                "un volant de lit": {
+                    name: "Un volant de lit",
+                    img: "imgVolantLit",
+                    imgUrl: "./maison/volant_de_lit.png",
+                    desc: "est un tissu décoratif qui recouvre le bas du lit."
+                },
+                "un cadre de lit": {
+                    name: "Un cadre de lit",
+                    img: "imgCadreLit",
+                    imgUrl: "./maison/cadre_de_lit.png",
+                    desc: "est la structure en bois ou en métal qui soutient le matelas."
+                },
+                "un sommier": {
+                    name: "Un sommier",
+                    img: "imgSommier",
+                    imgUrl: "./maison/sommier.png",
+                    desc: "est une base rigide sur laquelle repose le matelas."
+                },
+                "un matelas": {
+                    name: "Un matelas",
+                    img: "imgMatelas",
+                    imgUrl: "./maison/matelas.png",
+                    desc: "est utilisé pour dormir confortablement."
+                },
+                "un plancher en bois": {
+                    name: "Un plancher en bois",
+                    img: "imgPlancherBois",
+                    imgUrl: "./maison/plancher_en_bois.png",
+                    desc: "est un type de revêtement de sol en bois naturel ou traité."
+                },
+                "l' évier": {
+                    name: "Un plancher en bois",
+                    img: "imgevier",
+                    imgUrl: "./maison/envier.png",
+                    desc: "est un élément d'une cuisine formant un bassin, muni d'une alimentation en eau et d'une vidange.."
+                },
+                "un congélateur": {
+                    name: "Un congélateur",
+                    img: "imcongelateur",
+                    imgUrl: "./maison/congelateur.png",
+                    desc: "est un appareil qui permettant de congeler des aliments."
+                },
+                "L' interrupteur": {
+                    name: "L'interrupteur",
+                    img: "imginterrupteur",
+                    imgUrl: "./maison/interrupteur.png",
+                    desc: "est un dispositif électrique qui permet d’allumer les lumières."
+                },
+                "La prise": {
+                    name: "La prise",
+                    img: "imgPrise",
+                    imgUrl: "./maison/prise.png",
+                    desc: "est un dispositif électrique utilisé pour brancher des appareils et fournir de l'électricité."
+                }
+
+            },
+
+            nettoyage: {
+                "un plumeau": {
+                    name: "Un plumeau",
+                    img: "imgPlumeau",
+                    imgUrl: "./nettoyage/plumeau.png",
+                    desc: "est utilisé pour dépoussiérer les surfaces."
+                },
+                "des chiffons": {
+                    name: "Des chiffons",
+                    img: "imgChiffons",
+                    imgUrl: "./nettoyage/chiffons.png",
+                    desc: "sont utilisés pour nettoyer et essuyer les surfaces."
+                },
+                "un ramasse poussière": {
+                    name: "Un ramasse-poussière",
+                    img: "imgRamassePoussiere",
+                    imgUrl: "./nettoyage/ramasse_poussiere.png",
+                    desc: "est utilisé pour ramasser la poussière et les débris."
+                },
+                "un bac de recyclage": {
+                    name: "Un bac de recyclage",
+                    img: "imgBacDeRecyclage",
+                    imgUrl: "./nettoyage/bac_de_recyclage.png",
+                    desc: "est un récipient destiné au tri des déchets recyclables."
+                },
+                "un aspirateur": {
+                    name: "Un aspirateur",
+                    img: "imgAspirateur",
+                    imgUrl: "./nettoyage/aspirateur.png",
+                    desc: "est un appareil utilisé pour aspirer la poussière et les saletés."
+                },
+                "un détergent": {
+                    name: "Un détergent",
+                    img: "imgDetergent",
+                    imgUrl: "./nettoyage/detergent.png",
+                    desc: "est un produit utilisé pour nettoyer les surfaces."
+                },
+                "un nettoyant à four": {
+                    name: "Un nettoyant à four",
+                    img: "imgNettoyantAFour",
+                    imgUrl: "./nettoyage/nettoyant_a_four.png",
+                    desc: "est un produit utilisé pour dégraisser et nettoyer les fours."
+                },
+                "des accessoires d aspirateur": {
+                    name: "Des accessoires d'aspirateur",
+                    img: "imgAccessoiresAspirateur",
+                    imgUrl: "./nettoyage/accessoires_d_aspirateur.png",
+                    desc: "sont des pièces détachées pour améliorer le nettoyage."
+                },
+                "une éponge": {
+                    name: "Une éponge",
+                    img: "imgEponge",
+                    imgUrl: "./nettoyage/eponge.png",
+                    desc: "est utilisée pour laver les surfaces."
+                },
+                "une brosse à récurer": {
+                    name: "Une brosse à récurer",
+                    img: "imgBrosseARecurer",
+                    imgUrl: "./nettoyage/brosse_a_recurer.png",
+                    desc: "est utilisée pour nettoyer en profondeur les surfaces."
+                },
+                "des gants de caoutchouc": {
+                    name: "Des gants de caoutchouc",
+                    img: "imgGantsDeCaoutchouc",
+                    imgUrl: "./nettoyage/gants_de_caoutchouc.png",
+                    desc: "protègent les mains pendant le nettoyage."
+                },
+                "des sacs d aspirateur": {
+                    name: "Des sacs d'aspirateur",
+                    img: "imgSacsDAspirateur",
+                    imgUrl: "./nettoyage/sacs_d_aspirateur.png",
+                    desc: "sont des sacs utilisés pour collecter la poussière dans l'aspirateur."
+                },
+                "un escabeau": {
+                    name: "Un escabeau",
+                    img: "imgEscabeau",
+                    imgUrl: "./nettoyage/escabeau.png",
+                    desc: "est une petite échelle utilisée pour atteindre des endroits élevés."
+                },
+                "un nettoyant à vitres": {
+                    name: "Un nettoyant à vitres",
+                    img: "imgNettoyantAVitres",
+                    imgUrl: "./nettoyage/nettoyant_a_vitres.png",
+                    desc: "est un produit utilisé pour nettoyer les fenêtres et les miroirs."
+                },
+                "une raclette": {
+                    name: "Une raclette",
+                    img: "imgRaclette",
+                    imgUrl: "./nettoyage/raclette.png",
+                    desc: "est utilisée pour essuyer les surfaces lisses."
+                },
+                "un seau": {
+                    name: "Un seau",
+                    img: "imgSeau",
+                    imgUrl: "./nettoyage/seau.png",
+                    desc: "est un récipient utilisé pour transporter de l'eau."
+                },
+                "de l encaustique pour meubles": {
+                    name: "De l'encaustique pour meubles",
+                    img: "imgEncaustiqueMeubles",
+                    imgUrl: "./nettoyage/encaustique_pour_meubles.png",
+                    desc: "est utilisée pour polir et protéger les meubles."
+                },
+                "un balai": {
+                    name: "Un balai",
+                    img: "imgBalai",
+                    imgUrl: "./nettoyage/balai.png",
+                    desc: "est utilisé pour balayer les sols."
+                },
+                "des sacs à ordures": {
+                    name: "Des sacs à ordures",
+                    img: "imgSacsAOrdures",
+                    imgUrl: "./nettoyage/sacs_a_ordures.png",
+                    desc: "sont utilisés pour collecter les déchets."
+                },
+                "des tampons à récurer en laine d acier": {
+                    name: "Des tampons à récurer en laine d'acier",
+                    img: "imgTamponsRecurerLaineAcier",
+                    imgUrl: "./nettoyage/tampons_a_recurer_en_laine_d_acier.png",
+                    desc: "sont utilisés pour nettoyer les surfaces difficiles."
+                },
+                "un balai éponge": {
+                    name: "Un balai-éponge",
+                    img: "imgBalaiEponge",
+                    imgUrl: "./nettoyage/balai_eponge.png",
+                    desc: "est utilisé pour essuyer et nettoyer les sols."
+                },
+                "du détergent à vaisselle": {
+                    name: "Du détergent à vaisselle",
+                    img: "imgDetergentAVaisselle",
+                    imgUrl: "./nettoyage/detergent_a_vaisselle.png",
+                    desc: "est un produit utilisé pour laver la vaisselle."
+                },
+                "un linge à vaisselle": {
+                    name: "Un linge à vaisselle",
+                    img: "imgLingeVaisselle",
+                    imgUrl: "./nettoyage/linge_a_vaisselle.png",
+                    desc: "est utilisé pour essuyer la vaisselle après lavage."
+                },
+                "des serviettes désinfectantes": {
+                    name: "Des serviettes désinfectantes",
+                    img: "imgServiettesDesinfectantes",
+                    imgUrl: "./nettoyage/serviettes_desinfectantes.png",
+                    desc: "sont utilisées pour désinfecter rapidement les surfaces."
+                }
             }
+
         }
 
- 
+
         window.onload = function () {
             // Eventos para os botões
             document.getElementById('startGameBtn').addEventListener('click', loadSelectedCategory);
@@ -4741,78 +5055,78 @@
             loadCategoryItems(selectedCategory, true);
 
         };
- //--------------------------------------------------------------------------------------------------------------
-let voicesLoaded = false;
+        //--------------------------------------------------------------------------------------------------------------
+        let voicesLoaded = false;
 
-function loadVoices() {
-    return new Promise((resolve) => {
-        let voices = window.speechSynthesis.getVoices();
-        if (voices.length > 0) {
-            voicesLoaded = true;
-            resolve(voices);
-        } else {
-            // Carregar vozes de forma assíncrona
-            window.speechSynthesis.onvoiceschanged = () => {
-                voices = window.speechSynthesis.getVoices();
-                voicesLoaded = true;
-                resolve(voices);
-            };
+        function loadVoices() {
+            return new Promise((resolve) => {
+                let voices = window.speechSynthesis.getVoices();
+                if (voices.length > 0) {
+                    voicesLoaded = true;
+                    resolve(voices);
+                } else {
+                    // Carregar vozes de forma assíncrona
+                    window.speechSynthesis.onvoiceschanged = () => {
+                        voices = window.speechSynthesis.getVoices();
+                        voicesLoaded = true;
+                        resolve(voices);
+                    };
+                }
+            });
         }
-    });
-}
 
-function playSound(text) {
-    if ('speechSynthesis' in window) {
-        // Certifique-se de que as vozes foram carregadas
-        loadVoices().then((voices) => {
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.rate = 0.9;  // Fala um pouco mais lenta
-            utterance.pitch = 1.1; // Aumenta levemente o tom
-            utterance.volume = 1;  // Volume máximo
+        function playSound(text) {
+            if ('speechSynthesis' in window) {
+                // Certifique-se de que as vozes foram carregadas
+                loadVoices().then((voices) => {
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.rate = 0.9;  // Fala um pouco mais lenta
+                    utterance.pitch = 1.1; // Aumenta levemente o tom
+                    utterance.volume = 1;  // Volume máximo
 
-            // Verifica se é Safari no iOS
-            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+                    // Verifica se é Safari no iOS
+                    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-            if (isSafari) {
-                // Usar a voz Thomas no Safari, se disponível
-                const safariFrenchVoice = voices.find(voice => voice.name === "Thomas" && voice.lang === 'fr-FR');
-                if (safariFrenchVoice) {
-                    utterance.voice = safariFrenchVoice;
-                    utterance.lang = 'fr-FR';
-                    console.log("Usando a voz Thomas no Safari.");
-                } else {
-                    console.warn("A voz Thomas não foi encontrada no Safari.");
-                }
+                    if (isSafari) {
+                        // Usar a voz Thomas no Safari, se disponível
+                        const safariFrenchVoice = voices.find(voice => voice.name === "Thomas" && voice.lang === 'fr-FR');
+                        if (safariFrenchVoice) {
+                            utterance.voice = safariFrenchVoice;
+                            utterance.lang = 'fr-FR';
+                            console.log("Usando a voz Thomas no Safari.");
+                        } else {
+                            console.warn("A voz Thomas não foi encontrada no Safari.");
+                        }
+                    } else {
+                        // Para Chrome e outros navegadores
+                        const chromeFrenchVoice = voices.find(voice => voice.lang === 'fr-FR' && voice.name.includes('Google')) ||
+                            voices.find(voice => voice.lang === 'fr-FR');
+                        if (chromeFrenchVoice) {
+                            utterance.voice = chromeFrenchVoice;
+                            utterance.lang = 'fr-FR';
+                            console.log("Usando a voz Google no Chrome.");
+                        } else {
+                            console.warn("Nenhuma voz francesa foi encontrada.");
+                        }
+                    }
+
+                    // Falar apenas após a interação do usuário
+                    if (!window.speechSynthesis.speaking) {
+                        window.speechSynthesis.speak(utterance);
+                    } else {
+                        console.log("A fala está em andamento, aguarde.");
+                    }
+                });
             } else {
-                // Para Chrome e outros navegadores
-                const chromeFrenchVoice = voices.find(voice => voice.lang === 'fr-FR' && voice.name.includes('Google')) ||
-                    voices.find(voice => voice.lang === 'fr-FR');
-                if (chromeFrenchVoice) {
-                    utterance.voice = chromeFrenchVoice;
-                    utterance.lang = 'fr-FR';
-                    console.log("Usando a voz Google no Chrome.");
-                } else {
-                    console.warn("Nenhuma voz francesa foi encontrada.");
-                }
+                console.error("API de síntese de fala não suportada.");
             }
-
-            // Falar apenas após a interação do usuário
-            if (!window.speechSynthesis.speaking) {
-                window.speechSynthesis.speak(utterance);
-            } else {
-                console.log("A fala está em andamento, aguarde.");
-            }
-        });
-    } else {
-        console.error("API de síntese de fala não suportada.");
-    }
-}
+        }
 
 
 
 
 
-//-----------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------
 
 
         function generateNewItems() {
