@@ -5013,59 +5013,40 @@
 
 function loadVoices() {
     return new Promise((resolve) => {
-        let voices = window.speechSynthesis.getVoices();
-        if (voices.length > 0) {
-            voicesLoaded = true;
+        const voices = window.speechSynthesis.getVoices();
+        if (voices.length !== 0) {
             resolve(voices);
         } else {
-            // Carregar vozes de forma assíncrona
             window.speechSynthesis.onvoiceschanged = () => {
-                voices = window.speechSynthesis.getVoices();
-                voicesLoaded = true;
-                resolve(voices);
+                resolve(window.speechSynthesis.getVoices());
             };
         }
     });
 }
 
-     function playSound(text) {
+
+   async function playSound(text) {
     if ('speechSynthesis' in window) {
+        const voices = await loadVoices();
         const utterance = new SpeechSynthesisUtterance(text);
 
-        // Ajustes para tentar melhorar a naturalidade
-        utterance.rate = 0.85;  // Reduz a velocidade para parecer mais natural
-        utterance.pitch = 1.0;  // Defina o tom mais padrão
-        utterance.volume = 1;    // Volume no máximo
+        // Ajustes para melhorar a naturalidade
+        utterance.rate = 0.85;
+        utterance.pitch = 1.0;
+        utterance.volume = 1;
 
-        const voices = window.speechSynthesis.getVoices();
-
-        // Detectar se está no Safari
-        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
-        if (isSafari) {
-            // Usar a voz "Thomas" no Safari
-            const safariFrenchVoice = voices.find(voice => voice.name === "Thomas" && voice.lang === 'fr-FR');
-            if (safariFrenchVoice) {
-                utterance.voice = safariFrenchVoice;
-                utterance.lang = 'fr-FR';
-                console.log("Usando a voz Thomas no Safari.");
-            } else {
-                console.warn("A voz Thomas não foi encontrada no Safari.");
-            }
+        // Selecionar uma voz francesa disponível
+        const frenchVoice = voices.find(voice => voice.lang === 'fr-FR');
+        if (frenchVoice) {
+            utterance.voice = frenchVoice;
+            utterance.lang = 'fr-FR';
+            console.log(`Usando a voz: ${frenchVoice.name}`);
         } else {
-            // Para Chrome e outros navegadores, tentar usar a voz do Google
-            const chromeFrenchVoice = voices.find(voice => voice.lang === 'fr-FR' && voice.name.includes('Google')) ||
-                voices.find(voice => voice.lang === 'fr-FR');
-            if (chromeFrenchVoice) {
-                utterance.voice = chromeFrenchVoice;
-                utterance.lang = 'fr-FR';
-                console.log("Usando a voz francesa no Chrome.");
-            } else {
-                console.warn("Nenhuma voz francesa foi encontrada.");
-            }
+            console.warn("Nenhuma voz francesa foi encontrada. Usando a voz padrão.");
+            utterance.lang = 'fr-FR';
         }
 
-        // Tentar falar apenas se não houver fala em andamento
+        // Verificar se já está falando
         if (!window.speechSynthesis.speaking) {
             window.speechSynthesis.speak(utterance);
         } else {
@@ -5075,6 +5056,7 @@ function loadVoices() {
         console.error("API de síntese de fala não suportada.");
     }
 }
+
 
 
 
