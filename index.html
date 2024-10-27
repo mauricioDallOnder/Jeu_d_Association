@@ -5035,23 +5035,29 @@ function loadVoices() {
         utterance.pitch = 1.0;
         utterance.volume = 1;
 
-        // Selecionar uma voz francesa disponível
-        const frenchVoice = voices.find(voice => voice.lang === 'fr-FR');
+        // Tentar encontrar uma voz francesa específica
+        const preferredVoices = ['Thomas', 'Amélie', 'Aurélie'];
+        let frenchVoice = voices.find(voice => preferredVoices.includes(voice.name) && voice.lang.startsWith('fr'));
+
+        // Se não encontrar, usar qualquer voz em francês
+        if (!frenchVoice) {
+            frenchVoice = voices.find(voice => voice.lang.startsWith('fr'));
+        }
+
         if (frenchVoice) {
             utterance.voice = frenchVoice;
-            utterance.lang = 'fr-FR';
+            utterance.lang = frenchVoice.lang;
             console.log(`Usando a voz: ${frenchVoice.name}`);
         } else {
             console.warn("Nenhuma voz francesa foi encontrada. Usando a voz padrão.");
             utterance.lang = 'fr-FR';
         }
 
-        // Verificar se já está falando
-        if (!window.speechSynthesis.speaking) {
-            window.speechSynthesis.speak(utterance);
-        } else {
-            console.log("A fala está em andamento, aguarde.");
-        }
+        // Cancelar qualquer fala em andamento
+        window.speechSynthesis.cancel();
+
+        // Falar o texto
+        window.speechSynthesis.speak(utterance);
     } else {
         console.error("API de síntese de fala não suportada.");
     }
