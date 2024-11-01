@@ -19,6 +19,32 @@
         <h1 id="titulo">Associez les images aux noms corrects</h1>
     </div>
 
+    <!-- Mode Selection -->
+<!-- Seleção de Modo -->
+ <div id="boxjogoitem">
+    <div id="boxMode">
+        <label for="modeSelect" id="labelMode">Choisissez un mode:</label>
+        <select id="modeSelect">
+            <option value="vocabulary">Vocabulaire</option>
+            <option value="game">Jeu</option>
+            
+        </select>
+    </div>
+    
+    <!-- Seleção do número de itens por página -->
+    <div id="boxItemsPerPage">
+        <label for="itemsPerPageSelect" id="labelItemsPerPage">Articles par page:</label>
+        <select id="itemsPerPageSelect">
+            <option value="4">4</option>
+            <option value="8" selected>8</option>
+            <option value="12">12</option>
+            <option value="16">16</option>
+        </select>
+    </div>
+ </div>
+
+
+
     <!-- Seleção de categoria -->
     <div id="boxCategoria">
         <label for="categorySelect" id="labelCategoria">Choisissez une catégorie:</label>
@@ -85,7 +111,7 @@
 
     <!-- Botões de ação -->
     <div id="boxBotao">
-        <button id="startGameBtn"> <a>Commencer un nouveau jeu</a></button>
+        <button id="startGameBtn"> Commencer un nouveau jeu</button>
         <button id="finishGameBtn" disabled><a>Terminer et voir le vocabulaire</a></button>
 
         <button id="randomButton"><a>Changer de catégorie</a></button>
