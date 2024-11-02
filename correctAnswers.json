@@ -4295,13 +4295,13 @@
         "Assaisonner": {
             "name": "Assaisonner",
             "img": "imgAssaisonner",
-            "imgUrl": "./cuisine/assaisonner.png",
+            "imgUrl": "./cuisine/Assaisonner.png",
             "desc": "est l'ajout de sel, poivre ou épices pour relever le goût."
         },
         "Saler": {
             "name": "Saler",
             "img": "imgSaler",
-            "imgUrl": "./cuisine/saler.png",
+            "imgUrl": "./cuisine/Saler.png",
             "desc": "consiste à ajouter du sel pour rehausser la saveur."
         },
         "Poivrer": {
