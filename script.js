@@ -55,51 +55,67 @@ let voicesLoaded = false;
 
 function loadVoices() {
     return new Promise((resolve) => {
-        const voices = window.speechSynthesis.getVoices();
-        if (voices.length !== 0) {
+        let voices = window.speechSynthesis.getVoices();
+        if (voices.length > 0) {
+            voicesLoaded = true;
             resolve(voices);
         } else {
             window.speechSynthesis.onvoiceschanged = () => {
-                resolve(window.speechSynthesis.getVoices());
+                voices = window.speechSynthesis.getVoices();
+                voicesLoaded = true;
+                resolve(voices);
             };
         }
     });
 }
 
-
-async function playSound(text) {
+function playSound(text) {
     if ('speechSynthesis' in window) {
-        const voices = await loadVoices();
-        const utterance = new SpeechSynthesisUtterance(text);
+        // Certifique-se de que as vozes foram carregadas
+        loadVoices().then((voices) => {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.9;  // Fala um pouco mais lenta
+            utterance.pitch = 1.1; // Aumenta levemente o tom
+            utterance.volume = 1;  // Volume máximo
 
-        // Ajustes para melhorar a naturalidade
-        utterance.rate = 0.95; // Velocidade um pouco mais lenta
-        utterance.pitch = 1.05; // Tom um pouco mais agudo
-        utterance.volume = 1;
+            // Verifica se é Safari no iOS
+            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-        // Tentar encontrar uma voz francesa específica
-        const preferredVoices = ['Thomas', 'Amélie', 'Aurélie'];
-        let frenchVoice = voices.find(voice => preferredVoices.includes(voice.name) && voice.lang.startsWith('fr'));
+            if (isSafari) {
+                const safariFrenchVoice = voices.find(voice => voice.name === "Thomas" && voice.lang === 'fr-FR');
+                if (safariFrenchVoice) {
+                    utterance.voice = safariFrenchVoice;
+                    utterance.lang = 'fr-FR';
+                    console.log("Usando a voz Thomas no Safari.");
+                } else {
+                    console.warn("A voz Thomas não foi encontrada no Safari.");
+                }
+            } else {
+                const chromeFrenchVoice = voices.find(voice => voice.lang === 'fr-FR' && voice.name.includes('Google')) ||
+                    voices.find(voice => voice.lang === 'fr-FR');
+                if (chromeFrenchVoice) {
+                    utterance.voice = chromeFrenchVoice;
+                    utterance.lang = 'fr-FR';
+                    console.log("Usando a voz Google no Chrome.");
+                } else {
+                    console.warn("Nenhuma voz francesa foi encontrada.");
+                }
+            }
 
-        // Se não encontrar, usar qualquer voz em francês
-        if (!frenchVoice) {
-            frenchVoice = voices.find(voice => voice.lang.startsWith('fr'));
-        }
+            // Cancelar qualquer fala em andamento antes de iniciar
+            if (window.speechSynthesis.speaking) {
+                console.log("Cancelando fala anterior...");
+                window.speechSynthesis.cancel();
+            }
 
-        if (frenchVoice) {
-            utterance.voice = frenchVoice;
-            utterance.lang = frenchVoice.lang;
-            console.log(`Usando a voz: ${frenchVoice.name}`);
-        } else {
-            console.warn("Nenhuma voz francesa foi encontrada. Usando a voz padrão.");
-            utterance.lang = 'fr-FR';
-        }
+            // Adicionar evento de finalização para depuração
+            utterance.onend = () => {
+                console.log("Fala concluída.");
+            };
 
-        // Cancelar qualquer fala em andamento
-        window.speechSynthesis.cancel();
-
-        // Falar o texto
-        window.speechSynthesis.speak(utterance);
+            // Iniciar a fala
+            window.speechSynthesis.speak(utterance);
+        });
     } else {
         console.error("API de síntese de fala não suportada.");
     }
