@@ -264,12 +264,7 @@
             "imgUrl": "./ville/immobilier.png",
             "desc": "est une entreprise spécialisée dans la mise en relation entre les propriétaires et les locataires"
         }
-
-
     },
-
-
-
     "problemes_de_sante": {
         "avoir mal de tête": {
             "name": "Un mal de tête",
@@ -1060,8 +1055,6 @@
             "desc": "est un fromage italien frais."
         }
     },
-
-
     "vestuario_roupa_normal": {
         "la chemise": {
             "name": "Une chemise",
@@ -1238,7 +1231,6 @@
             "desc": "est un accessoire porté autour du cou avec un costume."
         }
     },
-
     "vetements_de_saison": {
         "le chapeau": {
             "name": "Un chapeau",
@@ -1397,7 +1389,6 @@
             "desc": "sont portées pour protéger les yeux des rayons du soleil."
         }
     },
-
     "vêtements_vestuario": {
         "le tricot / maillot de corps": {
             "name": "Un tricot / maillot de corps",
@@ -1514,7 +1505,6 @@
             "desc": "est un vêtement porté à la maison, souvent par-dessus les vêtements de nuit."
         }
     },
-
     "accessoires": {
         "Un portefeuille": {
             "name": "Un portefeuille",
@@ -1643,9 +1633,6 @@
             "desc": "est un anneau porté autour du doigt, souvent comme bijou ou symbole de mariage."
         }
     },
-
-
-
     "partiesDuCorps": {
         "la tête": {
             "name": "La tête",
@@ -1768,7 +1755,6 @@
             "desc": "est la partie arrière du tronc, soutenant la colonne vertébrale et protégeant les organes internes."
         }
     },
-
     "transports": {
         "un bus": {
             "name": "Un bus",
@@ -1932,9 +1918,7 @@
             "imgUrl": "./transports/arret_d_autobus.png",
             "desc": "est un endroit où les bus s'arrêtent pour prendre des passagers."
         }
-
     },
-
     "partes_internes_du_carro": {
         "un verrouillage des portes": {
             "name": "Un verrouillage des portes",
@@ -2409,7 +2393,6 @@
             "desc": "est utilisée pour alimenter les imprimantes en encre."
         }
     },
-
     "nature": {
         "la forêt pluviale": {
             "name": "Une forêt pluviale",
@@ -2538,7 +2521,6 @@
             "desc": "est une petite étendue d'eau stagnante, plus petite qu'un lac."
         }
     },
-
     "sentiments_et_emotions": {
         "bonheur": {
             "name": "Le bonheur",
@@ -2661,7 +2643,6 @@
             "desc": "est la reconnaissance pour un bienfait reçu."
         }
     },
-
     "ustensiles_de_cuisine": {
         "La casserole": {
             "name": "La casserole",
@@ -3035,10 +3016,7 @@
             "imgUrl": "./kitchen/thermos.png",
             "desc": "est un récipient isolé qui conserve les boissons chaudes ou froides."
         }
-
     },
-
-
     "plaques_transito": {
         "Le stop": {
             "name": "Un stop",
@@ -3136,7 +3114,6 @@
             "imgUrl": "./transito/embouteillage.png",
             "desc": "est une accumulation de véhicules qui ralentit ou bloque la circulation."
         },
-
         "La priorité à droite": {
             "name": "La priorité à droite",
             "img": "imgPrioriteDroite",
@@ -3149,14 +3126,12 @@
             "imgUrl": "./transito/sens_interdit.png",
             "desc": "indique qu'il est interdit de circuler dans cette direction."
         },
-
         "Le stationnement interdit": {
             "name": "Un stationnement interdit",
             "img": "imgStationnementInterdit",
             "imgUrl": "./transito/stationnement_interdit.png",
             "desc": "signifie qu'il est interdit de stationner dans cette zone."
         }
-
     },
     "rodovias_vias": {
         "L'autoroute": {
@@ -3349,6 +3324,12 @@
             "imgUrl": "./maisonLie/salon.png",
             "desc": "est l'endroit où la famille se réunit pour se détendre ou recevoir des invités."
         },
+        "la véranda": {
+            "name": "La véranda",
+            "img": "imgVeranda",
+            "imgUrl": "./maisonLie/veranda.png",
+            "desc": "est un espace extérieur couvert, souvent utilisé pour se détendre."
+        },
         "la cuisine": {
             "name": "La cuisine",
             "img": "imgCuisine",
@@ -3434,90 +3415,86 @@
             "desc": "est un espace en dessous de la maison utilisé souvent pour le stockage ou des activités supplémentaires."
         }
     },
-
     "apartmentsLieux": {
         "immeuble à appartements": {
             "name": "Immeuble à appartements",
             "img": "imgImmeubleAppartments",
-            "imgUrl": "./apartmentslie/immeuble_appartments.png",
+            "imgUrl": "./apartmentsLie/immeuble_appartments.png",
             "desc": "est un bâtiment contenant plusieurs appartements pour y habiter."
         },
         "escalier de secours": {
             "name": "Escalier de secours",
             "img": "imgEscalierSecours",
-            "imgUrl": "./apartmentslie/escalier_secours.png",
+            "imgUrl": "./apartmentsLie/escalier_secours.png",
             "desc": "est utilisé en cas d'urgence pour évacuer le bâtiment en toute sécurité."
         },
         "terrain de jeux": {
             "name": "Terrain de jeux",
             "img": "imgTerrainJeux",
-            "imgUrl": "./apartmentslie/terrain_jeux.png",
+            "imgUrl": "./apartmentsLie/terrain_jeux.png",
             "desc": "est un espace réservé aux enfants pour jouer et se divertir."
         },
         "jardin sur le toit": {
             "name": "Jardin sur le toit",
             "img": "imgJardinToit",
-            "imgUrl": "./apartmentslie/jardin_toit.png",
+            "imgUrl": "./apartmentsLie/jardin_toit.png",
             "desc": "est un espace vert situé sur le toit de l'immeuble, idéal pour se détendre."
         },
-
         "ascenseur": {
             "name": "Ascenseur",
             "img": "imgAscenseur",
-            "imgUrl": "./apartmentslie/ascenseur.png",
+            "imgUrl": "./apartmentsLie/ascenseur.png",
             "desc": "permet de se déplacer entre les étages sans utiliser les escaliers."
         },
         "escaliers": {
             "name": "Escaliers",
             "img": "imgEscaliers",
-            "imgUrl": "./apartmentslie/escaliers.png",
+            "imgUrl": "./apartmentsLie/escaliers.png",
             "desc": "sont utilisés pour se déplacer d'un étage à l'autre à pied."
         },
         "balcon": {
             "name": "Balcon",
             "img": "imgBalcon",
-            "imgUrl": "./apartmentslie/balcon.png",
+            "imgUrl": "./apartmentsLie/balcon.png",
             "desc": "est un espace extérieur attenant à un appartement, offrant une vue sur l'extérieur."
         },
         "cour": {
             "name": "Cour",
             "img": "imgCour",
-            "imgUrl": "./apartmentslie/cour.png",
+            "imgUrl": "./apartmentsLie/cour.png",
             "desc": "est un espace extérieur central partagé entre les résidents, souvent utilisé pour se détendre."
         },
         "piscine": {
             "name": "Piscine",
             "img": "imgPiscine",
-            "imgUrl": "./apartmentslie/piscine.png",
+            "imgUrl": "./apartmentsLie/piscine.png",
             "desc": "est un espace aquatique utilisé pour nager et se rafraîchir."
         },
         "bac à ordures": {
             "name": "Bac à ordures",
             "img": "imgBacOrdures",
-            "imgUrl": "./apartmentslie/bac_ordures.png",
+            "imgUrl": "./apartmentsLie/bac_ordures.png",
             "desc": "est utilisé pour jeter les ordures ménagères des résidents."
         },
         "ruelle": {
             "name": "Ruelle",
             "img": "imgRuelle",
-            "imgUrl": "./apartmentslie/ruelle.png",
+            "imgUrl": "./apartmentsLie/ruelle.png",
             "desc": "est une voie située derrière ou à côté de l'immeuble, souvent utilisée pour l'accès au stationnement ou à la livraison."
         },
         "barrière de sécurité": {
             "name": "Barrière de sécurité",
             "img": "imgBarriereSecurite",
-            "imgUrl": "./apartmentslie/barriere_securite.png",
+            "imgUrl": "./apartmentsLie/barriere_securite.png",
             "desc": "est utilisée pour contrôler l'accès à l'immeuble et protéger les résidents."
         },
         "casier de rangement": {
             "name": "Casier de rangement",
             "img": "imgCasierRangement",
-            "imgUrl": "./apartmentslie/casier_rangement.png",
+            "imgUrl": "./apartmentsLie/casier_rangement.png",
             "desc": "est un petit espace privé dans lequel les résidents peuvent stocker des objets supplémentaires."
         }
     },
-
-
     "exterieurMaison": {
         "boîte aux lettres": {
             "name": "Boîte aux lettres",
@@ -3640,11 +3617,6 @@
             "desc": "est un espace extérieur où l'on cultive des légumes, des herbes et des fruits."
         }
     },
-
-
-
-
-
     "maisonMeubles": {
         "la table": {
             "name": "La table",
@@ -4168,9 +4140,7 @@
             "imgUrl": "./maison/prise.png",
             "desc": "est un dispositif électrique utilisé pour brancher des appareils et fournir de l'électricité."
         }
-
     },
-
     "verbes_cuisine": {
         "Hacher": {
             "name": "Hacher",
@@ -4295,13 +4265,13 @@
         "Assaisonner": {
             "name": "Assaisonner",
             "img": "imgAssaisonner",
-            "imgUrl": "./cuisine/Assaisonner.png",
+            "imgUrl": "./cuisine/assaisonner.png",
             "desc": "est l'ajout de sel, poivre ou épices pour relever le goût."
         },
         "Saler": {
             "name": "Saler",
             "img": "imgSaler",
-            "imgUrl": "./cuisine/Saler.png",
+            "imgUrl": "./cuisine/saler.png",
             "desc": "consiste à ajouter du sel pour rehausser la saveur."
         },
         "Poivrer": {
@@ -4443,8 +4413,6 @@
             "desc": "désigne la mise en assiette pour présentation."
         }
     },
-
-
     "nettoyage": {
         "un plumeau": {
             "name": "Un plumeau",
@@ -4590,6 +4558,339 @@
             "imgUrl": "./nettoyage/serviettes_desinfectantes.png",
             "desc": "sont utilisées pour désinfecter rapidement les surfaces."
         }
+    },
+    "sensEtVerbes": {
+        "vue": {
+            "name": "La vue",
+            "img": "imgVue",
+            "imgUrl": "./sens/vue.png",
+            "desc": "est le sens qui permet de percevoir les objets et la lumière autour de nous."
+        },
+        "voir": {
+            "name": "Voir",
+            "img": "imgVoir",
+            "imgUrl": "./sens/voir.png",
+            "desc": "percevoir par les yeux, observer."
+        },
+        "regarder": {
+            "name": "Regarder",
+            "img": "imgRegarder",
+            "imgUrl": "./sens/regarder.png",
+            "desc": "diriger ses yeux vers quelque chose avec attention."
+        },
+        "observer": {
+            "name": "Observer",
+            "img": "imgObserver",
+            "imgUrl": "./sens/observer.png",
+            "desc": "examiner avec attention, souvent de manière détaillée."
+        },
+        "apercevoir": {
+            "name": "Apercevoir",
+            "img": "imgApercevoir",
+            "imgUrl": "./sens/apercevoir.png",
+            "desc": "voir rapidement ou de manière furtive."
+        },
+        "ouïe": {
+            "name": "L'ouïe",
+            "img": "imgOuie",
+            "imgUrl": "./sens/ouie.png",
+            "desc": "est le sens qui permet d'entendre les sons et la musique."
+        },
+        "entendre": {
+            "name": "Entendre",
+            "img": "imgEntendre",
+            "imgUrl": "./sens/entendre.png",
+            "desc": "percevoir des sons par l'oreille."
+        },
+        "écouter": {
+            "name": "Écouter",
+            "img": "imgEcouter",
+            "imgUrl": "./sens/ecouter.png",
+            "desc": "prêter attention aux sons ou à la parole."
+        },
+        "prêter l'oreille": {
+            "name": "Prêter l'oreille",
+            "img": "imgPreterOreille",
+            "imgUrl": "./sens/preter_oreille.png",
+            "desc": "écouter avec attention."
+        },
+        "percevoir": {
+            "name": "Percevoir",
+            "img": "imgPercevoir",
+            "imgUrl": "./sens/percevoir.png",
+            "desc": "détecter ou comprendre un son ou une vibration."
+        },
+        "odorat": {
+            "name": "L'odorat",
+            "img": "imgOdorat",
+            "imgUrl": "./sens/odorat.png",
+            "desc": "est le sens qui permet de sentir les odeurs."
+        },
+        "sentir": {
+            "name": "Sentir",
+            "img": "imgSentir",
+            "imgUrl": "./sens/sentir.png",
+            "desc": "percevoir une odeur par le nez."
+        },
+        "respirer": {
+            "name": "Respirer",
+            "img": "imgRespirer",
+            "imgUrl": "./sens/respirer.png",
+            "desc": "aspirer l'air, souvent utilisé pour percevoir des odeurs."
+        },
+        "flairer": {
+            "name": "Flairer",
+            "img": "imgFlairer",
+            "imgUrl": "./sens/flairer.png",
+            "desc": "sentir attentivement, généralement avec insistance."
+        },
+        "renifler": {
+            "name": "Renifler",
+            "img": "imgRenifler",
+            "imgUrl": "./sens/renifler.png",
+            "desc": "aspirer rapidement par le nez pour percevoir une odeur."
+        },
+        "goût": {
+            "name": "Le goût",
+            "img": "imgGout",
+            "imgUrl": "./sens/gout.png",
+            "desc": "est le sens qui permet de percevoir les saveurs."
+        },
+        "goûter": {
+            "name": "Goûter",
+            "img": "imgGouter",
+            "imgUrl": "./sens/gouter.png",
+            "desc": "mettre en bouche pour percevoir la saveur."
+        },
+        "déguster": {
+            "name": "Déguster",
+            "img": "imgDeguster",
+            "imgUrl": "./sens/deguster.png",
+            "desc": "goûter avec attention pour savourer."
+        },
+        "savoureux": {
+            "name": "Savoureux",
+            "img": "imgSavoureux",
+            "imgUrl": "./sens/savoureux.png",
+            "desc": "ressentir pleinement la saveur."
+        },
+        "relever": {
+            "name": "Relever",
+            "img": "imgRelever",
+            "imgUrl": "./sens/relever.png",
+            "desc": "sentir le goût, souvent de manière prononcée."
+        },
+        "toucher": {
+            "name": "Le toucher",
+            "img": "imgToucher",
+            "imgUrl": "./sens/toucher.png",
+            "desc": "est le sens qui permet de percevoir les textures, les températures et la pression par la peau."
+        },
+        "palper": {
+            "name": "Palper",
+            "img": "imgPalper",
+            "imgUrl": "./sens/palper.png",
+            "desc": "sentir en appuyant légèrement avec les mains."
+        },
+        "caresser": {
+            "name": "Caresser",
+            "img": "imgCaresser",
+            "imgUrl": "./sens/caresser.png",
+            "desc": "passer doucement la main sur une surface."
+        },
+        "frôler": {
+            "name": "Frôler",
+            "img": "imgFroler",
+            "imgUrl": "./sens/froler.png",
+            "desc": "passer très près de quelque chose en touchant à peine."
+        }
+    },
+    "motsAssociesAuSport": {
+        "football": {
+            "name": "Football",
+            "img": "imgFootball",
+            "imgUrl": "./sport/football.png",
+            "desc": "est un sport d'équipe joué avec un ballon rond, visant à marquer des buts."
+        },
+        "basketball": {
+            "name": "Basketball",
+            "img": "imgBasketball",
+            "imgUrl": "./sport/basketball.png",
+            "desc": "est un sport d'équipe où les joueurs essaient de marquer des points en lançant le ballon dans un panier."
+        },
+        "natation": {
+            "name": "Natation",
+            "img": "imgNatation",
+            "imgUrl": "./sport/natation.png",
+            "desc": "est le sport de nager dans l'eau, souvent dans une piscine."
+        },
+        "tennis": {
+            "name": "Tennis",
+            "img": "imgTennis",
+            "imgUrl": "./sport/tennis.png",
+            "desc": "est un sport de raquette joué entre deux ou quatre joueurs sur un court."
+        },
+        "course": {
+            "name": "Course",
+            "img": "imgCourse",
+            "imgUrl": "./sport/course.png",
+            "desc": "est une activité physique où l'on court pour la vitesse ou l'endurance."
+        },
+        "cyclisme": {
+            "name": "Cyclisme",
+            "img": "imgCyclisme",
+            "imgUrl": "./sport/cyclisme.png",
+            "desc": "est le sport de faire du vélo, souvent en compétition sur route ou en montagne."
+        },
+        "escalade": {
+            "name": "Escalade",
+            "img": "imgEscalade",
+            "imgUrl": "./sport/escalade.png",
+            "desc": "est le sport de grimper des parois rocheuses ou des murs artificiels."
+        },
+        "ski": {
+            "name": "Ski",
+            "img": "imgSki",
+            "imgUrl": "./sport/ski.png",
+            "desc": "est un sport de glisse sur la neige, pratiqué avec des skis."
+        },
+        "boxe": {
+            "name": "Boxe",
+            "img": "imgBoxe",
+            "imgUrl": "./sport/boxe.png",
+            "desc": "est un sport de combat où deux personnes s'affrontent avec des gants de boxe."
+        },
+        "courir": {
+            "name": "Courir",
+            "img": "imgCourir",
+            "imgUrl": "./sport/courir.png",
+            "desc": "se déplacer rapidement en utilisant les jambes, souvent pratiqué dans la course."
+        },
+        "sauter": {
+            "name": "Sauter",
+            "img": "imgSauter",
+            "imgUrl": "./sport/sauter.png",
+            "desc": "se projeter en l'air pour franchir une distance ou un obstacle."
+        },
+        "lancer": {
+            "name": "Lancer",
+            "img": "imgLancer",
+            "imgUrl": "./sport/lancer.png",
+            "desc": "projeter un objet, comme une balle ou un disque, pour atteindre une cible."
+        },
+        "nager": {
+            "name": "Nager",
+            "img": "imgNager",
+            "imgUrl": "./sport/nager.png",
+            "desc": "se déplacer dans l'eau en utilisant les bras et les jambes."
+        },
+        "frapper": {
+            "name": "Frapper",
+            "img": "imgFrapper",
+            "imgUrl": "./sport/frapper.png",
+            "desc": "utiliser une force pour toucher quelque chose, souvent avec une raquette ou le pied."
+        },
+        "grimper": {
+            "name": "Grimper",
+            "img": "imgGrimper",
+            "imgUrl": "./sport/grimper.png",
+            "desc": "monter sur une paroi ou un mur, surtout en escalade."
+        },
+        "pédaler": {
+            "name": "Pédaler",
+            "img": "imgPedaler",
+            "imgUrl": "./sport/pedaler.png",
+            "desc": "utiliser les pédales pour faire avancer un vélo."
+        },
+        "tirer": {
+            "name": "Tirer",
+            "img": "imgTirer",
+            "imgUrl": "./sport/tirer.png",
+            "desc": "envoyer une balle ou un objet vers un but ou une cible."
+        },
+        "glisser": {
+            "name": "Glisser",
+            "img": "imgGlisser",
+            "imgUrl": "./sport/glisser.png",
+            "desc": "se déplacer en douceur, comme en ski ou en patinage."
+        },
+        "combattre": {
+            "name": "Combattre",
+            "img": "imgCombattre",
+            "imgUrl": "./sport/combattre.png",
+            "desc": "participer à un combat ou un match, comme en boxe ou arts martiaux."
+        },
+        "dribbler": {
+            "name": "Dribbler",
+            "img": "imgDribbler",
+            "imgUrl": "./sport/dribbler.png",
+            "desc": "conduire et contrôler le ballon avec des mouvements rapides, comme au basketball ou football."
+        },
+        "bloquer": {
+            "name": "Bloquer",
+            "img": "imgBloquer",
+            "imgUrl": "./sport/bloquer.png",
+            "desc": "empêcher un adversaire de progresser ou de marquer, en défense."
+        },
+        "passer": {
+            "name": "Passer",
+            "img": "imgPasser",
+            "imgUrl": "./sport/passer.png",
+            "desc": "transmettre la balle ou le ballon à un coéquipier."
+        },
+        "parer": {
+            "name": "Parer",
+            "img": "imgParer",
+            "imgUrl": "./sport/parer.png",
+            "desc": "dévier ou éviter un coup ou un tir, utilisé en sports de combat."
+        },
+        "plonger": {
+            "name": "Plonger",
+            "img": "imgPlonger",
+            "imgUrl": "./sport/plonger.png",
+            "desc": "se jeter dans l'eau ou au sol, souvent en natation ou pour intercepter un ballon."
+        },
+        "attraper": {
+            "name": "Attraper",
+            "img": "imgAttraper",
+            "imgUrl": "./sport/attraper.png",
+            "desc": "saisir un objet en mouvement, comme une balle."
+        },
+        "défendre": {
+            "name": "Défendre",
+            "img": "imgDefendre",
+            "imgUrl": "./sport/defendre.png",
+            "desc": "protéger son but ou empêcher l'adversaire de marquer."
+        },
+        "servir": {
+            "name": "Servir",
+            "img": "imgServir",
+            "imgUrl": "./sport/servir.png",
+            "desc": "effectuer un service, en lançant la balle au début du jeu, comme au tennis."
+        },
+        "faire une passe": {
+            "name": "Faire une passe",
+            "img": "imgFaireUnePasse",
+            "imgUrl": "./sport/faire_une_passe.png",
+            "desc": "envoyer la balle à un coéquipier en mouvement."
+        },
+        "courber": {
+            "name": "Courber",
+            "img": "imgCourber",
+            "imgUrl": "./sport/courber.png",
+            "desc": "frapper la balle avec un effet pour changer sa trajectoire."
+        },
+        "esquiver": {
+            "name": "Esquiver",
+            "img": "imgEsquiver",
+            "imgUrl": "./sport/esquiver.png",
+            "desc": "éviter un coup ou un adversaire en se déplaçant rapidement."
+        },
+        "marquer": {
+            "name": "Marquer",
+            "img": "imgMarquer",
+            "imgUrl": "./sport/marquer.png",
+            "desc": "inscrire un point ou un but dans un match."
+        }
     }
-
 }
