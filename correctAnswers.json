@@ -4560,7 +4560,7 @@
         }
     },
     "sensEtVerbes": {
-        "vue": {
+        "La vue": {
             "name": "La vue",
             "img": "imgVue",
             "imgUrl": "./sens/vue.png",
@@ -4590,7 +4590,7 @@
             "imgUrl": "./sens/apercevoir.png",
             "desc": "voir rapidement ou de manière furtive."
         },
-        "ouïe": {
+        "L'ouïe": {
             "name": "L'ouïe",
             "img": "imgOuie",
             "imgUrl": "./sens/ouie.png",
@@ -4608,19 +4608,13 @@
             "imgUrl": "./sens/ecouter.png",
             "desc": "prêter attention aux sons ou à la parole."
         },
-        "prêter l'oreille": {
-            "name": "Prêter l'oreille",
-            "img": "imgPreterOreille",
-            "imgUrl": "./sens/preter_oreille.png",
-            "desc": "écouter avec attention."
-        },
         "percevoir": {
             "name": "Percevoir",
             "img": "imgPercevoir",
             "imgUrl": "./sens/percevoir.png",
             "desc": "détecter ou comprendre un son ou une vibration."
         },
-        "odorat": {
+        "L'odorat": {
             "name": "L'odorat",
             "img": "imgOdorat",
             "imgUrl": "./sens/odorat.png",
@@ -4650,7 +4644,7 @@
             "imgUrl": "./sens/renifler.png",
             "desc": "aspirer rapidement par le nez pour percevoir une odeur."
         },
-        "goût": {
+        "Le goût": {
             "name": "Le goût",
             "img": "imgGout",
             "imgUrl": "./sens/gout.png",
@@ -4680,7 +4674,7 @@
             "imgUrl": "./sens/relever.png",
             "desc": "sentir le goût, souvent de manière prononcée."
         },
-        "toucher": {
+        "Le toucher": {
             "name": "Le toucher",
             "img": "imgToucher",
             "imgUrl": "./sens/toucher.png",
@@ -4706,56 +4700,56 @@
         }
     },
     "motsAssociesAuSport": {
-        "football": {
-            "name": "Football",
+        "Le football": {
+            "name": "Le football",
             "img": "imgFootball",
             "imgUrl": "./sport/football.png",
             "desc": "est un sport d'équipe joué avec un ballon rond, visant à marquer des buts."
         },
-        "basketball": {
-            "name": "Basketball",
+        "Le basketball": {
+            "name": "Le basketball",
             "img": "imgBasketball",
             "imgUrl": "./sport/basketball.png",
             "desc": "est un sport d'équipe où les joueurs essaient de marquer des points en lançant le ballon dans un panier."
         },
-        "natation": {
-            "name": "Natation",
+        "La natation": {
+            "name": "La natation",
             "img": "imgNatation",
             "imgUrl": "./sport/natation.png",
             "desc": "est le sport de nager dans l'eau, souvent dans une piscine."
         },
-        "tennis": {
-            "name": "Tennis",
+        "Le tennis": {
+            "name": "Le tennis",
             "img": "imgTennis",
             "imgUrl": "./sport/tennis.png",
             "desc": "est un sport de raquette joué entre deux ou quatre joueurs sur un court."
         },
-        "course": {
-            "name": "Course",
+        "La course": {
+            "name": "La course",
             "img": "imgCourse",
             "imgUrl": "./sport/course.png",
             "desc": "est une activité physique où l'on court pour la vitesse ou l'endurance."
         },
-        "cyclisme": {
-            "name": "Cyclisme",
+        "Le cyclisme": {
+            "name": "Le cyclisme",
             "img": "imgCyclisme",
             "imgUrl": "./sport/cyclisme.png",
             "desc": "est le sport de faire du vélo, souvent en compétition sur route ou en montagne."
         },
-        "escalade": {
-            "name": "Escalade",
+        "L'escalade": {
+            "name": "L'escalade",
             "img": "imgEscalade",
             "imgUrl": "./sport/escalade.png",
             "desc": "est le sport de grimper des parois rocheuses ou des murs artificiels."
         },
-        "ski": {
-            "name": "Ski",
+        "Le ski": {
+            "name": "Le ski",
             "img": "imgSki",
             "imgUrl": "./sport/ski.png",
             "desc": "est un sport de glisse sur la neige, pratiqué avec des skis."
         },
-        "boxe": {
-            "name": "Boxe",
+        "La boxe": {
+            "name": "La boxe",
             "img": "imgBoxe",
             "imgUrl": "./sport/boxe.png",
             "desc": "est un sport de combat où deux personnes s'affrontent avec des gants de boxe."
@@ -4867,12 +4861,6 @@
             "img": "imgServir",
             "imgUrl": "./sport/servir.png",
             "desc": "effectuer un service, en lançant la balle au début du jeu, comme au tennis."
-        },
-        "faire une passe": {
-            "name": "Faire une passe",
-            "img": "imgFaireUnePasse",
-            "imgUrl": "./sport/faire_une_passe.png",
-            "desc": "envoyer la balle à un coéquipier en mouvement."
         },
         "courber": {
             "name": "Courber",
