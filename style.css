@@ -273,7 +273,9 @@ button:disabled {
     width: 50%;
     text-align: center;
 }
-
+#gameArea {
+    position: relative;
+}
 #boxfeedback {
     display: flex;
     justify-content: center;
@@ -320,6 +322,35 @@ h1 {
     max-width: 600px;
 }
 
+
+/* Ajuste as dimensões, cores e posicionamento conforme a necessidade */
+.dropzone, .draggable {
+    position: relative;
+  }
+  
+  .connectionDot {
+    width: 12px;
+    height: 12px;
+    background: red;
+    border-radius: 50%;
+    cursor: crosshair;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 10;
+    border: 2px solid #fff;
+  }
+
+#connectionCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+
+}
 
 /* Animação de Feedback */
 @keyframes feedbackAnimation {

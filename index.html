@@ -119,35 +119,28 @@
         </select>
     </div>
 
-    <!-- Botões de ação -->
+
     <div id="boxBotao">
-        <button id="startGameBtn"> Commencer un nouveau jeu</button>
+        <button id="startGameBtn">Commencer un nouveau jeu</button>
         <button id="finishGameBtn" disabled><a>Terminer et voir le vocabulaire</a></button>
-
         <button id="randomButton"><a>Changer de catégorie</a></button>
-
     </div>
 
-
-    <!-- Feedback para o usuário -->
     <div id="boxfeedback">
         <p id="feedback"></p>
     </div>
 
-    <!-- Área do jogo -->
     <div id="gameArea">
+        <!-- SVG para linhas -->
+        <svg id="connectionCanvas"></svg>
+
+        
         <div id="professions"></div>
         <div id="items"></div>
-
     </div>
     <div id="boxgenerateItemsBtn">
         <button id="generateItemsBtn"><a>Accéder à la page suivante</a></button>
     </div>
-
-
-
-
-
 
     <div id="score" style="visibility: hidden;">Score: 0</div>
     <script src="script.js"></script>

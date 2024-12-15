@@ -9,6 +9,14 @@ let itemsPerPage = 4; // Valor padrão
 
 let correctAnswers = {};
 
+// Variáveis para conexão de pontos
+let isDrawingLine = false;
+let lineStartElement = null;
+let currentLine = null;
+let svg = null;
+let startX = 0;
+let startY = 0;
+
 // Função para carregar os dados do arquivo JSON
 function loadCorrectAnswers() {
     return fetch('correctAnswers.json')
@@ -38,6 +46,13 @@ window.onload = async function () {
 
     // Evento para seleção de itens por página
     document.getElementById('itemsPerPageSelect').addEventListener('change', updateItemsPerPage);
+
+    // Obtém referência ao SVG
+    svg = document.getElementById('connectionCanvas');
+
+    // Eventos de mouse para desenhar linha
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
 
     // Carrega a categoria e o modo selecionados inicialmente
     loadSelectedCategory();
@@ -74,11 +89,10 @@ function playSound(text) {
         // Certifique-se de que as vozes foram carregadas
         loadVoices().then((voices) => {
             const utterance = new SpeechSynthesisUtterance(text);
-            utterance.rate = 0.9;  // Fala um pouco mais lenta
-            utterance.pitch = 1.1; // Aumenta levemente o tom
-            utterance.volume = 1;  // Volume máximo
+            utterance.rate = 0.9;  
+            utterance.pitch = 1.1; 
+            utterance.volume = 1;  
 
-            // Verifica se é Safari no iOS
             const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
             if (isSafari) {
@@ -88,32 +102,35 @@ function playSound(text) {
                     utterance.lang = 'fr-FR';
                     console.log("Usando a voz Thomas no Safari.");
                 } else {
-                    console.warn("A voz Thomas não foi encontrada no Safari.");
+                    console.warn("A voz Thomas não foi encontrada no Safari. Tentando voz francesa padrão.");
+                    const anyFrench = voices.find(voice => voice.lang === 'fr-FR');
+                    if (anyFrench) {
+                        utterance.voice = anyFrench;
+                        utterance.lang = 'fr-FR';
+                    }
                 }
             } else {
-                const chromeFrenchVoice = voices.find(voice => voice.lang === 'fr-FR' && voice.name.includes('Google')) ||
-                    voices.find(voice => voice.lang === 'fr-FR');
+                // Tentar voz Google ou qualquer voz francesa
+                let chromeFrenchVoice = voices.find(voice => voice.lang === 'fr-FR' && voice.name.includes('Google')) ||
+                                        voices.find(voice => voice.lang === 'fr-FR');
                 if (chromeFrenchVoice) {
                     utterance.voice = chromeFrenchVoice;
                     utterance.lang = 'fr-FR';
-                    console.log("Usando a voz Google no Chrome.");
+                    console.log("Voz francesa encontrada: " + chromeFrenchVoice.name);
                 } else {
-                    console.warn("Nenhuma voz francesa foi encontrada.");
+                    console.warn("Nenhuma voz francesa foi encontrada, usando voz padrão.");
                 }
             }
 
-            // Cancelar qualquer fala em andamento antes de iniciar
             if (window.speechSynthesis.speaking) {
                 console.log("Cancelando fala anterior...");
                 window.speechSynthesis.cancel();
             }
 
-            // Adicionar evento de finalização para depuração
             utterance.onend = () => {
                 console.log("Fala concluída.");
             };
 
-            // Iniciar a fala
             window.speechSynthesis.speak(utterance);
         });
     } else {
@@ -121,14 +138,10 @@ function playSound(text) {
     }
 }
 
-
-
-
 //-----------------------------------------------------------------------------------------
 
 function generateNewItems() {
     const selectedCategory = document.getElementById('categorySelect').value;
-
     const allItems = Object.keys(correctAnswers[selectedCategory]);
     const unusedItems = allItems.filter(item => !usedItems[selectedCategory]?.includes(item));
 
@@ -153,33 +166,25 @@ function loadSelectedCategory() {
 
     if (selectedMode === 'game') {
         loadCategoryItems(selectedCategory, true);
-        // Habilitar botões relacionados ao jogo
         document.getElementById('generateItemsBtn').disabled = false;
         document.getElementById('finishGameBtn').disabled = true;
         document.getElementById('startGameBtn').disabled = false;
         document.getElementById('boxItemsPerPage').style.display = 'none';
-        document.getElementById('pagination').style.display = 'none';
-
-
-        // Exibir botões relacionados ao jogo
+        const pagination = document.getElementById('pagination');
+        if (pagination) pagination.style.display = 'none';
         document.getElementById('generateItemsBtn').style.display = 'block';
         document.getElementById('finishGameBtn').style.display = 'block';
         document.getElementById('startGameBtn').style.display = 'block';
-
-
-        // Adiciona a classe gameMode
         gameArea.classList.add('gameMode');
     } else if (selectedMode === 'vocabulary') {
         loadVocabulary(selectedCategory);
-        // Desabilitar botões relacionados ao jogo
         document.getElementById('generateItemsBtn').disabled = true;
         document.getElementById('finishGameBtn').style.display = 'none';
         document.getElementById('startGameBtn').style.display = 'none';
         document.getElementById('generateItemsBtn').style.display = 'none';
         document.getElementById('boxItemsPerPage').style.display = 'block';
-        document.getElementById('pagination').style.display = 'flex';
-
-        // Adiciona a classe vocabMode
+        const pagination = document.getElementById('pagination');
+        if (pagination) pagination.style.display = 'flex';
         gameArea.classList.add('vocabMode');
     }
 }
@@ -190,29 +195,22 @@ function loadRandomCategory() {
     const randomCategory = categories[randomIndex];
 
     document.getElementById('categorySelect').value = randomCategory;
-
     loadSelectedCategory();
 }
 
 //---------------------------------------
 function loadCategoryItems(category, resetScore = false) {
-    // Reabilita o botão "Generate Items"
     document.getElementById("generateItemsBtn").disabled = false;
-
-    // Desabilita o botão 'Terminer le Jeu' no início de um novo jogo
     document.getElementById('finishGameBtn').disabled = true;
 
-    // Remove o contêiner de resultados se existir
     const existingResultsContainer = document.getElementById('vocabularyList');
     if (existingResultsContainer) {
         existingResultsContainer.parentNode.removeChild(existingResultsContainer);
     }
 
-    // Oculta a div de feedback ao carregar novos itens
     document.getElementById("feedback").style.display = 'none';
     document.getElementById("feedback").innerText = '';
 
-    // Reinicia o placar e as tentativas, se necessário
     if (resetScore) {
         score = 0;
         updateScore();
@@ -225,7 +223,6 @@ function loadCategoryItems(category, resetScore = false) {
     const unusedItems = allItems.filter(item => !usedItems[category]?.includes(item));
 
     if (unusedItems.length === 0) {
-        // Não há mais itens não usados
         document.getElementById("generateItemsBtn").disabled = true;
         return;
     }
@@ -238,23 +235,19 @@ function loadCategoryItems(category, resetScore = false) {
     }
     usedItems[category] = usedItems[category].concat(items);
 
-    // Adiciona os itens ao array de itens jogados, evitando duplicatas
     items.forEach(item => {
         if (!playedItems.includes(item)) {
             playedItems.push(item);
         }
     });
 
-    // Limpa e cria as zonas de drop dinamicamente
     const professionsContainer = document.getElementById('professions');
     professionsContainer.innerHTML = '';
-    professionsContainer.classList.remove('vocabMode'); // Remove a classe vocabMode
+    professionsContainer.classList.remove('vocabMode');
     items.forEach(word => {
         const zone = document.createElement('div');
         zone.className = 'dropzone';
         zone.id = word;
-        zone.ondrop = drop;
-        zone.ondragover = allowDrop;
 
         const wordText = document.createElement('span');
         wordText.innerText = word;
@@ -269,75 +262,71 @@ function loadCategoryItems(category, resetScore = false) {
             playSound(word);
         });
 
+        // Ponto de conexão
+        const connectionDot = document.createElement('div');
+        connectionDot.className = 'connectionDot';
+        connectionDot.addEventListener('mousedown', (e) => startConnection(e, zone, 'word'));
+
         zone.appendChild(wordText);
         zone.appendChild(soundIcon);
+        zone.appendChild(connectionDot);
+
         professionsContainer.appendChild(zone);
     });
 
-    // Cria os itens arrastáveis dinamicamente
     const itemContainer = document.getElementById('items');
     itemContainer.innerHTML = '';
     const shuffledImages = shuffle(items.slice());
     shuffledImages.forEach(item => {
         const div = document.createElement('div');
         div.className = 'draggable';
-        div.draggable = true;
         div.style.backgroundImage = `url(${correctAnswers[category][item].imgUrl})`;
-        div.ondragstart = drag;
         div.id = correctAnswers[category][item].img;
         div.dataset.category = category;
         div.dataset.word = item;
 
-        // Adicionar evento de clique para mostrar a descrição
         div.addEventListener('click', function () {
             const description = correctAnswers[category][item].desc;
             showFeedback(null, description, true);
         });
 
+        // Ponto de conexão na imagem
+        const connectionDot = document.createElement('div');
+        connectionDot.className = 'connectionDot';
+        connectionDot.addEventListener('mousedown', (e) => startConnection(e, div, 'image'));
+
+        div.appendChild(connectionDot);
         itemContainer.appendChild(div);
     });
 }
 
 function loadVocabulary(category) {
-    // Limpa o conteúdo existente
     const professionsContainer = document.getElementById('professions');
     professionsContainer.innerHTML = '';
     const itemContainer = document.getElementById('items');
     itemContainer.innerHTML = '';
     document.getElementById("feedback").style.display = 'none';
 
-    // Remove o contêiner de paginação se existir
     const existingPagination = document.getElementById('pagination');
     if (existingPagination) {
         existingPagination.parentNode.removeChild(existingPagination);
     }
 
-    // Adiciona a classe vocabMode ao contêiner
     professionsContainer.classList.add('vocabMode');
 
-    // Obter todos os itens na categoria selecionada
     const allItems = Object.keys(correctAnswers[category]);
-
-    // Calcular o número total de páginas
     const totalPages = Math.ceil(allItems.length / itemsPerPage);
 
-    // Limitar o número da página atual entre 1 e totalPages
     currentPage = Math.max(1, Math.min(currentPage, totalPages));
-
-    // Determinar os itens para a página atual
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const itemsToShow = allItems.slice(startIndex, endIndex);
 
-    // Exibir cada palavra com sua imagem correspondente
     itemsToShow.forEach(word => {
         const item = correctAnswers[category][word];
-
-        // Cria um contêiner para a palavra e a imagem
         const vocabContainer = document.createElement('div');
         vocabContainer.className = 'vocabContainer';
 
-        // Cria a palavra (usando a classe .vocabWord)
         const wordDiv = document.createElement('div');
         wordDiv.className = 'vocabWord';
         wordDiv.id = word;
@@ -345,7 +334,6 @@ function loadVocabulary(category) {
         const wordText = document.createElement('span');
         wordText.innerText = word;
 
-        // Ícone de som para a palavra
         const soundIcon = document.createElement('img');
         soundIcon.src = "https://i.ibb.co/YPw1Z7y/2058142.png";
         soundIcon.alt = "Play Sound";
@@ -359,33 +347,26 @@ function loadVocabulary(category) {
         wordDiv.appendChild(wordText);
         wordDiv.appendChild(soundIcon);
 
-        // Cria a imagem (usando a classe .vocabImage)
         const imageDiv = document.createElement('div');
         imageDiv.className = 'vocabImage';
         imageDiv.style.backgroundImage = `url(${item.imgUrl})`;
         imageDiv.style.cursor = 'pointer';
         imageDiv.draggable = false;
 
-        // Mostrar descrição ao clicar na imagem
         imageDiv.addEventListener('click', function () {
             const description = item.desc;
             showFeedback(null, description, true);
         });
 
-        // Adiciona a palavra e a imagem ao contêiner
         vocabContainer.appendChild(wordDiv);
         vocabContainer.appendChild(imageDiv);
-
-        // Adiciona o contêiner ao elemento principal
         professionsContainer.appendChild(vocabContainer);
     });
 
-    // Adicionar botões de navegação
     addPaginationButtons(totalPages);
 }
 
 function addPaginationButtons(totalPages) {
-    // Remover botões de paginação existentes
     const existingPagination = document.getElementById('pagination');
     if (existingPagination) {
         existingPagination.parentNode.removeChild(existingPagination);
@@ -394,7 +375,6 @@ function addPaginationButtons(totalPages) {
     const paginationContainer = document.createElement('div');
     paginationContainer.id = 'pagination';
 
-    // Botão Anterior
     const prevButton = document.createElement('button');
     prevButton.innerText = 'Précédent';
     prevButton.disabled = currentPage === 1;
@@ -403,7 +383,6 @@ function addPaginationButtons(totalPages) {
         loadVocabulary(document.getElementById('categorySelect').value);
     });
 
-    // Botão Próximo
     const nextButton = document.createElement('button');
     nextButton.innerText = 'Suivant';
     nextButton.disabled = currentPage === totalPages;
@@ -415,71 +394,162 @@ function addPaginationButtons(totalPages) {
     paginationContainer.appendChild(prevButton);
     paginationContainer.appendChild(nextButton);
 
-    // Adicionar o contêiner de paginação ao DOM
     document.getElementById('gameArea').appendChild(paginationContainer);
 }
 
 //----------------------------------------------------
-function allowDrop(event) {
+// Funções para a lógica de conexão (linhas)
+
+function startConnection(event, element, type) {
     event.preventDefault();
+    isDrawingLine = true;
+    lineStartElement = element;
+
+    const gameAreaRect = document.getElementById('gameArea').getBoundingClientRect();
+const rect = element.getBoundingClientRect();
+
+// Calcula a posição do elemento relativo ao #gameArea
+const elementX = (rect.left - gameAreaRect.left) + rect.width / 2;
+const elementY = (rect.top - gameAreaRect.top) + rect.height / 2;
+
+startX = elementX;
+startY = elementY;
+
+    
+
+    currentLine = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+currentLine.setAttribute('x1', startX);
+currentLine.setAttribute('y1', startY);
+currentLine.setAttribute('x2', startX);
+currentLine.setAttribute('y2', startY);
+currentLine.setAttribute('stroke', 'blue');
+currentLine.setAttribute('stroke-width', '4');
+currentLine.setAttribute('pointer-events', 'none');
+svg.appendChild(currentLine);
+
 }
 
-function drag(event) {
-    event.dataTransfer.setData("text", event.target.id);
+function handleMouseMove(event) {
+    if (!isDrawingLine || !currentLine) return;
 
-    // Habilita o botão 'Terminer le Jeu' quando o usuário começa a arrastar
-    document.getElementById('finishGameBtn').disabled = false;
+    const gameAreaRect = document.getElementById('gameArea').getBoundingClientRect();
+    const x = event.clientX - gameAreaRect.left;
+    const y = event.clientY - gameAreaRect.top;
+
+    currentLine.setAttribute('x2', x);
+    currentLine.setAttribute('y2', y);
 }
 
-function drop(event) {
-    event.preventDefault();
-    const data = event.dataTransfer.getData("text"); // ID do elemento arrastado
-    const dropzoneId = event.target.id; // Palavra correspondente à zona de drop
+
+function handleMouseUp(event) {
+    if (!isDrawingLine) return;
+    isDrawingLine = false;
+
+    // Verifica o elemento sob o mouse no momento do mouseup
+    const targetElement = document.elementFromPoint(event.clientX, event.clientY);
+
+    if (!targetElement || !lineStartElement) {
+        cleanupLine();
+        return;
+    }
+
+    // Precisamos identificar se soltamos sobre um connectionDot de outro elemento correto
+    let endElement = targetElement.closest('.draggable') || targetElement.closest('.dropzone');
+    if (!endElement) {
+        // Não soltou em um elemento válido
+        cleanupLine();
+        showFeedback(false, "Incorrect! Essayez à nouveau.");
+        return;
+    }
+
+    const startWord = lineStartElement.dataset?.word || lineStartElement.id; 
+    const endWord = endElement.dataset?.word || endElement.id;
 
     const selectedCategory = document.getElementById('categorySelect').value;
+    const startIsWordBox = lineStartElement.classList.contains('dropzone');
+    const endIsWordBox = endElement.classList.contains('dropzone');
 
-    // Item correto para esta zona de drop
-    const correctItem = correctAnswers[selectedCategory][dropzoneId];
-    const correctName = correctItem.name;
-    const correctDesc = correctItem.desc;
+    // Queremos ligar uma palavra a uma imagem. Se ambos forem palavras ou ambos forem imagens, não faz sentido.
+    if ((startIsWordBox && endIsWordBox) || (!startIsWordBox && !endIsWordBox)) {
+        cleanupLine();
+        showFeedback(false, "Incorrect! Essayez à nouveau.");
+        return;
+    }
 
-    // Obter o elemento arrastado
-    const draggedElement = document.getElementById(data);
-    const draggedWord = draggedElement.dataset.word; // Palavra do item arrastado
-    const draggedItem = correctAnswers[selectedCategory][draggedWord];
-    const draggedName = draggedItem.name;
-    const draggedDesc = draggedItem.desc;
+    // Identifica qual é a palavra e qual é a imagem
+    let word, draggedWord;
+    if (startIsWordBox) {
+        word = startWord;
+        draggedWord = endWord;
+    } else {
+        word = endWord;
+        draggedWord = startWord;
+    }
 
-    // Inicializa o status do item no objeto itemAttempts
+    // Check correctness
+    const correctItem = correctAnswers[selectedCategory][word];
+
     itemAttempts[draggedWord] = itemAttempts[draggedWord] || {};
 
-    if (dropzoneId === draggedWord) {
-        // Correspondência correta
-        document.getElementById(data).classList.add('correct');
-        event.target.appendChild(document.getElementById(data));
+    if (word === draggedWord) {
+        // Correto
         score += 10;
         updateScore();
-
-        const message = "Correct! " + correctName + " " + correctDesc;
+        const message = "Correct! " + correctItem.name + " " + correctItem.desc;
         showFeedback(true, message);
 
-        // Atualiza o status para correto
+        // Atualiza status para correto
         itemAttempts[draggedWord].correct = true;
+
+        // Mover o item visualmente (caso seja imagem ligando à palavra)
+        if (!startIsWordBox) {
+            // start é imagem e end é palavra
+            endElement.appendChild(lineStartElement);
+            lineStartElement.classList.add('correct');
+        } else {
+            // start é palavra e end é imagem
+            lineStartElement.appendChild(endElement);
+            endElement.classList.add('correct');
+        }
+
     } else {
-        // Correspondência incorreta
-        document.getElementById(data).classList.add('wrong');
+        // Incorreto
         score -= 5;
         updateScore();
         showFeedback(false, "Incorrect! Essayez à nouveau.");
 
-        // Atualiza o status para incorreto somente se ainda não estiver correto
+        // Atualiza status
         if (!itemAttempts[draggedWord].correct) {
             itemAttempts[draggedWord].correct = false;
         }
     }
 
-    // Verifica se todos os itens foram usados
     checkGameEnd();
+    cleanupLine();
+}
+
+function cleanupLine() {
+    if (currentLine && svg.contains(currentLine)) {
+        svg.removeChild(currentLine);
+    }
+    currentLine = null;
+    lineStartElement = null;
+    isDrawingLine = false;
+}
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+// Arrastar/soltar originais se ainda forem usados
+function drag(event) {
+    event.dataTransfer.setData("text", event.target.id);
+    document.getElementById('finishGameBtn').disabled = false;
+}
+
+function drop(event) {
+    event.preventDefault();
+    // Mantenha se quiser o modo antigo, mas agora a mecânica principal é via linhas
 }
 
 function updateScore() {
@@ -490,7 +560,7 @@ function showFeedback(isCorrect, message, isDescription = false) {
     const feedback = document.getElementById("feedback");
 
     if (message && message.trim() !== '') {
-        feedback.style.display = 'block'; // Mostra a div de feedback
+        feedback.style.display = 'block';
 
         if (isDescription) {
             feedback.style.color = "#333333";
@@ -498,14 +568,10 @@ function showFeedback(isCorrect, message, isDescription = false) {
             feedback.style.color = isCorrect ? "#4CAF50" : "#ff8a80";
         }
 
-        // Limpa o conteúdo anterior
         feedback.innerHTML = '';
-
-        // Cria o texto do feedback
         const feedbackText = document.createElement('span');
         feedbackText.innerText = message;
 
-        // Cria o ícone de som
         const soundIcon = document.createElement('img');
         soundIcon.src = "https://i.ibb.co/YPw1Z7y/2058142.png";
         soundIcon.alt = "Ícone de som";
@@ -513,17 +579,15 @@ function showFeedback(isCorrect, message, isDescription = false) {
         soundIcon.style.width = '32px';
         soundIcon.style.height = '32px';
 
-        // Adiciona evento de clique ao ícone de som para tocar o feedback
         soundIcon.addEventListener('click', function () {
             playSound(message);
         });
 
-        // Adiciona o texto e o ícone ao feedback
         feedback.appendChild(feedbackText);
         feedback.appendChild(soundIcon);
 
     } else {
-        feedback.style.display = 'none'; // Oculta a div de feedback
+        feedback.style.display = 'none';
         feedback.innerText = '';
     }
 }
@@ -540,15 +604,13 @@ function checkGameEnd() {
     const selectedCategory = document.getElementById('categorySelect').value;
     const allItems = Object.keys(correctAnswers[selectedCategory]);
 
-    if (usedItems[selectedCategory].length >= allItems.length) {
-        // Todos os itens foram usados
+    if (usedItems[selectedCategory] && usedItems[selectedCategory].length >= allItems.length) {
         document.getElementById("generateItemsBtn").disabled = true;
     }
 }
 
 function endGame() {
     const feedbackDiv = document.getElementById("feedback");
-
     const totalAttempts = Object.keys(itemAttempts).length;
     const correctPlacements = Object.values(itemAttempts).filter(item => item.correct).length;
 
@@ -559,19 +621,15 @@ function endGame() {
 
     feedbackDiv.innerText = `Jeu terminé! Vous avez correctement placé ${correctPlacements} sur ${totalAttempts} élément(s).`;
 
-    // Criar o contêiner principal para a lista de vocabulário
     const vocabularyList = document.createElement('div');
     vocabularyList.id = 'vocabularyList';
     vocabularyList.innerHTML = '<h3 id="titulo2">Liste de vocabulaire:</h3>';
 
-    // Cria a lista ordenada
     const vocabOl = document.createElement('ol');
     vocabOl.className = "vocabularyList";
 
-    // Obter a categoria selecionada
     const selectedCategory = document.getElementById('categorySelect').value;
 
-    // Loop através dos itens jogados e cria os elementos de lista
     playedItems.forEach(itemKey => {
         const item = correctAnswers[selectedCategory][itemKey];
         const li = document.createElement('li');
@@ -580,12 +638,8 @@ function endGame() {
         vocabOl.appendChild(li);
     });
 
-    // Adiciona a lista ao contêiner principal
     vocabularyList.appendChild(vocabOl);
-
-    // Adiciona o contêiner de vocabulário ao corpo do documento
     document.body.appendChild(vocabularyList);
 
-    // Desabilita o botão 'Terminer le Jeu' após o término
     document.getElementById('finishGameBtn').disabled = true;
 }
