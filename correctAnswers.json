@@ -2641,7 +2641,308 @@
             "img": "imgGratitude",
             "imgUrl": "./emotions/gratitude.png",
             "desc": "est la reconnaissance pour un bienfait reçu."
-        }
+        },
+         "affame": {
+        "name": "Affamé",
+        "img": "imgAffame",
+        "imgUrl": "./emotions/affame.png",
+        "desc": "Qualifier quelqu'un qui a très faim."
+    },
+    "angelique": {
+        "name": "Angélique",
+        "img": "imgAngelique",
+        "imgUrl": "./emotions/angelique.png",
+        "desc": "Qualifier quelqu'un avec un comportement pur et innocent ou par l'apparence."
+    },
+    "angoisse": {
+        "name": "Angoissé",
+        "img": "imgAngoisse",
+        "imgUrl": "./emotions/angoisse.png",
+        "desc": "Décrire une personne qui ressent une forte inquiétude ou une anxiété intense."
+    },
+    "assidu": {
+        "name": "Assidu",
+        "img": "imgAssidu",
+        "imgUrl": "./emotions/assidu.png",
+        "desc": "Quelqu'un qui démontre de la régularité et de la persévérance dans son travail."
+    },
+    "attentionne": {
+        "name": "Attentionné",
+        "img": "imgAttentionne",
+        "imgUrl": "./emotions/attentionne.png",
+        "desc": "Quelqu'un qui fait preuve de soin et de considération envers les autres."
+    },
+    "bienveillant": {
+        "name": "Bienveillant",
+        "img": "imgBienveillant",
+        "imgUrl": "./emotions/bienveillant.png",
+        "desc": "Qualifier une personne qui souhaite le bien des autres et qui est aimable."
+    },
+    "bavard": {
+        "name": "Bavard",
+        "img": "imgBavard",
+        "imgUrl": "./emotions/bavard.png",
+        "desc": "Décrire quelqu'un qui parle beaucoup."
+    },
+    "chaleureux": {
+        "name": "Chaleureux",
+        "img": "imgChaleureux",
+        "imgUrl": "./emotions/chaleureux.png",
+        "desc": "Quelqu'un qui est très accueillant et amical."
+    },
+    "compatissant": {
+        "name": "Compatissant",
+        "img": "imgCompatissant",
+        "imgUrl": "./emotions/compatissant.png",
+        "desc": "Qualifier une personne qui partage la souffrance des autres et qui est empathique."
+    },
+    "comprehensif": {
+        "name": "Compréhensif",
+        "img": "imgCompréhensif",
+        "imgUrl": "./emotions/comprehensif.png",
+        "desc": "Décrire quelqu'un qui est capable de comprendre les émotions et les besoins des autres."
+    },
+    "confiant": {
+        "name": "Confiant",
+        "img": "imgConfiant",
+        "imgUrl": "./emotions/confiant.png",
+        "desc": "Décrire quelqu'un qui a une grande confiance en soi ou en une situation."
+    },
+    "consternant": {
+        "name": "Consternant",
+        "img": "imgConsternant",
+        "imgUrl": "./emotions/consternant.png",
+        "desc": "Décrire quelque chose qui provoque surprise et déception en même temps."
+    },
+    "courtois": {
+        "name": "Courtois",
+        "img": "imgCourtois",
+        "imgUrl": "./emotions/courtois.png",
+        "desc": "Quelqu'un de poli et respectueux dans ses relations."
+    },
+    "craintif": {
+        "name": "Craintif",
+        "img": "imgCraintif",
+        "imgUrl": "./emotions/craintif.png",
+        "desc": "Décrire quelqu'un qui a facilement peur ou qui est rapidement inquiet."
+    },
+    "debrouillard": {
+        "name": "Débrouillard",
+        "img": "imgDebrouillard",
+        "imgUrl": "./emotions/debrouillard.png",
+        "desc": "Qualifier une personne qui sait se sortir de situations difficiles avec ingéniosité."
+    },
+    "delicat": {
+        "name": "Délicat",
+        "img": "imgDelicat",
+        "imgUrl": "./emotions/delicat.png",
+        "desc": "Qualifier quelque chose ou quelqu'un qui est fragile ou sensible."
+    },
+    "desinvolte": {
+        "name": "Désinvolte",
+        "img": "imgDesinvolte",
+        "imgUrl": "./emotions/desinvolte.png",
+        "desc": "Décrire une personne qui montre une attitude indifférente de manière excessive ou insolente."
+    },
+    "devoue": {
+        "name": "Dévoué",
+        "img": "imgDevoue",
+        "imgUrl": "./emotions/devoue.png",
+        "desc": "Quelqu'un qui est totalement engagé dans ce qu'il fait ou envers quelqu'un."
+    },
+    "diligent": {
+        "name": "Diligent",
+        "img": "imgDiligent",
+        "imgUrl": "./emotions/diligent.png",
+        "desc": "Qualifier quelqu'un qui travaille avec soin et efficacité."
+    },
+    "diplomate": {
+        "name": "Diplomate",
+        "img": "imgDiplomate",
+        "imgUrl": "./emotions/diplomate.png",
+        "desc": "Quelqu'un qui sait résoudre les conflits avec délicatesse et intelligence."
+    },
+    "douillet": {
+        "name": "Douillet",
+        "img": "imgDouillet",
+        "imgUrl": "./emotions/douillet.png",
+        "desc": "Décrire quelqu'un qui n'aime pas la douleur ou qui est particulièrement sensible à l'inconfort."
+    },
+    "doux": {
+        "name": "Doux",
+        "img": "imgDoux",
+        "imgUrl": "./emotions/doux.png",
+        "desc": "Qualifier une personne ou une chose qui est agréable, tendre ou sans violence."
+    },
+    "eblouissant": {
+        "name": "Éblouissant",
+        "img": "imgEblouissant",
+        "imgUrl": "./emotions/eblouissant.png",
+        "desc": "Décrire quelque chose ou quelqu'un d'exceptionnel qui impressionne par sa beauté ou ses qualités."
+    },
+    "econome": {
+        "name": "Économe",
+        "img": "imgEconome",
+        "imgUrl": "./emotions/econome.png",
+        "desc": "Quelqu'un qui fait attention à ses dépenses et évite le gaspillage."
+    },
+    "elance": {
+        "name": "Élancé",
+        "img": "imgElance",
+        "imgUrl": "./emotions/elance.png",
+        "desc": "Décrire quelqu'un qui est mince et grand, avec une apparence gracieuse."
+    },
+    "effrayant": {
+        "name": "Effrayant",
+        "img": "imgEffrayant",
+        "imgUrl": "./emotions/effrayant.png",
+        "desc": "Décrire quelque chose ou quelqu'un qui inspire la peur ou l'inquiétude."
+    },
+    "eloquent": {
+        "name": "Éloquent",
+        "img": "imgEloquent",
+        "imgUrl": "./emotions/eloquent.png",
+        "desc": "Décrire quelqu'un qui s'exprime avec aisance et qui impressionne par la qualité de son discours."
+    },
+    "eveille": {
+        "name": "Éveillé",
+        "img": "imgEveille",
+        "imgUrl": "./emotions/eveille.png",
+        "desc": "Décrire une personne pleine de vie et de vivacité."
+    },
+    "epoustouflant": {
+        "name": "Époustouflant",
+        "img": "imgEpoustouflant",
+        "imgUrl": "./emotions/epoustouflant.png",
+        "desc": "Décrire quelque chose ou quelqu'un d'extraordinaire qui surprend ou impressionne fortement."
+    },
+    "epouvantant": {
+        "name": "Éprouvant",
+        "img": "imgEpouvantant",
+        "imgUrl": "./emotions/epouvantant.png",
+        "desc": "Décrire une situation ou une tâche qui demande beaucoup d'effort ou qui est très fatigante."
+    },
+    "extroverti": {
+        "name": "Extroverti",
+        "img": "imgExtroverti",
+        "imgUrl": "./emotions/extroverti.png",
+        "desc": "Quelqu'un qui est ouvert, sociable et qui recherche l'interaction avec les autres."
+    },
+    "farfelu": {
+        "name": "Farfelu",
+        "img": "imgFarfelu",
+        "imgUrl": "./emotions/farfelu.png",
+        "desc": "Décrire une personne ou une idée qui est un peu excentrique ou étrange."
+    },
+    "fastidieux": {
+        "name": "Fastidieux",
+        "img": "imgFastidieux",
+        "imgUrl": "./emotions/fastidieux.png",
+        "desc": "Décrire une tâche longue et ennuyeuse, souvent répétitive."
+    },
+    "fiable": {
+        "name": "Fiable",
+        "img": "imgFiable",
+        "imgUrl": "./emotions/fiable.png",
+        "desc": "Quelqu'un en qui on peut avoir confiance ou quelque chose en quoi on peut avoir confiance."
+    },
+    "fidelle": {
+        "name": "Fidèle",
+        "img": "imgFidelle",
+        "imgUrl": "./emotions/fidelle.png",
+        "desc": "Qualifier une personne qui ne trahit pas les autres et qui reste avec eux."
+    },
+    "franc": {
+        "name": "Franc",
+        "img": "imgFranc",
+        "imgUrl": "./emotions/franc.png",
+        "desc": "Décrire quelqu'un qui dit ce qu'il pense, sans détour."
+    },
+    "generueux": {
+        "name": "Généreux",
+        "img": "imgGenerueux",
+        "imgUrl": "./emotions/generueux.png",
+        "desc": "Qualifier une personne qui donne beaucoup et qui ne compte pas quand elle le fait."
+    },
+    "habile": {
+        "name": "Habile",
+        "img": "imgHabile",
+        "imgUrl": "./emotions/habile.png",
+        "desc": "Décrire quelqu'un qui est adroit, que ce soit manuellement ou mentalement."
+    },
+    "honnete": {
+        "name": "Honnête",
+        "img": "imgHonnete",
+        "imgUrl": "./emotions/honnete.png",
+        "desc": "Décrire une personne qui dit la vérité et agit avec intégrité."
+    },
+    "humble": {
+        "name": "Humble",
+        "img": "imgHumble",
+        "imgUrl": "./emotions/humble.png",
+        "desc": "Qualifier quelqu'un qui ne se vante pas de ses réussites et qui reste modeste."
+    },
+    "intrepide": {
+        "name": "Intrépide",
+        "img": "imgIntrepide",
+        "imgUrl": "./emotions/intrepide.png",
+        "desc": "Quelqu'un qui ne recule pas devant le danger ou les défis."
+    },
+    "lache": {
+        "name": "Lâche",
+        "img": "imgLache",
+        "imgUrl": "./emotions/lache.png",
+        "desc": "Décrire quelqu'un qui manque de courage dans une situation difficile."
+    },
+    "loyal": {
+        "name": "Loyal",
+        "img": "imgLoyal",
+        "imgUrl": "./emotions/loyal.png",
+        "desc": "Quelqu'un de fidèle et engagé envers une cause ou une autre personne."
+    },
+    "malin": {
+        "name": "Malin",
+        "img": "imgMalin",
+        "imgUrl": "./emotions/malin.png",
+        "desc": "Décrire une personne astucieuse et intelligente qui sait tirer avantage des situations."
+    },
+    "meticuleux": {
+        "name": "Méticuleux",
+        "img": "imgMeticuleux",
+        "imgUrl": "./emotions/meticuleux.png",
+        "desc": "Décrire quelqu'un qui est très attentif aux détails et qui travaille avec soin."
+    },
+    "naif": {
+        "name": "Naïf",
+        "img": "imgNaif",
+        "imgUrl": "./emotions/naif.png",
+        "desc": "Qualifier une personne qui manque d'expérience ou de jugement et qui croit facilement les autres."
+    },
+    "perseverant": {
+        "name": "Persévérant",
+        "img": "imgPerseverant",
+        "imgUrl": "./emotions/perseverant.png",
+        "desc": "Qualifier une personne qui continue malgré les obstacles et ne renonce pas facilement."
+    },
+    "reflechi": {
+        "name": "Réfléchi",
+        "img": "imgReflechi",
+        "imgUrl": "./emotions/reflechi.png",
+        "desc": "Quelqu'un qui prend le temps de bien réfléchir avant d'agir."
+    },
+    "serviable": {
+        "name": "Serviable",
+        "img": "imgServiable",
+        "imgUrl": "./emotions/serviable.png",
+        "desc": "Qualifier quelqu'un qui est toujours prêt à rendre service aux autres."
+    },
+    "tetu": {
+        "name": "Têtu",
+        "img": "imgTetu",
+        "imgUrl": "./emotions/tetu.png",
+        "desc": "Décrire une personne qui refuse de changer d'avis ou de céder, même quand elle a tort."
+    }
+        
     },
     "ustensiles_de_cuisine": {
         "La casserole": {
