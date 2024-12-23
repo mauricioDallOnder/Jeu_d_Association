@@ -408,9 +408,10 @@ h1 {
 .vocabImage {
     width: 100%;
     height: auto;
-    aspect-ratio: 1; /* Mantém a proporção quadrada */
-    background-size: contain;
+    aspect-ratio: 1;
+    background-size: contain; /* ou cover */
     background-position: center;
+    background-repeat: no-repeat; /* <-- ADICIONar ISTO para nao repetir a imagem*/
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: transform 0.2s ease;
