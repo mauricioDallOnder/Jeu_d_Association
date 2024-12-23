@@ -3714,6 +3714,61 @@
             "img": "imgSousSol",
             "imgUrl": "./maisonLie/sous_sol.png",
             "desc": "est un espace en dessous de la maison utilisé souvent pour le stockage ou des activités supplémentaires."
+        },
+
+        "la buanderie": {
+            "name": "La buanderie",
+            "img": "imgBuanderie",
+            "imgUrl": "./maisonLie/buanderie.png",
+            "desc": "est l'endroit où l'on lave et sèche les vêtements."
+        },
+        "le cellier": {
+            "name": "Le cellier",
+            "img": "imgCellier",
+            "imgUrl": "./maisonLie/cellier.png",
+            "desc": "utilisé pour stocker la nourriture, les boissons et les ustensiles de cuisine."
+        },
+        "le dressing": {
+            "name": "Le dressing",
+            "img": "imgDressing",
+            "imgUrl": "./maisonLie/dressing.png",
+            "desc": "espace réservé pour ranger les vêtements, chaussures et accessoires."
+        },
+        "la bibliothèque": {
+            "name": "La bibliothèque",
+            "img": "imgBibliotheque",
+            "imgUrl": "./maisonLie/bibliotheque.png",
+            "desc": "une pièce dédiée aux livres et à la lecture."
+        },
+        "la salle de jeux": {
+            "name": "La salle de jeux",
+            "img": "imgSalleDeJeux",
+            "imgUrl": "./maisonLie/salle_de_jeux.png",
+            "desc": "espace réservé aux activités ludiques et aux jeux pour les enfants et les adultes."
+        },
+        "le hall d'entrée": {
+            "name": "Le hall d'entrée",
+            "img": "imgHallEntree",
+            "imgUrl": "./maisonLie/hall_entree.png",
+            "desc": "l'espace principal à l'entrée de la maison où les visiteurs sont accueillis."
+        },
+        "la mezzanine": {
+            "name": "La mezzanine",
+            "img": "imgMezzanine",
+            "imgUrl": "./maisonLie/mezzanine.png",
+            "desc": "un niveau intermédiaire souvent utilisé comme espace de détente ou de lecture."
+        },
+        "la salle de sport": {
+            "name": "La salle de sport",
+            "img": "imgSalleDeSport",
+            "imgUrl": "./maisonLie/salle_de_sport.png",
+            "desc": "espace dédié à l'exercice physique et aux activités sportives."
+        },
+        "la porte-fenêtre": {
+            "name": "La porte-fenêtre",
+            "img": "imgPorteFenetre",
+            "imgUrl": "./maisonLie/porte_fenetre.png",
+            "desc": "une porte en verre qui relie l'intérieur de la maison au patio ou au jardin."
         }
     },
     "apartmentsLieux": {
@@ -3916,6 +3971,72 @@
             "img": "imgJardinPotager",
             "imgUrl": "./maison/jardin_potager.png",
             "desc": "est un espace extérieur où l'on cultive des légumes, des herbes et des fruits."
+        },
+         "la clôture": {
+            "name": "La clôture",
+            "img": "imgCloture",
+            "imgUrl": "./maison/cloture.png",
+            "desc": "structure extérieure utilisée pour délimiter la propriété et assurer la sécurité."
+        },
+        "le porche": {
+            "name": "Le porche",
+            "img": "imgPorche",
+            "imgUrl": "./maison/porche.png",
+            "desc": "un espace couvert à l'entrée de la maison, souvent utilisé pour se détendre ou accueillir les visiteurs."
+        },
+        "la pergola": {
+            "name": "La pergola",
+            "img": "imgPergola",
+            "imgUrl": "./maison/pergola.png",
+            "desc": "structure de jardin composée de colonnes et de poutres pour supporter les plantes grimpantes ou fournir de l'ombre."
+        },
+        "la serre": {
+            "name": "La serre",
+            "img": "imgSerre",
+            "imgUrl": "./maison/serre.png",
+            "desc": "espace dédié aux plantes, souvent avec des fenêtres pour laisser entrer la lumière et protéger des intempéries."
+        },
+        "le jardin d'hiver": {
+            "name": "Le jardin d'hiver",
+            "img": "imgJardinHiver",
+            "imgUrl": "./maison/jardin_hiver.png",
+            "desc": "une pièce vitrée attenant à la maison, utilisée pour cultiver des plantes ou comme espace de détente."
+        },
+        "la terrasse": {
+            "name": "La terrasse",
+            "img": "imgTerrasse",
+            "imgUrl": "./maison/terrasse.png",
+            "desc": "espace extérieur souvent utilisé pour se relaxer, dîner en plein air ou recevoir des invités."
+        },
+        "le bassin": {
+            "name": "Le bassin",
+            "img": "imgBassin",
+            "imgUrl": "./maison/bassin.png",
+            "desc": "petit étang ou réservoir d'eau décoratif dans le jardin."
+        },
+        "la clôture en grillage": {
+            "name": "La clôture en grillage",
+            "img": "imgClotureGrillage",
+            "imgUrl": "./maison/cloture_grillage.png",
+            "desc": "type spécifique de clôture faite de mailles métalliques, souvent utilisée pour sécuriser le jardin."
+        },
+        "le banc de jardin": {
+            "name": "Le banc de jardin",
+            "img": "imgBancJardin",
+            "imgUrl": "./maison/banc_jardin.png",
+            "desc": "meuble extérieur utilisé pour s'asseoir et se détendre dans le jardin."
+        },
+        "le lampadaire de jardin": {
+            "name": "Le lampadaire de jardin",
+            "img": "imgLampadaireJardin",
+            "imgUrl": "./maison/lampadaire_jardin.png",
+            "desc": "éclairage extérieur utilisé pour illuminer les allées, les patios ou les jardins."
+        },
+        "la grille": {
+            "name": "La grille",
+            "img": "imgGrille",
+            "imgUrl": "./maison/grille.png",
+            "desc": "barrière métallique utilisée pour sécuriser ou décorer l'entrée de la maison."
         }
     },
     "maisonMeubles": {
