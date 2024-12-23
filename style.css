@@ -409,7 +409,7 @@ h1 {
     width: 100%;
     height: auto;
     aspect-ratio: 1;
-    background-size: contain; /* ou cover */
+    background-size: cover; /* ou cover */
     background-position: center;
     background-repeat: no-repeat; /* <-- ADICIONar ISTO para nao repetir a imagem*/
     border-radius: var(--border-radius);
