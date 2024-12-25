@@ -6,13 +6,13 @@
             "imgUrl": "./ville/stationnement.png",
             "desc": "est un endroit où l'on gare des voitures."
         },
-        "l' immeuble de bureaux": {
+        "l'immeuble de bureaux": {
             "name": "Un immeuble de bureaux",
             "img": "imgImmeubleDeBureaux",
             "imgUrl": "./ville/immeuble_de_bureaux.png",
             "desc": "est un bâtiment où travaillent des employés de bureaux."
         },
-        "l' hotel": {
+        "l'hotel": {
             "name": "Un hôtel",
             "img": "imgHotel",
             "imgUrl": "./ville/hotel.png",
@@ -42,7 +42,7 @@
             "imgUrl": "./ville/gare_autobus.png",
             "desc": "est un endroit où les bus arrivent et partent."
         },
-        "l' hopital": {
+        "l'hopital": {
             "name": "Un hôpital",
             "img": "imgHopital",
             "imgUrl": "./ville/hopital.png",
@@ -90,7 +90,7 @@
             "imgUrl": "./ville/stade.png",
             "desc": "est un lieu où l'on regarde des événements sportifs."
         },
-        "l' ecole": {
+        "l'ecole": {
             "name": "Une école",
             "img": "imgEcole",
             "imgUrl": "./ville/ecole.png",
@@ -114,7 +114,7 @@
             "imgUrl": "./ville/gym.png",
             "desc": "est un lieu où l'on pratique des activités physiques."
         },
-        "l' usine": {
+        "l'usine": {
             "name": "Une usine",
             "img": "imgUsine",
             "imgUrl": "./ville/usine.png",
@@ -150,13 +150,13 @@
             "imgUrl": "./ville/universitaire.png",
             "desc": "est un établissement où l'on suit des études postsecondaires."
         },
-        "Papeterie": {
+        "la papeterie": {
             "name": "Une papeterie",
             "img": "imgpapeterie",
             "imgUrl": "./ville/papeterie.png",
             "desc": "est un endroit où l'on achète des articles de bureau."
         },
-        "l' eglise": {
+        "l'eglise": {
             "name": "Une église",
             "img": "imgEglise",
             "imgUrl": "./ville/eglise.png",
@@ -186,7 +186,7 @@
             "imgUrl": "./ville/theatre.png",
             "desc": "est un lieu où l'on assiste à des spectacles de théâtre."
         },
-        "Magasin de bricolage": {
+        "Le Magasin de bricolage": {
             "name": "Un magasin de bricolage",
             "img": "imgMagasinAmeliorationHabitat",
             "imgUrl": "./ville/bricolage.png",
@@ -210,7 +210,7 @@
             "imgUrl": "./ville/le_restaurant_minute.png",
             "desc": "est un établissement de restauration rapide."
         },
-        "l' espace de stationnement": {
+        "l'espace de stationnement": {
             "name": "Un espace de stationnement",
             "img": "imgEspaceStationnement",
             "imgUrl": "./ville/espace_de_stationnement.png",
@@ -258,7 +258,7 @@
             "imgUrl": "./lieux/unepetiteville.png",
             "desc": "est un endroit avec peu de maisons et des rues tranquilles."
         },
-        "Agence immobilière": {
+        "La agence immobilière": {
             "name": "Une agence immobilière",
             "img": "imgimmobilier",
             "imgUrl": "./ville/immobilier.png",
@@ -1146,12 +1146,6 @@
             "imgUrl": "./vestuario/pull_over.png",
             "desc": "est un vêtement chaud porté sur le haut du corps."
         },
-        "mettre": {
-            "name": "Mettre",
-            "img": "imgMettre",
-            "imgUrl": "./vestuario/mettre.png",
-            "desc": "est l'action de s'habiller avec des vêtements."
-        },
         "la casquette": {
             "name": "Une casquette",
             "img": "imgCasquette",
@@ -1250,7 +1244,7 @@
             "imgUrl": "./vestuario/parka.png",
             "desc": "est un manteau chaud et imperméable souvent porté en hiver."
         },
-        "les protège-oreilles": {
+        "le protège-oreilles": {
             "name": "Des protège-oreilles",
             "img": "imgProtegeOreilles",
             "imgUrl": "./vestuario/protege_oreilles.png",
@@ -1262,7 +1256,7 @@
             "imgUrl": "./vestuario/pardessus.png",
             "desc": "est un manteau long et élégant porté par-dessus les vêtements."
         },
-        "les gants": {
+        "le gant": {
             "name": "Des gants",
             "img": "imgGants",
             "imgUrl": "./vestuario/gants.png",
@@ -1578,7 +1572,7 @@
             "imgUrl": "./vestuario/bottes.png",
             "desc": "sont des chaussures hautes couvrant généralement la cheville ou le mollet."
         },
-        "Des souliers de ville": {
+        "les souliers de ville": {
             "name": "Des souliers de ville",
             "img": "imgSouliersDeVille",
             "imgUrl": "./vestuario/souliers_de_ville.png",
@@ -1608,7 +1602,7 @@
             "imgUrl": "./vestuario/medaillon.png",
             "desc": "est un pendentif pouvant contenir des photos ou des souvenirs."
         },
-        "Des boucles d'oreilles": {
+        "Les boucles d'oreilles": {
             "name": "Des boucles d'oreilles",
             "img": "imgBouclesOreillesPercees",
             "imgUrl": "./vestuario/boucles_oreilles_percees.png",
@@ -3772,79 +3766,73 @@
         }
     },
     "apartmentsLieux": {
-        "immeuble à appartements": {
+        "Le immeuble à appartements": {
             "name": "Immeuble à appartements",
             "img": "imgImmeubleAppartments",
             "imgUrl": "./apartmentsLie/immeuble_appartments.png",
             "desc": "est un bâtiment contenant plusieurs appartements pour y habiter."
         },
-        "escalier de secours": {
+        "Le escalier de secours": {
             "name": "Escalier de secours",
             "img": "imgEscalierSecours",
             "imgUrl": "./apartmentsLie/escalier_secours.png",
             "desc": "est utilisé en cas d'urgence pour évacuer le bâtiment en toute sécurité."
         },
-        "terrain de jeux": {
+        "Le terrain de jeux": {
             "name": "Terrain de jeux",
             "img": "imgTerrainJeux",
             "imgUrl": "./apartmentsLie/terrain_jeux.png",
             "desc": "est un espace réservé aux enfants pour jouer et se divertir."
         },
-        "jardin sur le toit": {
+        "le jardin sur le toit": {
             "name": "Jardin sur le toit",
             "img": "imgJardinToit",
             "imgUrl": "./apartmentsLie/jardin_toit.png",
             "desc": "est un espace vert situé sur le toit de l'immeuble, idéal pour se détendre."
         },
-        "ascenseur": {
+        "le ascenseur": {
             "name": "Ascenseur",
             "img": "imgAscenseur",
             "imgUrl": "./apartmentsLie/ascenseur.png",
             "desc": "permet de se déplacer entre les étages sans utiliser les escaliers."
         },
-        "escaliers": {
+        "Des escaliers": {
             "name": "Escaliers",
             "img": "imgEscaliers",
             "imgUrl": "./apartmentsLie/escaliers.png",
             "desc": "sont utilisés pour se déplacer d'un étage à l'autre à pied."
         },
-        "balcon": {
+        "le balcon": {
             "name": "Balcon",
             "img": "imgBalcon",
             "imgUrl": "./apartmentsLie/balcon.png",
             "desc": "est un espace extérieur attenant à un appartement, offrant une vue sur l'extérieur."
         },
-        "cour": {
+        "la cour": {
             "name": "Cour",
             "img": "imgCour",
             "imgUrl": "./apartmentsLie/cour.png",
             "desc": "est un espace extérieur central partagé entre les résidents, souvent utilisé pour se détendre."
         },
-        "piscine": {
+        "la piscine": {
             "name": "Piscine",
             "img": "imgPiscine",
             "imgUrl": "./apartmentsLie/piscine.png",
             "desc": "est un espace aquatique utilisé pour nager et se rafraîchir."
         },
-        "bac à ordures": {
+        "le bac à ordures": {
             "name": "Bac à ordures",
             "img": "imgBacOrdures",
             "imgUrl": "./apartmentsLie/bac_ordures.png",
             "desc": "est utilisé pour jeter les ordures ménagères des résidents."
         },
-        "ruelle": {
+        "la ruelle": {
             "name": "Ruelle",
             "img": "imgRuelle",
             "imgUrl": "./apartmentsLie/ruelle.png",
             "desc": "est une voie située derrière ou à côté de l'immeuble, souvent utilisée pour l'accès au stationnement ou à la livraison."
         },
-        "barrière de sécurité": {
-            "name": "Barrière de sécurité",
-            "img": "imgBarriereSecurite",
-            "imgUrl": "./apartmentsLie/barriere_securite.png",
-            "desc": "est utilisée pour contrôler l'accès à l'immeuble et protéger les résidents."
-        },
-        "casier de rangement": {
+        "le casier de rangement": {
             "name": "Casier de rangement",
             "img": "imgCasierRangement",
             "imgUrl": "./apartmentsLie/casier_rangement.png",
@@ -3852,97 +3840,97 @@
         }
     },
     "exterieurMaison": {
-        "boîte aux lettres": {
+        "la boîte aux lettres": {
             "name": "Boîte aux lettres",
             "img": "imgBoiteLettres",
             "imgUrl": "./maison/boite_lettres.png",
             "desc": "sert à recevoir le courrier et les colis à l'extérieur de la maison."
         },
-        "trottoir": {
+        "Le trottoir": {
             "name": "Trottoir",
             "img": "imgTrottoir",
             "imgUrl": "./maison/trottoir.png",
             "desc": "est une voie piétonne située devant la maison."
         },
-        "marches": {
+        "Des marches": {
             "name": "Marches",
             "img": "imgMarches",
             "imgUrl": "./maison/marches.png",
             "desc": "permettent d'accéder à l'entrée principale de la maison."
         },
-        "gouttière": {
+        "la gouttière": {
             "name": "Gouttière",
             "img": "imgGouttiere",
             "imgUrl": "./maison/gouttiere.png",
             "desc": "sert à évacuer l'eau de pluie du toit de la maison."
         },
-        "cheminée": {
+        "la cheminée": {
             "name": "Cheminée",
             "img": "imgCheminee",
             "imgUrl": "./maison/cheminee.png",
             "desc": "permet d'évacuer la fumée du feu ou du chauffage intérieur."
         },
-        "porte de garage": {
+        "la porte de garage": {
             "name": "Porte de garage",
             "img": "imgPorteGarage",
             "imgUrl": "./maison/porte_garage.png",
             "desc": "s'ouvre pour permettre l'accès au garage pour les véhicules."
         },
-        "allée": {
+        "La(l')allée": {
             "name": "Allée",
             "img": "imgAllee",
             "imgUrl": "./maison/allee.png",
             "desc": "est le chemin qui mène de la rue à la maison ou au garage."
         },
-        "portail": {
+        "le portail": {
             "name": "Portail",
             "img": "imgPortail",
             "imgUrl": "./maison/portail.png",
             "desc": "sert à sécuriser et délimiter l'entrée de la propriété."
         },
-        "porte d'entrée": {
+        "la porte d'entrée": {
             "name": "Porte d'entrée",
             "img": "imgPorteEntree",
             "imgUrl": "./maison/porte_entree.png",
             "desc": "est l'entrée principale de la maison, où les visiteurs sont accueillis."
         },
-        "poignée de porte": {
+        "la poignée de porte": {
             "name": "Poignée de porte",
             "img": "imgPoigneePorte",
             "imgUrl": "./maison/poignee_porte.png",
             "desc": "est utilisée pour ouvrir et fermer la porte d'entrée."
         },
-        "sonnette": {
+        "la sonnette": {
             "name": "Sonnette",
             "img": "imgSonnette",
             "imgUrl": "./maison/sonnette.png",
             "desc": "permet aux visiteurs d'avertir de leur arrivée en sonnant à la porte."
         },
-        "patio": {
+        "le patio": {
             "name": "Patio",
             "img": "imgPatio",
             "imgUrl": "./maison/patio.png",
             "desc": "est un espace extérieur où l'on peut se détendre ou dîner en plein air."
         },
-        "gril": {
+        "le gril": {
             "name": "Gril",
             "img": "imgGril",
             "imgUrl": "./maison/gril.png",
             "desc": "est utilisé pour cuisiner à l'extérieur, souvent pour des barbecues."
         },
-        "porte vitrée coulissante": {
+        "la porte vitrée coulissante": {
             "name": "Porte vitrée coulissante",
             "img": "imgPorteVitreCoulissante",
             "imgUrl": "./maison/porte_vitre_coulissante.png",
             "desc": "permet de passer facilement entre la maison et le patio ou le jardin."
         },
-        "plante-bande": {
+        "la plante-bande": {
             "name": "Plante-bande",
             "img": "imgPlanteBande",
             "imgUrl": "./maison/plante_bande.png",
             "desc": "est un espace destiné aux plantes et aux fleurs, souvent décoratif."
         },
-        "boyau": {
+        "le boyau": {
             "name": "Boyau",
             "img": "imgBoyau",
             "imgUrl": "./maison/boyau.png",
@@ -3954,19 +3942,19 @@
             "imgUrl": "./maison/arroser.png",
             "desc": "consiste à donner de l'eau aux plantes ou au jardin."
         },
-        "hamac": {
+        "le hamac": {
             "name": "Hamac",
             "img": "imgHamac",
             "imgUrl": "./maison/hamac.png",
             "desc": "est un lit suspendu utilisé pour se reposer à l'extérieur."
         },
-        "pelouse": {
+        "la pelouse": {
             "name": "Pelouse",
             "img": "imgPelouse",
             "imgUrl": "./maison/pelouse.png",
             "desc": "est un espace de gazon autour de la maison, souvent utilisé pour le jeu ou la détente."
         },
-        "jardin potager": {
+        "le jardin potager": {
             "name": "Jardin potager",
             "img": "imgJardinPotager",
             "imgUrl": "./maison/jardin_potager.png",
@@ -4538,7 +4526,7 @@
             "imgUrl": "./maison/plancher_en_bois.png",
             "desc": "est un type de revêtement de sol en bois naturel ou traité."
         },
-        "l' évier": {
+        "l'évier": {
             "name": "Un plancher en bois",
             "img": "imgevier",
             "imgUrl": "./maison/envier.png",
@@ -4550,7 +4538,7 @@
             "imgUrl": "./maison/congelateur.png",
             "desc": "est un appareil qui permettant de congeler des aliments."
         },
-        "L' interrupteur": {
+        "l'interrupteur": {
             "name": "L'interrupteur",
             "img": "imginterrupteur",
             "imgUrl": "./maison/interrupteur.png",
