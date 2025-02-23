@@ -64,54 +64,61 @@
         document.getElementById("itemsPerPage").value
       );
 
-      // Função para carregar todas as vozes disponíveis
-      function loadVoices() {
-        return new Promise((resolve, reject) => {
-          let voices = window.speechSynthesis.getVoices();
-          if (voices.length > 0) {
+     // Função para carregar todas as vozes disponíveis
+    function loadVoices() {
+      return new Promise((resolve, reject) => {
+        let voices = window.speechSynthesis.getVoices();
+        if (voices.length > 0) {
+          resolve(voices);
+        } else {
+          window.speechSynthesis.onvoiceschanged = () => {
+            voices = window.speechSynthesis.getVoices();
             resolve(voices);
-          } else {
-            window.speechSynthesis.onvoiceschanged = () => {
-              voices = window.speechSynthesis.getVoices();
-              resolve(voices);
-            };
+          };
+        }
+      });
+    }
+
+    // Função para reproduzir a descrição com áudio com ajustes para melhorar a naturalidade
+    function playDesc(text) {
+      if (synth && text) {
+        loadVoices().then(voices => {
+          // Tenta selecionar uma voz que contenha "Google" no nome para maior naturalidade
+          const naturalVoice = voices.find(v => v.name.toLowerCase().includes("google")) || voices.find(v => v.lang.startsWith("fr"));
+          const utterance = new SpeechSynthesisUtterance(text);
+          // Ajusta a língua conforme a voz encontrada, ou usa 'fr-FR' por padrão
+          utterance.lang = naturalVoice ? naturalVoice.lang : "fr-FR";
+          // Ajuste dos parâmetros para uma leitura mais natural
+          utterance.rate = 0.9;  // taxa normal
+          utterance.pitch = 1.1; // leve aumento de tom
+          utterance.volume = 1.0;
+          if (naturalVoice) {
+            utterance.voice = naturalVoice;
           }
+          synth.cancel();
+          synth.speak(utterance);
         });
       }
+    }
 
-      // Função para reproduzir a descrição com áudio
-      function playDesc(text) {
-        if (synth && text) {
-          loadVoices().then((voices) => {
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = "fr-FR";
-            utterance.rate = 0.9;
-            const frenchVoice = voices.find((v) => v.lang.startsWith("fr"));
-            if (frenchVoice) {
-              utterance.voice = frenchVoice;
-            }
-            synth.cancel();
-            synth.speak(utterance);
-          });
-        }
+    // Função para reproduzir o som da palavra com ajustes semelhantes
+    function playSound(text) {
+      if (synth && text) {
+        loadVoices().then(voices => {
+          const naturalVoice = voices.find(v => v.name.toLowerCase().includes("google")) || voices.find(v => v.lang.startsWith("fr"));
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = naturalVoice ? naturalVoice.lang : "fr-FR";
+          utterance.rate = 0.9;
+          utterance.pitch = 1.1;
+          utterance.volume = 1.0;
+          if (naturalVoice) {
+            utterance.voice = naturalVoice;
+          }
+          synth.cancel();
+          synth.speak(utterance);
+        });
       }
-
-      // Função para reproduzir o som da palavra
-      function playSound(text) {
-        if (synth && text) {
-          loadVoices().then((voices) => {
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = "fr-FR";
-            utterance.rate = 0.9;
-            const frenchVoice = voices.find((v) => v.lang.startsWith("fr"));
-            if (frenchVoice) {
-              utterance.voice = frenchVoice;
-            }
-            synth.cancel();
-            synth.speak(utterance);
-          });
-        }
-      }
+    }
 
       // Função para fechar a descrição
       function closeDesc() {
