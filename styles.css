@@ -29,7 +29,7 @@
 
   /* Add a color to the active/current link */
   .topnav a.active {
-    background-color: #04aa6d;
+   
     color: white;
   }
   .container {
@@ -237,67 +237,7 @@
   #paginationButtons button:hover {
     background-color: #1558b0;
   }
-  form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-  label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-  }
-  input[type="text"], textarea, input[type="file"], select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    box-sizing: border-box;
-  }
-  #button-envia {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #1a73e8;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  button:hover {
-    background-color: #1558b0;
-  }
-  #response {
-    max-width: 600px;
-    margin: 20px auto;
-    text-align: center;
-    font-size: 18px;
-  }
-  #previewImage {
-    max-width: 100%;
-    margin-top: 15px;
-    display: block;
-  }
-
-  input[type="text"], textarea, input[type="file"], select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    box-sizing: border-box;
-  }
-  #response {
-    max-width: 600px;
-    margin: 20px auto;
-    text-align: center;
-    font-size: 18px;
-  }
-  #previewImage {
-    max-width: 100%;
-    margin-top: 15px;
-    display: block;
-  }
+  
   /* Responsividade: em telas pequenas, exibe 2 colunas para imagens e palavras */
   @media (max-width: 768px) {
     .game-content {

@@ -3,39 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <title>Ajouter un nouveau mot</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="stylesupdate.css">
 </head>
 <body>
-  
+  <div class="topnav">
+    <a href="/index.html">Jeu</a>
+    <a class="active" href="/envia.html">Créer de nouveaux mots</a>
+  </div>
   <form id="addWordForm" enctype="multipart/form-data">
-    <h1>Ajouter un nouveau mot</h1>
-    <label for="categorySelect">Catégorie existante</label>
+    <h1 style="color: black;">Ajouter un nouveau mot</h1>
+    <label for="categorySelect"style="color: black;">Catégorie:</label>
     <!-- Inicialmente, o select exibe "Carregando categorias..." -->
     <select id="categorySelect" name="category">
       <option value="">Chargement des catégories...</option>
     </select>
     
     <div id="newCategoryContainer" style="display:none;">
-      <label for="newCategory">Nouvelle catégorie</label>
+      <label for="newCategory"  style="color: black;">Nouvelle catégorie</label>
       <input type="text" id="newCategory" name="newCategory" placeholder="Entrez le nom de la nouvelle catégorie">
     </div>
     
-    <label for="name">Mot:le mot doit contenir le bon article (défini, indéfini et partitif)</label>
-    <input type="text" id="name" name="name" required placeholder="Ex:La chemise">
+    <label for="name"  style="color: black;">Écrirez le nouveau mot ici:
+     </label>
+    <input type="text" id="name" name="name" required placeholder="Le mot doit contenir le bon article (défini, indéfini ou partitif). Ex:La chemise">
     
     <!-- Campo 'key' oculto, gerado automaticamente -->
     <input type="hidden" id="key" name="key">
     
-    <label for="desc">Description du mot <span class="info">(Ex: inscrire un point ou un but dans un match)</span></label>
-    <textarea id="desc" name="desc" rows="4" required placeholder="Entrez une description claire pour le nouveau mot"></textarea>
+    <label for="desc"  style="color: black;">Description: <span class="info"></span></label>
+    <textarea id="desc" name="desc" rows="4" required placeholder="Entrez une description claire pour le nouveau mot. Ex: est un véhicule à deux roues que l'on propulse en pédalant."></textarea>
     
-    <label for="image">Image (fichier image)</label>
+    <label for="image"  style="color: black;">Image (fichier image)</label>
     <input type="file" id="image" name="image" accept="image/*" required>
     
     <button type="submit" id="button-envia">Envoyer</button>
   </form>
   
-  <div id="response"></div>
+  <div id="response"  style="color: black;"></div>
   
   <script>
     // Ao carregar a página, busca as categorias do arquivo JSON usando a URL raw do GitHub
@@ -49,7 +53,7 @@
         }
         const data = await response.json();
         // Limpa o select e adiciona a opção padrão
-        select.innerHTML = '<option value="">-- Selecione uma categoria existente ou escolha criar nova --</option>';
+        select.innerHTML = '<option value="">-- Sélectionnez une catégorie existante ou choisissez d en créer une nouvelle --</option>';
         for (const category in data) {
           if (data.hasOwnProperty(category)) {
             const option = document.createElement("option");
@@ -62,11 +66,11 @@
         // Adiciona a opção para criar nova categoria
         const optionNova = document.createElement("option");
         optionNova.value = "nova";
-        optionNova.textContent = "Criar Nova Categoria";
+        optionNova.textContent = "Créer une nouvelle catégorie";
         select.appendChild(optionNova);
       } catch (error) {
         console.error("Erro ao carregar categorias:", error);
-        select.innerHTML = '<option value="nova">Criar Nova Categoria</option>';
+        select.innerHTML = '<option value="nova">Créer une nouvelle catégorie</option>';
       }
     });
     
@@ -110,7 +114,7 @@
       let category = selectedCategory;
       if (!selectedCategory || selectedCategory === 'nova') {
         if (!newCategory) {
-          alert("Por favor, informe a nova categoria.");
+          alert("Veuillez entrer la nouvelle catégorie.");
           return;
         }
         category = newCategory;
@@ -133,7 +137,7 @@
         });
         const result = await response.json();
         if (result.success) {
-          responseDiv.textContent = 'Nova palavra adicionada com sucesso!';
+          responseDiv.textContent = 'Nouveau mot ajouté avec succès !';
           form.reset();
           newCategoryContainer.style.display = 'none';
         } else {
