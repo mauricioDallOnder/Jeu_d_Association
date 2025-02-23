@@ -2,85 +2,37 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Adicionar Nova Palavra</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f5f5f5;
-    }
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    input[type="text"], textarea, input[type="file"], select {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      box-sizing: border-box;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #1a73e8;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #1558b0;
-    }
-    #response {
-      max-width: 600px;
-      margin: 20px auto;
-      text-align: center;
-      font-size: 18px;
-    }
-    .info {
-      font-size: 0.9em;
-      color: #555;
-    }
-  </style>
+  <title>Ajouter un nouveau mot</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Adicionar Nova Palavra</h1>
+  
   <form id="addWordForm" enctype="multipart/form-data">
-    
-    <label for="categorySelect">Categoria Existente</label>
+    <h1>Ajouter un nouveau mot</h1>
+    <label for="categorySelect">Catégorie existante</label>
     <!-- Inicialmente, o select exibe "Carregando categorias..." -->
     <select id="categorySelect" name="category">
-      <option value="">Carregando categorias...</option>
+      <option value="">Chargement des catégories...</option>
     </select>
     
     <div id="newCategoryContainer" style="display:none;">
-      <label for="newCategory">Nova Categoria</label>
-      <input type="text" id="newCategory" name="newCategory" placeholder="Digite o nome da nova categoria">
+      <label for="newCategory">Nouvelle catégorie</label>
+      <input type="text" id="newCategory" name="newCategory" placeholder="Entrez le nom de la nouvelle catégorie">
     </div>
     
-    <label for="name">Nome da Palavra</label>
-    <input type="text" id="name" name="name" required placeholder="Ex: Taekwondo">
+    <label for="name">Mot:le mot doit contenir le bon article (défini, indéfini et partitif)</label>
+    <input type="text" id="name" name="name" required placeholder="Ex:La chemise">
     
     <!-- Campo 'key' oculto, gerado automaticamente -->
     <input type="hidden" id="key" name="key">
     
-    <label for="desc">Descrição da Palavra <span class="info">(Ex: inscrire un point ou un but dans un match)</span></label>
-    <textarea id="desc" name="desc" rows="4" required placeholder="Digite uma descrição clara para a nova palavra"></textarea>
+    <label for="desc">Description du mot <span class="info">(Ex: inscrire un point ou un but dans un match)</span></label>
+    <textarea id="desc" name="desc" rows="4" required placeholder="Entrez une description claire pour le nouveau mot"></textarea>
     
-    <label for="image">Imagem (arquivo de imagem para o item)</label>
+    <label for="image">Image (fichier image)</label>
     <input type="file" id="image" name="image" accept="image/*" required>
     
-    <button type="submit">Enviar</button>
+    <button type="submit" id="button-envia">Envoyer</button>
   </form>
   
   <div id="response"></div>

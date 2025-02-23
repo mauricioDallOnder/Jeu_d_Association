@@ -3,89 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <title>Atualizar Palavra</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f5f5f5;
-    }
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    input[type="text"], textarea, input[type="file"], select {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      box-sizing: border-box;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #1a73e8;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #1558b0;
-    }
-    #response {
-      max-width: 600px;
-      margin: 20px auto;
-      text-align: center;
-      font-size: 18px;
-    }
-    #previewImage {
-      max-width: 100%;
-      margin-top: 15px;
-      display: none;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Atualizar Palavra</h1>
+ 
   <form id="updateWordForm" enctype="multipart/form-data">
+    <h1 style="color:black">Atualizar Palavra</h1>
     <!-- Seleção de categoria -->
-    <label for="updateCategorySelect">Selecione a Categoria</label>
+    <label for="updateCategorySelect" style="color:black">Selecione a Categoria</label>
     <select id="updateCategorySelect" name="category">
       <option value="">Carregando categorias...</option>
     </select>
     
     <!-- Seleção da palavra dentro da categoria -->
-    <label for="updateWordSelect">Selecione a Palavra</label>
+    <label for="updateWordSelect" style="color:black">Selecione a Palavra</label>
     <select id="updateWordSelect" name="word">
       <option value="">Selecione uma palavra...</option>
     </select>
     
-    <!-- Pré-visualização da imagem atual -->
+    <!-- Exibe a imagem atual -->
+    <label style="color:black">Imagem Atual:</label>
     <img id="previewImage" alt="Preview da Imagem">
     
+    <!-- Campo para exibir a URL associada à imagem -->
+    <label for="imgUrlField" style="color:black">URL da Imagem</label>
+    <input type="text" id="imgUrlField" name="imgUrlField" readonly placeholder="URL da imagem atual">
+    
     <!-- Campos para edição -->
-    <label for="name">Nome da Palavra</label>
+    <label for="name" style="color:black">Nome da Palavra</label>
     <input type="text" id="name" name="name" required placeholder="Ex: Taekwondo">
     
     <!-- Campo oculto para armazenar a chave (identificador) -->
     <input type="hidden" id="key" name="key">
     
-    <label for="desc">Descrição da Palavra</label>
+    <label for="desc" style="color:black">Descrição da Palavra</label>
     <textarea id="desc" name="desc" rows="4" required placeholder="Digite a nova descrição"></textarea>
     
-    <label for="image">Nova Imagem (opcional)</label>
+    <label for="image" style="color:black">Nova Imagem (opcional)</label>
     <input type="file" id="image" name="image" accept="image/*">
     
-    <button type="submit">Atualizar Palavra</button>
+    <button type="submit" style="color:black">Atualizar Palavra</button>
   </form>
   
   <div id="response"></div>
@@ -144,7 +101,7 @@
       }
     });
     
-    // Ao selecionar uma palavra, preenche os campos do formulário e exibe a imagem atual
+    // Ao selecionar uma palavra, preenche os campos do formulário e exibe a imagem e a URL
     document.getElementById("updateWordSelect").addEventListener("change", async function() {
       const selectedCategory = document.getElementById("updateCategorySelect").value;
       const selectedKey = this.value;
@@ -158,36 +115,19 @@
           const wordData = data[selectedCategory][selectedKey];
           document.getElementById("name").value = wordData.name;
           document.getElementById("desc").value = wordData.desc;
-          
-          // Atualiza a pré-visualização da imagem
-          const previewImage = document.getElementById("previewImage");
-          if (wordData.imgUrl) {
-            let imgUrl = wordData.imgUrl;
-            // Se o URL for relativo (começa com "./"), remova "./" e adicione a URL base
-            if (imgUrl.startsWith("./")) {
-              imgUrl = GITHUB_RAW_BASE + imgUrl.slice(2);
-            }
-            previewImage.src = imgUrl;
-            previewImage.style.display = "block";
-          } else {
-            previewImage.style.display = "none";
+          // Preenche o campo da URL com o valor exato da propriedade "imgUrl"
+          document.getElementById("imgUrlField").value = wordData.imgUrl;
+          // Exibe a imagem atual. Se o URL for relativo (começa com "./"), converte para URL raw.
+          let imgUrl = wordData.imgUrl;
+          if (imgUrl.startsWith("./")) {
+            imgUrl = GITHUB_RAW_BASE + imgUrl.slice(2);
           }
+          document.getElementById("previewImage").src = imgUrl;
         }
       } catch (error) {
         console.error("Erro ao carregar dados da palavra:", error);
       }
     });
-    
-    // Função para gerar uma slug a partir do nome (pode ser usada se necessário)
-    function slugify(text) {
-      return text
-        .toString()
-        .toLowerCase()
-        .trim()
-        .replace(/\s+/g, '_')
-        .replace(/[^\w\-]+/g, '')
-        .replace(/\_\_+/g, '_');
-    }
     
     // Submissão do formulário de update
     document.getElementById("updateWordForm").addEventListener("submit", async function(e) {
@@ -199,7 +139,6 @@
       const desc = document.getElementById("desc").value.trim();
       const imageFile = document.getElementById("image").files[0]; // Opcional
       
-      // Cria o FormData para envio
       const formData = new FormData();
       formData.append("category", category);
       formData.append("key", key);
