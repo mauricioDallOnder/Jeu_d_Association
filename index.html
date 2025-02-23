@@ -180,6 +180,25 @@
       transform: scale(1.05);
       box-shadow: 0 4px 15px rgba(76,175,80,0.4);
     }
+    /* Botões de navegação de página */
+    #paginationButtons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    #paginationButtons button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 10px;
+      transition: background-color 0.3s ease;
+    }
+    #paginationButtons button:hover {
+      background-color: #1558b0;
+    }
     @media (max-width: 768px) {
       .image-item {
         width: 100%;
@@ -211,11 +230,17 @@
     <div class="desc-container" id="descContainer">
       <span class="close-desc" onclick="closeDesc()">×</span>
       <div class="desc-content" id="descContent"></div>
-     
     </div>
 
     <div class="image-container" id="imageContainer"></div>
     <div class="words-container" id="wordsContainer"></div>
+
+    <!-- Botões de navegação para as páginas de palavras -->
+    <div id="paginationButtons">
+      <button id="prevPageBtn">Précédent</button>
+      <button id="nextPageBtn">Suivant</button>
+    </div>
+
     <div class="completion-message" id="completionMessage">
       <p>Félicitations! Vous avez complété cette catégorie!</p>
       <button class="next-category-btn" id="nextCategoryBtn">Catégorie suivante</button>
@@ -231,7 +256,7 @@
     let categories = [];
     let categoryPages = [];
     let gameData = {};
-    let correctAnswersCount = 0;
+    // Removemos a contagem automática de acertos para permitir a navegação manual
     let itemsPerPage = 4;
 
     // Função para carregar todas as vozes disponíveis na API de síntese de fala
@@ -281,7 +306,7 @@
       }
     }
 
-    // Função para reproduzir a descrição ao clicar no botão "Ouvir descrição"
+    // Função para reproduzir a descrição ao clicar no botão "Ouvir description"
     function playDesc(text) {
       if (synth && text) {
         loadVoices().then(voices => {
@@ -312,10 +337,8 @@
         currentDesc = item.desc;
         const descContainer = document.getElementById('descContainer');
         const descContent = document.getElementById('descContent');
-        const descAudio = document.getElementById('descAudio');
         descContent.textContent = item.desc;
         descContainer.style.display = 'block';
-        descAudio.onclick = () => playDesc(currentDesc);
       }
     }
 
@@ -360,15 +383,11 @@
         e.currentTarget.appendChild(dropSpan);
         e.currentTarget.classList.add('correct');
         e.currentTarget.classList.remove('incorrect', 'shake');
-        correctAnswersCount++;
+        // Removemos a navegação automática
         const wordsContainer = document.getElementById('wordsContainer');
         const words = Array.from(wordsContainer.children);
         const draggedWord = words.find(word => word.dataset.key.trim() === draggedKey);
         if (draggedWord) draggedWord.remove();
-        if (correctAnswersCount === itemsPerPage) {
-          currentPageIndex++;
-          setTimeout(() => loadPage(currentPageIndex), 1000);
-        }
       } else {
         const dropSpan = document.createElement('span');
         dropSpan.textContent = draggedKey;
@@ -378,26 +397,6 @@
         e.currentTarget.classList.remove('correct');
         setTimeout(() => e.currentTarget.classList.remove('shake'), 500);
       }
-    }
-
-    // Função para criar o elemento arrastável (palavra)
-    function createWordElement(key) {
-      const word = document.createElement('div');
-      word.className = 'word';
-      word.draggable = true;
-      word.dataset.key = key;
-      const textSpan = document.createElement('span');
-      textSpan.textContent = key;
-      const soundIcon = document.createElement('span');
-      soundIcon.innerHTML = '🔊';
-      soundIcon.className = 'sound-icon';
-      soundIcon.onclick = (e) => {
-        e.stopPropagation();
-        playSound(key);
-      };
-      word.append(textSpan, soundIcon);
-      word.addEventListener('dragstart', handleDragStart);
-      return word;
     }
 
     // Função para preencher o seletor de categorias
@@ -432,7 +431,6 @@
         return;
       }
       const pageItems = categoryPages[pageIndex];
-      correctAnswersCount = 0;
       const imageContainer = document.getElementById('imageContainer');
       const wordsContainer = document.getElementById('wordsContainer');
       imageContainer.innerHTML = '';
@@ -462,7 +460,21 @@
       const keys = pageItems.map(([key]) => key);
       const shuffledKeys = shuffle(keys);
       shuffledKeys.forEach(key => {
-        const word = createWordElement(key);
+        const word = document.createElement('div');
+        word.className = 'word';
+        word.draggable = true;
+        word.dataset.key = key;
+        const textSpan = document.createElement('span');
+        textSpan.textContent = key;
+        const soundIcon = document.createElement('span');
+        soundIcon.innerHTML = '🔊';
+        soundIcon.className = 'sound-icon';
+        soundIcon.onclick = (e) => {
+          e.stopPropagation();
+          playSound(key);
+        };
+        word.append(textSpan, soundIcon);
+        word.addEventListener('dragstart', handleDragStart);
         wordsContainer.appendChild(word);
       });
     }
@@ -477,13 +489,27 @@
         loadCategory(currentCategoryIndex);
       });
 
-    // Event listeners para navegação
+    // Event listeners para navegação de páginas manual
+    document.getElementById('prevPageBtn').addEventListener('click', () => {
+      if (currentPageIndex > 0) {
+        currentPageIndex--;
+        loadPage(currentPageIndex);
+      }
+    });
+    document.getElementById('nextPageBtn').addEventListener('click', () => {
+      if (currentPageIndex < categoryPages.length - 1) {
+        currentPageIndex++;
+        loadPage(currentPageIndex);
+      }
+    });
+    document.getElementById('itemsPerPage').addEventListener('change', () => {
+      loadCategory(currentCategoryIndex);
+    });
+    
+    // Event listener para a navegação de categoria (botão "Catégorie suivante")
     document.getElementById('nextCategoryBtn').addEventListener('click', () => {
       currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
       document.getElementById('categorySelect').value = currentCategoryIndex;
-      loadCategory(currentCategoryIndex);
-    });
-    document.getElementById('itemsPerPage').addEventListener('change', () => {
       loadCategory(currentCategoryIndex);
     });
   </script>
