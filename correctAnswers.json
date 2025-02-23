@@ -237,25 +237,25 @@
     "la ville": {
       "name": "La ville",
       "img": "imgVille",
-      "imgUrl": "./lieux/city.png",
+      "imgUrl": "./imgs/city.png",
       "desc": "est un grand centre urbain."
     },
     "la banlieue": {
       "name": "La banlieue",
       "img": "imgBanlieue",
-      "imgUrl": "./lieux/suburbio.png",
+      "imgUrl": "./imgs/suburbio.png",
       "desc": "se trouve à la périphérie de la ville."
     },
     "la campagne": {
       "name": "La campagne",
       "img": "imgFerme",
-      "imgUrl": "./lieux/fazenda.png",
+      "imgUrl": "./imgs/fazenda.png",
       "desc": "est un lieu rural où l'on pratique l'agriculture."
     },
     "le village": {
       "name": "Un village",
       "img": "imgVillage",
-      "imgUrl": "./lieux/unepetiteville.png",
+      "imgUrl": "./imgs/unepetiteville.png",
       "desc": "est un endroit avec peu de maisons et des rues tranquilles."
     },
     "La agence immobilière": {
