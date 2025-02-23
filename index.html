@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jeu de langage avec catégories</title>
   <style>
+    /* Estilos Gerais */
     body {
       margin: 0;
       padding: 20px;
@@ -41,42 +42,57 @@
       background-color: #5c6bc0;
       transform: scale(1.05);
     }
+
+    /* Container de Descrição com Áudio (ícone à esquerda) */
     .desc-container {
-      display: none;
-      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
       margin: 20px auto;
       background: #3949ab;
       padding: 15px;
       border-radius: 10px;
       max-width: 600px;
       width: 90%;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       color: white;
-    }
-    .desc-content {
-      font-size: 20px;
-      margin-bottom: 10px;
-      text-align: center;
     }
     .desc-audio {
-      background: #4CAF50;
+      background: transparent;
       border: none;
-      color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
       cursor: pointer;
+      font-size: 24px;
+    }
+    .desc-content {
+      flex: 1;
+      font-size: 16px;
+      margin-left: 10px;
+      text-align: left;
     }
     .close-desc {
-      position: absolute;
-      top: 5px;
-      right: 10px;
       cursor: pointer;
       font-size: 20px;
+      margin-left: 10px;
+    }
+
+    /* Container do Jogo (Imagens e Palavras) */
+    .game-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
     .image-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
+      justify-content: center;
+      margin-bottom: 40px;
+      padding: 0 20px;
+    }
+    .words-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
       justify-content: center;
       margin-bottom: 40px;
       padding: 0 20px;
@@ -87,8 +103,7 @@
       padding: 20px;
       text-align: center;
       transition: transform 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      cursor:pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
     .image-item:hover {
       transform: translateY(-5px);
@@ -111,14 +126,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    .words-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-bottom: 40px;
-      padding: 0 20px;
     }
     .word {
       background-color: #3949ab;
@@ -180,9 +187,9 @@
     }
     .next-category-btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(76,175,80,0.4);
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
     }
-    /* Botões de navegação de página */
+    /* Botões de Navegação de Página */
     #paginationButtons {
       text-align: center;
       margin-bottom: 20px;
@@ -201,15 +208,23 @@
     #paginationButtons button:hover {
       background-color: #1558b0;
     }
+    /* Responsividade: em telas pequenas, exibe 2 colunas para imagens e palavras */
     @media (max-width: 768px) {
-      .image-item {
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
+      .game-content {
+        display: flex;
+        flex-wrap: wrap;
       }
-      .word {
-        font-size: 18px;
-        padding: 12px 25px;
+      .image-container,
+      .words-container {
+        width: 50%;
+      }
+      .image-container {
+        padding: 0 10px;
+      }
+      .words-container {
+        padding: 0 10px;
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -228,16 +243,20 @@
       </div>
     </header>
 
-    <!-- Container de descrição posicionado logo abaixo do header -->
+    <!-- Container de Descrição com Áudio (ícone à esquerda) -->
     <div class="desc-container" id="descContainer">
-      <span class="close-desc" onclick="closeDesc()">×</span>
+      <span class="desc-audio" id="descAudio">🔊</span>
       <div class="desc-content" id="descContent"></div>
+      <span class="close-desc" onclick="closeDesc()">×</span>
     </div>
 
-    <div class="image-container" id="imageContainer"></div>
-    <div class="words-container" id="wordsContainer"></div>
+    <!-- Container para as áreas de Imagem e Palavras -->
+    <div class="game-content">
+      <div class="image-container" id="imageContainer"></div>
+      <div class="words-container" id="wordsContainer"></div>
+    </div>
 
-    <!-- Botões de navegação para as páginas de palavras -->
+    <!-- Botões de Navegação para as Páginas -->
     <div id="paginationButtons">
       <button id="prevPageBtn">Précédent</button>
       <button id="nextPageBtn">Suivant</button>
@@ -258,17 +277,16 @@
     let categories = [];
     let categoryPages = [];
     let gameData = {};
-    // Removemos a contagem automática de acertos para permitir a navegação manual
-    let itemsPerPage = 4;
+    let itemsPerPage = parseInt(document.getElementById('itemsPerPage').value);
 
-    // Função para carregar todas as vozes disponíveis na API de síntese de fala
+    // Função para carregar todas as vozes disponíveis
     function loadVoices() {
-      return new Promise(function (resolve, reject) {
-        var voices = window.speechSynthesis.getVoices();
+      return new Promise((resolve, reject) => {
+        let voices = window.speechSynthesis.getVoices();
         if (voices.length > 0) {
           resolve(voices);
         } else {
-          window.speechSynthesis.onvoiceschanged = function () {
+          window.speechSynthesis.onvoiceschanged = () => {
             voices = window.speechSynthesis.getVoices();
             resolve(voices);
           };
@@ -276,46 +294,31 @@
       });
     }
 
-    // Função para reproduzir som (síntese de fala) ao clicar no ícone de áudio
-    function playSound(text) {
-      if ('speechSynthesis' in window) {
-        loadVoices()
-          .then(function (voices) {
-            var utterance = new SpeechSynthesisUtterance(text);
-            utterance.rate = 0.9;
-            utterance.pitch = 1.1;
-            utterance.volume = 1;
-            var frenchVoices = voices.filter(function (voice) {
-              return voice.lang.toLowerCase().startsWith("fr");
-            });
-            if (frenchVoices.length > 0) {
-              utterance.voice = frenchVoices[0];
-              utterance.lang = frenchVoices[0].lang;
-            } else {
-              console.error("Nenhuma voz em francês encontrada. Será utilizada a voz padrão.");
-              utterance.lang = "fr-FR";
-            }
-            if (window.speechSynthesis.speaking) {
-              window.speechSynthesis.cancel();
-            }
-            window.speechSynthesis.speak(utterance);
-          })
-          .catch(function (err) {
-            console.error("Erro ao carregar as vozes:", err);
-          });
-      } else {
-        console.error("A API de síntese de fala não é suportada neste navegador.");
-      }
-    }
-
-    // Função para reproduzir a descrição ao clicar no botão "Ouvir description"
+    // Função para reproduzir a descrição com áudio
     function playDesc(text) {
       if (synth && text) {
         loadVoices().then(voices => {
           const utterance = new SpeechSynthesisUtterance(text);
           utterance.lang = 'fr-FR';
           utterance.rate = 0.9;
-          const frenchVoice = voices.find(v => v.lang === 'fr-FR') || voices.find(v => v.lang.startsWith('fr'));
+          const frenchVoice = voices.find(v => v.lang.startsWith('fr'));
+          if (frenchVoice) {
+            utterance.voice = frenchVoice;
+          }
+          synth.cancel();
+          synth.speak(utterance);
+        });
+      }
+    }
+
+    // Função para reproduzir o som da palavra
+    function playSound(text) {
+      if (synth && text) {
+        loadVoices().then(voices => {
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = 'fr-FR';
+          utterance.rate = 0.9;
+          const frenchVoice = voices.find(v => v.lang.startsWith('fr'));
           if (frenchVoice) {
             utterance.voice = frenchVoice;
           }
@@ -331,7 +334,7 @@
       currentDesc = '';
     }
 
-    // Função para exibir a descrição de um item
+    // Função para exibir a descrição com áudio
     function showDescription(key) {
       const category = categories[currentCategoryIndex];
       const item = gameData[category][key];
@@ -340,11 +343,16 @@
         const descContainer = document.getElementById('descContainer');
         const descContent = document.getElementById('descContent');
         descContent.textContent = item.desc;
-        descContainer.style.display = 'block';
+        descContainer.style.display = 'flex';
       }
     }
 
-    // Função para dividir um array em partes (chunks)
+    // Ativa a leitura da descrição ao clicar no botão de áudio
+    document.getElementById('descAudio').addEventListener('click', () => {
+      playDesc(currentDesc);
+    });
+
+    // Função para dividir um array em pedaços (chunks)
     function chunkArray(array, chunkSize) {
       const chunks = [];
       for (let i = 0; i < array.length; i += chunkSize) {
@@ -353,7 +361,7 @@
       return chunks;
     }
 
-    // Função para embaralhar um array
+    // Função para embaralhar um array usando o algoritmo Fisher-Yates
     function shuffle(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -362,18 +370,18 @@
       return array;
     }
 
-    // Função de dragstart – usa o atributo data-key
+    // Função de dragstart
     function handleDragStart(e) {
       const key = e.currentTarget.dataset.key;
       e.dataTransfer.setData('text/plain', key);
     }
 
-    // Função para permitir o drop
+    // Função para permitir drop
     function handleDragOver(e) {
       e.preventDefault();
     }
 
-    // Função para tratar o drop na drop zone
+    // Função para tratar drop
     function handleDrop(e) {
       e.preventDefault();
       const draggedKey = e.dataTransfer.getData('text/plain').trim();
@@ -385,7 +393,6 @@
         e.currentTarget.appendChild(dropSpan);
         e.currentTarget.classList.add('correct');
         e.currentTarget.classList.remove('incorrect', 'shake');
-        // Removemos a navegação automática
         const wordsContainer = document.getElementById('wordsContainer');
         const words = Array.from(wordsContainer.children);
         const draggedWord = words.find(word => word.dataset.key.trim() === draggedKey);
@@ -419,7 +426,9 @@
     // Função para carregar uma categoria a partir do índice
     function loadCategory(index) {
       const category = categories[index];
-      const categoryData = Object.entries(gameData[category]);
+      let categoryData = Object.entries(gameData[category]);
+      // Embaralha todos os itens da categoria antes de dividi-los em páginas
+      categoryData = shuffle(categoryData);
       itemsPerPage = parseInt(document.getElementById('itemsPerPage').value);
       categoryPages = chunkArray(categoryData, itemsPerPage);
       currentPageIndex = 0;
@@ -437,16 +446,15 @@
       const wordsContainer = document.getElementById('wordsContainer');
       imageContainer.innerHTML = '';
       wordsContainer.innerHTML = '';
-      // Esconde a descrição ao carregar uma nova página
       document.getElementById('descContainer').style.display = 'none';
 
+      // Exibe os itens (imagens)
       pageItems.forEach(([key, item]) => {
         const imageItem = document.createElement('div');
         imageItem.className = 'image-item';
         const img = document.createElement('img');
         img.src = item.imgUrl;
         img.alt = item.name;
-        // Ao clicar na imagem, exibe a descrição
         img.addEventListener('click', () => {
           showDescription(key);
         });
@@ -459,9 +467,9 @@
         imageContainer.appendChild(imageItem);
       });
 
-      const keys = pageItems.map(([key]) => key);
-      const shuffledKeys = shuffle(keys);
-      shuffledKeys.forEach(key => {
+      // Exibe as palavras (itens) embaralhadas para drag and drop
+      // Como já embaralhamos na função loadCategory, não é necessário chamar shuffle novamente
+      pageItems.forEach(([key]) => {
         const word = document.createElement('div');
         word.className = 'word';
         word.draggable = true;
@@ -491,7 +499,7 @@
         loadCategory(currentCategoryIndex);
       });
 
-    // Event listeners para navegação de páginas manual
+    // Botões de Navegação de Página
     document.getElementById('prevPageBtn').addEventListener('click', () => {
       if (currentPageIndex > 0) {
         currentPageIndex--;
@@ -507,8 +515,6 @@
     document.getElementById('itemsPerPage').addEventListener('change', () => {
       loadCategory(currentCategoryIndex);
     });
-    
-    // Event listener para a navegação de categoria (botão "Catégorie suivante")
     document.getElementById('nextCategoryBtn').addEventListener('click', () => {
       currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
       document.getElementById('categorySelect').value = currentCategoryIndex;
