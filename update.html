@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Atualizar Palavra</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input[type="text"], textarea, input[type="file"], select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #1a73e8;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1558b0;
+    }
+    #response {
+      max-width: 600px;
+      margin: 20px auto;
+      text-align: center;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Atualizar Palavra</h1>
+  <form id="updateWordForm" enctype="multipart/form-data">
+    <!-- Seleção de categoria -->
+    <label for="updateCategorySelect">Selecione a Categoria</label>
+    <select id="updateCategorySelect" name="category">
+      <option value="">Carregando categorias...</option>
+    </select>
+    
+    <!-- Seleção da palavra dentro da categoria -->
+    <label for="updateWordSelect">Selecione a Palavra</label>
+    <select id="updateWordSelect" name="word">
+      <option value="">Selecione uma palavra...</option>
+    </select>
+    
+    <!-- Campos para edição -->
+    <label for="name">Nome da Palavra</label>
+    <input type="text" id="name" name="name" required placeholder="Ex: Taekwondo">
+    
+    <!-- Campo oculto para armazenar a chave (identificador) -->
+    <input type="hidden" id="key" name="key">
+    
+    <label for="desc">Descrição da Palavra</label>
+    <textarea id="desc" name="desc" rows="4" required placeholder="Digite a nova descrição"></textarea>
+    
+    <label for="image">Nova Imagem (opcional)</label>
+    <input type="file" id="image" name="image" accept="image/*">
+    
+    <button type="submit">Atualizar Palavra</button>
+  </form>
+  
+  <div id="response"></div>
+  
+  <script>
+    // Carrega as categorias a partir do JSON
+    document.addEventListener("DOMContentLoaded", async () => {
+      const categorySelect = document.getElementById("updateCategorySelect");
+      try {
+        const response = await fetch('https://raw.githubusercontent.com/mauricioDallOnder/jeu/main/correctAnswers.json');
+        if (!response.ok) throw new Error("Erro ao carregar o arquivo JSON");
+        const data = await response.json();
+        categorySelect.innerHTML = '<option value="">-- Selecione uma categoria --</option>';
+        for (const cat in data) {
+          if (data.hasOwnProperty(cat)) {
+            const option = document.createElement("option");
+            option.value = cat;
+            // Exibe o nome com underlines substituídos por espaços
+            option.textContent = cat.replace(/_/g, ' ');
+            categorySelect.appendChild(option);
+          }
+        }
+      } catch (error) {
+        console.error("Erro ao carregar categorias:", error);
+        categorySelect.innerHTML = '<option value="">Erro ao carregar categorias</option>';
+      }
+    });
+    
+    // Quando a categoria é selecionada, popula o dropdown de palavras
+    document.getElementById("updateCategorySelect").addEventListener("change", async function() {
+      const selectedCategory = this.value;
+      const wordSelect = document.getElementById("updateWordSelect");
+      wordSelect.innerHTML = '<option value="">Carregando palavras...</option>';
+      try {
+        const response = await fetch('/correctAnswers.json');
+        if (!response.ok) throw new Error("Erro ao carregar o arquivo JSON");
+        const data = await response.json();
+        wordSelect.innerHTML = '<option value="">-- Selecione uma palavra --</option>';
+        if (data[selectedCategory]) {
+          for (const key in data[selectedCategory]) {
+            if (data[selectedCategory].hasOwnProperty(key)) {
+              const option = document.createElement("option");
+              option.value = key;
+              // Exibe o nome (pode ser customizado conforme necessidade)
+              option.textContent = data[selectedCategory][key].name;
+              wordSelect.appendChild(option);
+            }
+          }
+        } else {
+          wordSelect.innerHTML = '<option value="">Nenhuma palavra encontrada nessa categoria.</option>';
+        }
+      } catch (error) {
+        console.error("Erro ao carregar palavras:", error);
+        wordSelect.innerHTML = '<option value="">Erro ao carregar palavras</option>';
+      }
+    });
+    
+    // Ao selecionar uma palavra, preenche os campos do formulário com os dados atuais
+    document.getElementById("updateWordSelect").addEventListener("change", async function() {
+      const selectedCategory = document.getElementById("updateCategorySelect").value;
+      const selectedKey = this.value;
+      // Atualiza o campo oculto "key"
+      document.getElementById("key").value = selectedKey;
+      try {
+        const response = await fetch('/correctAnswers.json');
+        if (!response.ok) throw new Error("Erro ao carregar o arquivo JSON");
+        const data = await response.json();
+        if (data[selectedCategory] && data[selectedCategory][selectedKey]) {
+          const wordData = data[selectedCategory][selectedKey];
+          document.getElementById("name").value = wordData.name;
+          document.getElementById("desc").value = wordData.desc;
+          // Se desejar, pode exibir uma pré-visualização da imagem atual.
+        }
+      } catch (error) {
+        console.error("Erro ao carregar dados da palavra:", error);
+      }
+    });
+    
+    // Submissão do formulário de update
+    document.getElementById("updateWordForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      
+      const category = document.getElementById("updateCategorySelect").value;
+      const key = document.getElementById("key").value;
+      const name = document.getElementById("name").value.trim();
+      const desc = document.getElementById("desc").value.trim();
+      const imageFile = document.getElementById("image").files[0]; // Opcional
+      
+      // Cria o FormData para envio
+      const formData = new FormData();
+      formData.append("category", category);
+      formData.append("key", key);
+      formData.append("name", name);
+      formData.append("desc", desc);
+      if (imageFile) {
+        formData.append("image", imageFile);
+      }
+      
+      const responseDiv = document.getElementById("response");
+      try {
+        const response = await fetch('https://nodejs-serverless-function-express-navy-mu.vercel.app/api/update-word', {
+          method: 'POST',
+          body: formData
+        });
+        const result = await response.json();
+        if (result.success) {
+          responseDiv.textContent = 'Palavra atualizada com sucesso!';
+        } else {
+          responseDiv.textContent = 'Erro ao atualizar a palavra: ' + JSON.stringify(result);
+        }
+      } catch (error) {
+        responseDiv.textContent = 'Erro: ' + error.message;
+      }
+    });
+  </script>
+</body>
+</html>
