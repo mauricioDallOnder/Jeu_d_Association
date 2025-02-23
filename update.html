@@ -47,6 +47,11 @@
       text-align: center;
       font-size: 18px;
     }
+    #previewImage {
+      max-width: 100%;
+      margin-top: 15px;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -63,6 +68,9 @@
     <select id="updateWordSelect" name="word">
       <option value="">Selecione uma palavra...</option>
     </select>
+    
+    <!-- Pré-visualização da imagem atual -->
+    <img id="previewImage" alt="Preview da Imagem">
     
     <!-- Campos para edição -->
     <label for="name">Nome da Palavra</label>
@@ -83,11 +91,14 @@
   <div id="response"></div>
   
   <script>
+    // URL base para acessar os arquivos raw do GitHub (ajuste conforme seu repositório)
+    const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/mauricioDallOnder/jeu/main/";
+    
     // Carrega as categorias a partir do JSON
     document.addEventListener("DOMContentLoaded", async () => {
       const categorySelect = document.getElementById("updateCategorySelect");
       try {
-        const response = await fetch('https://raw.githubusercontent.com/mauricioDallOnder/jeu/main/correctAnswers.json');
+        const response = await fetch(GITHUB_RAW_BASE + 'correctAnswers.json');
         if (!response.ok) throw new Error("Erro ao carregar o arquivo JSON");
         const data = await response.json();
         categorySelect.innerHTML = '<option value="">-- Selecione uma categoria --</option>';
@@ -95,7 +106,6 @@
           if (data.hasOwnProperty(cat)) {
             const option = document.createElement("option");
             option.value = cat;
-            // Exibe o nome com underlines substituídos por espaços
             option.textContent = cat.replace(/_/g, ' ');
             categorySelect.appendChild(option);
           }
@@ -112,7 +122,7 @@
       const wordSelect = document.getElementById("updateWordSelect");
       wordSelect.innerHTML = '<option value="">Carregando palavras...</option>';
       try {
-        const response = await fetch('/correctAnswers.json');
+        const response = await fetch(GITHUB_RAW_BASE + 'correctAnswers.json');
         if (!response.ok) throw new Error("Erro ao carregar o arquivo JSON");
         const data = await response.json();
         wordSelect.innerHTML = '<option value="">-- Selecione uma palavra --</option>';
@@ -121,7 +131,6 @@
             if (data[selectedCategory].hasOwnProperty(key)) {
               const option = document.createElement("option");
               option.value = key;
-              // Exibe o nome (pode ser customizado conforme necessidade)
               option.textContent = data[selectedCategory][key].name;
               wordSelect.appendChild(option);
             }
@@ -135,26 +144,50 @@
       }
     });
     
-    // Ao selecionar uma palavra, preenche os campos do formulário com os dados atuais
+    // Ao selecionar uma palavra, preenche os campos do formulário e exibe a imagem atual
     document.getElementById("updateWordSelect").addEventListener("change", async function() {
       const selectedCategory = document.getElementById("updateCategorySelect").value;
       const selectedKey = this.value;
       // Atualiza o campo oculto "key"
       document.getElementById("key").value = selectedKey;
       try {
-        const response = await fetch('/correctAnswers.json');
+        const response = await fetch(GITHUB_RAW_BASE + 'correctAnswers.json');
         if (!response.ok) throw new Error("Erro ao carregar o arquivo JSON");
         const data = await response.json();
         if (data[selectedCategory] && data[selectedCategory][selectedKey]) {
           const wordData = data[selectedCategory][selectedKey];
           document.getElementById("name").value = wordData.name;
           document.getElementById("desc").value = wordData.desc;
-          // Se desejar, pode exibir uma pré-visualização da imagem atual.
+          
+          // Atualiza a pré-visualização da imagem
+          const previewImage = document.getElementById("previewImage");
+          if (wordData.imgUrl) {
+            let imgUrl = wordData.imgUrl;
+            // Se o URL for relativo (começa com "./"), remova "./" e adicione a URL base
+            if (imgUrl.startsWith("./")) {
+              imgUrl = GITHUB_RAW_BASE + imgUrl.slice(2);
+            }
+            previewImage.src = imgUrl;
+            previewImage.style.display = "block";
+          } else {
+            previewImage.style.display = "none";
+          }
         }
       } catch (error) {
         console.error("Erro ao carregar dados da palavra:", error);
       }
     });
+    
+    // Função para gerar uma slug a partir do nome (pode ser usada se necessário)
+    function slugify(text) {
+      return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '_')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\_\_+/g, '_');
+    }
     
     // Submissão do formulário de update
     document.getElementById("updateWordForm").addEventListener("submit", async function(e) {
