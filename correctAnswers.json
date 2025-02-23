@@ -236,8 +236,8 @@
     },
     "la ville": {
       "name": "La ville",
-      "img": "imgVille",
-      "imgUrl": "./lieux/city.png",
+      "img": "villecorrect.jpg",
+      "imgUrl": "./imgs/villecorrect.jpg",
       "desc": "est un grand centre urbain."
     },
     "la banlieue": {
