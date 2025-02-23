@@ -153,7 +153,7 @@
     "la papeterie": {
       "name": "Une papeterie",
       "img": "imgpapeterie",
-      "imgUrl": "./imgs/papeterie.png",
+      "imgUrl": "./imgs/Papeterie.png",
       "desc": "est un endroit où l'on achète des articles de bureau."
     },
     "l'eglise": {
