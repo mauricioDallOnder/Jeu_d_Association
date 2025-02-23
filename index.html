@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeu de langage avec catégories</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #1a237e;
+      font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+      color: white;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .category-selector {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .category-selector select,
+    .items-per-page {
+      padding: 12px 20px;
+      border-radius: 25px;
+      background-color: #3949ab;
+      color: white;
+      border: none;
+      margin: 0 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .category-selector select:hover,
+    .items-per-page:hover {
+      background-color: #5c6bc0;
+      transform: scale(1.05);
+    }
+    .desc-container {
+      display: none;
+      position: relative;
+      margin: 20px auto;
+      background: #3949ab;
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      color: white;
+    }
+    .desc-content {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .desc-audio {
+      background: #4CAF50;
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .close-desc {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .image-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      justify-content: center;
+      margin-bottom: 40px;
+      padding: 0 20px;
+    }
+    .image-item {
+      background-color: #3949ab;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .image-item:hover {
+      transform: translateY(-5px);
+    }
+    .image-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 3px solid #fff;
+    }
+    .drop-zone {
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 2px dashed #fff;
+      border-radius: 10px;
+      min-height: 60px;
+      margin-top: 15px;
+      padding: 15px;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .words-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 40px;
+      padding: 0 20px;
+    }
+    .word {
+      background-color: #3949ab;
+      border: 2px solid #fff;
+      border-radius: 30px;
+      padding: 15px 30px;
+      cursor: move;
+      user-select: none;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+    .word:hover {
+      background-color: #5c6bc0;
+      transform: scale(1.05);
+    }
+    .sound-icon {
+      cursor: pointer;
+      padding: 5px;
+      transition: transform 0.2s ease;
+    }
+    .sound-icon:hover {
+      transform: scale(1.2);
+    }
+    .correct {
+      background-color: #4CAF50 !important;
+      border-color: #4CAF50;
+    }
+    .incorrect {
+      background-color: #ff4444 !important;
+      border-color: #ff4444;
+    }
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+    .shake {
+      animation: shake 0.5s ease-in-out;
+    }
+    .completion-message {
+      text-align: center;
+      margin: 40px 0;
+      display: none;
+    }
+    .next-category-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+    .next-category-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(76,175,80,0.4);
+    }
+    @media (max-width: 768px) {
+      .image-item {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      .word {
+        font-size: 18px;
+        padding: 12px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Déplacez le mot vers la bonne réponse</h1>
+      <div class="category-selector">
+        <select id="categorySelect"></select>
+        <select class="items-per-page" id="itemsPerPage">
+          <option value="4">4 itens</option>
+          <option value="8">8 itens</option>
+          <option value="16">16 itens</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- Container de descrição posicionado logo abaixo do header -->
+    <div class="desc-container" id="descContainer">
+      <span class="close-desc" onclick="closeDesc()">×</span>
+      <div class="desc-content" id="descContent"></div>
+     
+    </div>
+
+    <div class="image-container" id="imageContainer"></div>
+    <div class="words-container" id="wordsContainer"></div>
+    <div class="completion-message" id="completionMessage">
+      <p>Félicitations! Vous avez complété cette catégorie!</p>
+      <button class="next-category-btn" id="nextCategoryBtn">Catégorie suivante</button>
+    </div>
+  </div>
+
+  <script>
+    // Variáveis globais
+    let currentDesc = '';
+    let synth = window.speechSynthesis;
+    let currentCategoryIndex = 0;
+    let currentPageIndex = 0;
+    let categories = [];
+    let categoryPages = [];
+    let gameData = {};
+    let correctAnswersCount = 0;
+    let itemsPerPage = 4;
+
+    // Função para carregar todas as vozes disponíveis na API de síntese de fala
+    function loadVoices() {
+      return new Promise(function (resolve, reject) {
+        var voices = window.speechSynthesis.getVoices();
+        if (voices.length > 0) {
+          resolve(voices);
+        } else {
+          window.speechSynthesis.onvoiceschanged = function () {
+            voices = window.speechSynthesis.getVoices();
+            resolve(voices);
+          };
+        }
+      });
+    }
+
+    // Função para reproduzir som (síntese de fala) ao clicar no ícone de áudio
+    function playSound(text) {
+      if ('speechSynthesis' in window) {
+        loadVoices()
+          .then(function (voices) {
+            var utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.9;
+            utterance.pitch = 1.1;
+            utterance.volume = 1;
+            var frenchVoices = voices.filter(function (voice) {
+              return voice.lang.toLowerCase().startsWith("fr");
+            });
+            if (frenchVoices.length > 0) {
+              utterance.voice = frenchVoices[0];
+              utterance.lang = frenchVoices[0].lang;
+            } else {
+              console.error("Nenhuma voz em francês encontrada. Será utilizada a voz padrão.");
+              utterance.lang = "fr-FR";
+            }
+            if (window.speechSynthesis.speaking) {
+              window.speechSynthesis.cancel();
+            }
+            window.speechSynthesis.speak(utterance);
+          })
+          .catch(function (err) {
+            console.error("Erro ao carregar as vozes:", err);
+          });
+      } else {
+        console.error("A API de síntese de fala não é suportada neste navegador.");
+      }
+    }
+
+    // Função para reproduzir a descrição ao clicar no botão "Ouvir descrição"
+    function playDesc(text) {
+      if (synth && text) {
+        loadVoices().then(voices => {
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = 'fr-FR';
+          utterance.rate = 0.9;
+          const frenchVoice = voices.find(v => v.lang === 'fr-FR') || voices.find(v => v.lang.startsWith('fr'));
+          if (frenchVoice) {
+            utterance.voice = frenchVoice;
+          }
+          synth.cancel();
+          synth.speak(utterance);
+        });
+      }
+    }
+
+    // Função para fechar a descrição
+    function closeDesc() {
+      document.getElementById('descContainer').style.display = 'none';
+      currentDesc = '';
+    }
+
+    // Função para exibir a descrição de um item
+    function showDescription(key) {
+      const category = categories[currentCategoryIndex];
+      const item = gameData[category][key];
+      if (item && item.desc) {
+        currentDesc = item.desc;
+        const descContainer = document.getElementById('descContainer');
+        const descContent = document.getElementById('descContent');
+        const descAudio = document.getElementById('descAudio');
+        descContent.textContent = item.desc;
+        descContainer.style.display = 'block';
+        descAudio.onclick = () => playDesc(currentDesc);
+      }
+    }
+
+    // Função para dividir um array em partes (chunks)
+    function chunkArray(array, chunkSize) {
+      const chunks = [];
+      for (let i = 0; i < array.length; i += chunkSize) {
+        chunks.push(array.slice(i, i + chunkSize));
+      }
+      return chunks;
+    }
+
+    // Função para embaralhar um array
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    // Função de dragstart – usa o atributo data-key
+    function handleDragStart(e) {
+      const key = e.currentTarget.dataset.key;
+      e.dataTransfer.setData('text/plain', key);
+    }
+
+    // Função para permitir o drop
+    function handleDragOver(e) {
+      e.preventDefault();
+    }
+
+    // Função para tratar o drop na drop zone
+    function handleDrop(e) {
+      e.preventDefault();
+      const draggedKey = e.dataTransfer.getData('text/plain').trim();
+      const correctKey = e.currentTarget.dataset.key.trim();
+      if (draggedKey === correctKey) {
+        const dropSpan = document.createElement('span');
+        dropSpan.textContent = draggedKey;
+        e.currentTarget.innerHTML = '';
+        e.currentTarget.appendChild(dropSpan);
+        e.currentTarget.classList.add('correct');
+        e.currentTarget.classList.remove('incorrect', 'shake');
+        correctAnswersCount++;
+        const wordsContainer = document.getElementById('wordsContainer');
+        const words = Array.from(wordsContainer.children);
+        const draggedWord = words.find(word => word.dataset.key.trim() === draggedKey);
+        if (draggedWord) draggedWord.remove();
+        if (correctAnswersCount === itemsPerPage) {
+          currentPageIndex++;
+          setTimeout(() => loadPage(currentPageIndex), 1000);
+        }
+      } else {
+        const dropSpan = document.createElement('span');
+        dropSpan.textContent = draggedKey;
+        e.currentTarget.innerHTML = '';
+        e.currentTarget.appendChild(dropSpan);
+        e.currentTarget.classList.add('incorrect', 'shake');
+        e.currentTarget.classList.remove('correct');
+        setTimeout(() => e.currentTarget.classList.remove('shake'), 500);
+      }
+    }
+
+    // Função para criar o elemento arrastável (palavra)
+    function createWordElement(key) {
+      const word = document.createElement('div');
+      word.className = 'word';
+      word.draggable = true;
+      word.dataset.key = key;
+      const textSpan = document.createElement('span');
+      textSpan.textContent = key;
+      const soundIcon = document.createElement('span');
+      soundIcon.innerHTML = '🔊';
+      soundIcon.className = 'sound-icon';
+      soundIcon.onclick = (e) => {
+        e.stopPropagation();
+        playSound(key);
+      };
+      word.append(textSpan, soundIcon);
+      word.addEventListener('dragstart', handleDragStart);
+      return word;
+    }
+
+    // Função para preencher o seletor de categorias
+    function populateCategorySelect() {
+      const select = document.getElementById('categorySelect');
+      categories.forEach((category, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = category.replace(/_/g, ' ');
+        select.appendChild(option);
+      });
+      select.addEventListener('change', (e) => {
+        currentCategoryIndex = parseInt(e.target.value);
+        loadCategory(currentCategoryIndex);
+      });
+    }
+
+    // Função para carregar uma categoria a partir do índice
+    function loadCategory(index) {
+      const category = categories[index];
+      const categoryData = Object.entries(gameData[category]);
+      itemsPerPage = parseInt(document.getElementById('itemsPerPage').value);
+      categoryPages = chunkArray(categoryData, itemsPerPage);
+      currentPageIndex = 0;
+      loadPage(currentPageIndex);
+    }
+
+    // Função para carregar uma página da categoria
+    function loadPage(pageIndex) {
+      if (pageIndex >= categoryPages.length) {
+        document.getElementById('completionMessage').style.display = 'block';
+        return;
+      }
+      const pageItems = categoryPages[pageIndex];
+      correctAnswersCount = 0;
+      const imageContainer = document.getElementById('imageContainer');
+      const wordsContainer = document.getElementById('wordsContainer');
+      imageContainer.innerHTML = '';
+      wordsContainer.innerHTML = '';
+      // Esconde a descrição ao carregar uma nova página
+      document.getElementById('descContainer').style.display = 'none';
+
+      pageItems.forEach(([key, item]) => {
+        const imageItem = document.createElement('div');
+        imageItem.className = 'image-item';
+        const img = document.createElement('img');
+        img.src = item.imgUrl;
+        img.alt = item.name;
+        // Ao clicar na imagem, exibe a descrição
+        img.addEventListener('click', () => {
+          showDescription(key);
+        });
+        const dropZone = document.createElement('div');
+        dropZone.className = 'drop-zone';
+        dropZone.dataset.key = key;
+        dropZone.addEventListener('dragover', handleDragOver);
+        dropZone.addEventListener('drop', handleDrop);
+        imageItem.append(img, dropZone);
+        imageContainer.appendChild(imageItem);
+      });
+
+      const keys = pageItems.map(([key]) => key);
+      const shuffledKeys = shuffle(keys);
+      shuffledKeys.forEach(key => {
+        const word = createWordElement(key);
+        wordsContainer.appendChild(word);
+      });
+    }
+
+    // Carrega os dados do JSON e inicia o jogo
+    fetch('correctAnswers.json')
+      .then(response => response.json())
+      .then(data => {
+        gameData = data;
+        categories = Object.keys(gameData);
+        populateCategorySelect();
+        loadCategory(currentCategoryIndex);
+      });
+
+    // Event listeners para navegação
+    document.getElementById('nextCategoryBtn').addEventListener('click', () => {
+      currentCategoryIndex = (currentCategoryIndex + 1) % categories.length;
+      document.getElementById('categorySelect').value = currentCategoryIndex;
+      loadCategory(currentCategoryIndex);
+    });
+    document.getElementById('itemsPerPage').addEventListener('change', () => {
+      loadCategory(currentCategoryIndex);
+    });
+  </script>
+</body>
+</html>
