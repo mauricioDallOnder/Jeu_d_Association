@@ -263,55 +263,92 @@ body {
 
 /* RESPONSIVIDADE para telas pequenas */
 @media (max-width: 768px) {
-  /* Descrição em bloco */
   .desc-container {
-    display: block !important;
-    width: 90%;
-    margin: 20px auto;
-  }
-  .completion-message {
-    text-align: center;
-    margin-top: 30px 0;
-    display: none;
-  }
-  .paginationButtons{
-    padding-top: 15px;
+    padding: 10px;
+    font-size: 14px;
   }
 
-  /* DUAS colunas fixas: imagens e palavras lado a lado */
   .game-content {
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .image-container,
+  .words-container {
+    width: 100%;
+    margin: 0;
+    gap: 15px;
+  }
+
+  .image-item {
+    padding: 10px;
+  }
+
+  .image-item img {
+    height: auto;
+    max-height: 150px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .words-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .word {
+    font-size: 14px;
+    padding: 10px 15px;
+    flex: 1 1 40%;
+    max-width: 45%;
+    text-align: center;
+  }
+
+  .category-selector {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    justify-content: space-between;
-    margin-bottom: 10px;
   }
 
-  /* Cada coluna fica com 50% */
-  .image-container,
-  .words-container {
-   
-    margin: 0px;
-    padding: 0;
-    gap:20px
-    /* Caso queira rolagem vertical separada, defina altura e overflow:
-       max-height: 70vh;
-       overflow-y: auto;
-    */
+  .category-selector select,
+  .items-per-page {
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
   }
-  .words-container{
-    margin-left: 30px;
+
+  #paginationButtons {
+    margin: 20px 0;
   }
-  /* Ajuste altura das imagens */
+
+  #paginationButtons button {
+    padding: 8px 16px;
+    margin: 5px;
+  }
+}
+
+/* Ajustes para telas muito pequenas (até 480px) */
+@media (max-width: 480px) {
   .image-item img {
-    height: 120px;
-    object-fit: cover;
+    max-height: 120px;
   }
 
-  /* Reduz tamanho da fonte e padding das palavras */
   .word {
-    font-size: 16px;
-    padding: 10px 20px;
-   height:fit-content;
+    font-size: 12px;
+    padding: 8px 12px;
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .topnav a {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+    padding: 0 10px;
   }
 }
