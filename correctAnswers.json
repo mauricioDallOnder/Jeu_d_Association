@@ -5271,6 +5271,42 @@
       "img": "canard.jpeg",
       "imgUrl": "./imgs/canard.jpeg",
       "desc": "Ils sont des oiseaux aquatiques capables de nager, glisser sur l'eau et voler"
+    },
+    "le_chat": {
+      "name": "le chat",
+      "img": "chat.jpeg",
+      "imgUrl": "./imgs/chat.jpeg",
+      "desc": "Les chats sont des mammifères domestiques connus pour leur agilité, leur indépendance et leur capacité à chasser les rongeurs."
+    },
+    "le_chien": {
+      "name": "le chien",
+      "img": "chien.jpeg",
+      "imgUrl": "./imgs/chien.jpeg",
+      "desc": "Les chiens sont des animaux domestiques fidèles et intelligents, souvent considérés comme les meilleurs amis de l'homme."
+    },
+    "le_cheval": {
+      "name": "le cheval",
+      "img": "cheval.jpeg",
+      "imgUrl": "./imgs/cheval.jpeg",
+      "desc": "Les chevaux sont des mammifères rapides et puissants, utilisés pour le transport, le travail et les compétitions sportives."
+    },
+    "le_lion": {
+      "name": "le lion",
+      "img": "lion.jpeg",
+      "imgUrl": "./imgs/lion.jpeg",
+      "desc": "Surnommé le roi des animaux, le lion est un grand félin carnivore vivant principalement en Afrique."
+    },
+    "le_dauphin": {
+      "name": "le dauphin",
+      "img": "dauphin.jpeg",
+      "imgUrl": "./imgs/dauphin.jpeg",
+      "desc": "Les dauphins sont des mammifères marins intelligents, joueurs et dotés d'un excellent sens de la communication."
+    },
+    "l'éléphant": {
+      "name": "l'éléphant",
+      "img": "elephant.jpeg",
+      "imgUrl": "./imgs/elephant.jpeg",
+      "desc": "Les éléphants sont les plus grands mammifères terrestres, reconnaissables à leur trompe et leurs grandes oreilles."
     }
   }
 }
