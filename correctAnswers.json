@@ -5257,12 +5257,6 @@
       "img": "imgMarquer",
       "imgUrl": "./imgs/marquer.png",
       "desc": "inscrire un point ou un but dans un match."
-    },
-    "Le Taekwondo": {
-      "name": "Taekwondo",
-      "img": "tkd.jpeg",
-      "imgUrl": "./imgs/tkd.jpeg",
-      "desc": "technique de combat sans arme pour l'autodéfense"
     }
   },
   "animaux": {
@@ -5270,7 +5264,7 @@
       "name": "le canard",
       "img": "canard.jpeg",
       "imgUrl": "./imgs/canard.jpeg",
-      "desc": "Ils sont des oiseaux aquatiques capables de nager, glisser sur l'eau et voler"
+      "desc": "Ils sont des oiseaux aquatiques capables de nager, glisser sur l'eau et voler."
     },
     "le_chat": {
       "name": "le chat",
@@ -5302,7 +5296,7 @@
       "imgUrl": "./imgs/dauphin.jpeg",
       "desc": "Les dauphins sont des mammifères marins intelligents, joueurs et dotés d'un excellent sens de la communication."
     },
-    "l'éléphant": {
+    "l_elephant": {
       "name": "l'éléphant",
       "img": "elephant.jpeg",
       "imgUrl": "./imgs/elephant.jpeg",
