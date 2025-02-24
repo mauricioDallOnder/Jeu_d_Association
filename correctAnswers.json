@@ -3771,80 +3771,6 @@
       "desc": "une porte en verre qui relie l'intérieur de la maison au patio ou au jardin."
     }
   },
-  "apartmentsLieux": {
-    "Le immeuble à appartements": {
-      "name": "Immeuble à appartements",
-      "img": "imgImmeubleAppartments",
-      "imgUrl": "./imgs/immeuble_appartments.png",
-      "desc": "est un bâtiment contenant plusieurs appartements pour y habiter."
-    },
-    "Le escalier de secours": {
-      "name": "Escalier de secours",
-      "img": "imgEscalierSecours",
-      "imgUrl": "./imgs/escalier_secours.png",
-      "desc": "est utilisé en cas d'urgence pour évacuer le bâtiment en toute sécurité."
-    },
-    "Le terrain de jeux": {
-      "name": "Terrain de jeux",
-      "img": "imgTerrainJeux",
-      "imgUrl": "./imgs/terrain_jeux.png",
-      "desc": "est un espace réservé aux enfants pour jouer et se divertir."
-    },
-    "le jardin sur le toit": {
-      "name": "Jardin sur le toit",
-      "img": "imgJardinToit",
-      "imgUrl": "./imgs/jardin_toit.png",
-      "desc": "est un espace vert situé sur le toit de l'immeuble, idéal pour se détendre."
-    },
-    "le ascenseur": {
-      "name": "Ascenseur",
-      "img": "imgAscenseur",
-      "imgUrl": "./imgs/ascenseur.png",
-      "desc": "permet de se déplacer entre les étages sans utiliser les escaliers."
-    },
-    "Des escaliers": {
-      "name": "Escaliers",
-      "img": "imgEscaliers",
-      "imgUrl": "./imgs/escaliers.png",
-      "desc": "sont utilisés pour se déplacer d'un étage à l'autre à pied."
-    },
-    "le balcon": {
-      "name": "Balcon",
-      "img": "imgBalcon",
-      "imgUrl": "./imgs/balcon.png",
-      "desc": "est un espace extérieur attenant à un appartement, offrant une vue sur l'extérieur."
-    },
-    "la cour": {
-      "name": "Cour",
-      "img": "imgCour",
-      "imgUrl": "./imgs/cour.png",
-      "desc": "est un espace extérieur central partagé entre les résidents, souvent utilisé pour se détendre."
-    },
-    "la piscine": {
-      "name": "Piscine",
-      "img": "imgPiscine",
-      "imgUrl": "./imgs/piscine.png",
-      "desc": "est un espace aquatique utilisé pour nager et se rafraîchir."
-    },
-    "le bac à ordures": {
-      "name": "Bac à ordures",
-      "img": "imgBacOrdures",
-      "imgUrl": "./imgs/bac_ordures.png",
-      "desc": "est utilisé pour jeter les ordures ménagères des résidents."
-    },
-    "la ruelle": {
-      "name": "Ruelle",
-      "img": "imgRuelle",
-      "imgUrl": "./imgs/ruelle.png",
-      "desc": "est une voie située derrière ou à côté de l'immeuble, souvent utilisée pour l'accès au stationnement ou à la livraison."
-    },
-    "le casier de rangement": {
-      "name": "Casier de rangement",
-      "img": "imgCasierRangement",
-      "imgUrl": "./imgs/casier_rangement.png",
-      "desc": "est un petit espace privé dans lequel les résidents peuvent stocker des objets supplémentaires."
-    }
-  },
   "exterieurMaison": {
     "la boîte aux lettres": {
       "name": "Boîte aux lettres",
@@ -4031,6 +3957,78 @@
       "img": "imgGrille",
       "imgUrl": "./imgs/grille.png",
       "desc": "barrière métallique utilisée pour sécuriser ou décorer l'entrée de la maison."
+    },
+     "Le immeuble à appartements": {
+      "name": "Immeuble à appartements",
+      "img": "imgImmeubleAppartments",
+      "imgUrl": "./imgs/immeuble_appartments.png",
+      "desc": "est un bâtiment contenant plusieurs appartements pour y habiter."
+    },
+    "Le escalier de secours": {
+      "name": "Escalier de secours",
+      "img": "imgEscalierSecours",
+      "imgUrl": "./imgs/escalier_secours.png",
+      "desc": "est utilisé en cas d'urgence pour évacuer le bâtiment en toute sécurité."
+    },
+    "Le terrain de jeux": {
+      "name": "Terrain de jeux",
+      "img": "imgTerrainJeux",
+      "imgUrl": "./imgs/terrain_jeux.png",
+      "desc": "est un espace réservé aux enfants pour jouer et se divertir."
+    },
+    "le jardin sur le toit": {
+      "name": "Jardin sur le toit",
+      "img": "imgJardinToit",
+      "imgUrl": "./imgs/jardin_toit.png",
+      "desc": "est un espace vert situé sur le toit de l'immeuble, idéal pour se détendre."
+    },
+    "le ascenseur": {
+      "name": "Ascenseur",
+      "img": "imgAscenseur",
+      "imgUrl": "./imgs/ascenseur.png",
+      "desc": "permet de se déplacer entre les étages sans utiliser les escaliers."
+    },
+    "Des escaliers": {
+      "name": "Escaliers",
+      "img": "imgEscaliers",
+      "imgUrl": "./imgs/escaliers.png",
+      "desc": "sont utilisés pour se déplacer d'un étage à l'autre à pied."
+    },
+    "le balcon": {
+      "name": "Balcon",
+      "img": "imgBalcon",
+      "imgUrl": "./imgs/balcon.png",
+      "desc": "est un espace extérieur attenant à un appartement, offrant une vue sur l'extérieur."
+    },
+    "la cour": {
+      "name": "Cour",
+      "img": "imgCour",
+      "imgUrl": "./imgs/cour.png",
+      "desc": "est un espace extérieur central partagé entre les résidents, souvent utilisé pour se détendre."
+    },
+    "la piscine": {
+      "name": "Piscine",
+      "img": "imgPiscine",
+      "imgUrl": "./imgs/piscine.png",
+      "desc": "est un espace aquatique utilisé pour nager et se rafraîchir."
+    },
+    "le bac à ordures": {
+      "name": "Bac à ordures",
+      "img": "imgBacOrdures",
+      "imgUrl": "./imgs/bac_ordures.png",
+      "desc": "est utilisé pour jeter les ordures ménagères des résidents."
+    },
+    "la ruelle": {
+      "name": "Ruelle",
+      "img": "imgRuelle",
+      "imgUrl": "./imgs/ruelle.png",
+      "desc": "est une voie située derrière ou à côté de l'immeuble, souvent utilisée pour l'accès au stationnement ou à la livraison."
+    },
+    "le casier de rangement": {
+      "name": "Casier de rangement",
+      "img": "imgCasierRangement",
+      "imgUrl": "./imgs/casier_rangement.png",
+      "desc": "est un petit espace privé dans lequel les résidents peuvent stocker des objets supplémentaires."
     }
   },
   "maisonMeubles": {
