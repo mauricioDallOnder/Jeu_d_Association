@@ -2196,17 +2196,11 @@
       "imgUrl": "./imgs/ordinateur.png",
       "desc": "est un dispositif électronique utilisé pour traiter et stocker des informations."
     },
-    "l'imprimante jet encre": {
-      "name": "Une imprimante à jet d'encre",
+    "l'imprimante": {
+      "name": "Une imprimante",
       "img": "imgImprimanteJetEncre",
       "imgUrl": "./imgs/imprimante_jet_encre.png",
       "desc": "est une imprimante qui utilise des jets d'encre pour imprimer des documents."
-    },
-    "l'imprimante laser": {
-      "name": "Une imprimante laser",
-      "img": "imgImprimanteLaser",
-      "imgUrl": "./imgs/imprimante_laser.png",
-      "desc": "est une imprimante qui utilise un faisceau laser pour produire des impressions de haute qualité."
     },
     "le scanner": {
       "name": "Un scanner",
@@ -2214,23 +2208,11 @@
       "imgUrl": "./imgs/scanner.png",
       "desc": "est un appareil utilisé pour numériser des documents ou des images."
     },
-    "le télécopieur": {
-      "name": "Un télécopieur",
-      "img": "imgTelecopieur",
-      "imgUrl": "./imgs/telecopieur.png",
-      "desc": "est utilisé pour envoyer et recevoir des documents via une ligne téléphonique."
-    },
     "le massicot": {
       "name": "Un massicot",
       "img": "imgMassicot",
       "imgUrl": "./imgs/massicot.png",
       "desc": "est utilisé pour couper du papier avec précision."
-    },
-    "la photocopieuse": {
-      "name": "Une photocopieuse",
-      "img": "imgPhotocopieuse",
-      "imgUrl": "./imgs/photocopieuse.png",
-      "desc": "est une machine utilisée pour faire des copies de documents."
     },
     "la déchiqueteuse": {
       "name": "Une déchiqueteuse",
@@ -2244,11 +2226,11 @@
       "imgUrl": "./imgs/calculatrice.png",
       "desc": "est un appareil utilisé pour effectuer des calculs mathématiques."
     },
-    "le taille crayons électrique": {
+    "le taille crayons": {
       "name": "Un taille-crayons électrique",
       "img": "imgTailleCrayonsElectrique",
       "imgUrl": "./imgs/taille_crayons_electrique.png",
-      "desc": "est utilisé pour tailler les crayons automatiquement."
+      "desc": "est utilisé pour tailler les crayons."
     },
     "le pèse lettre": {
       "name": "Un pèse-lettre",
@@ -2297,12 +2279,6 @@
       "img": "imgEtiquetteExpedition",
       "imgUrl": "./imgs/etiquette_d_expedition.png",
       "desc": "est utilisée pour indiquer les informations d'expédition sur un colis."
-    },
-    "le tampon": {
-      "name": "Un tampon",
-      "img": "imgTampon",
-      "imgUrl": "./imgs/tampon.png",
-      "desc": "est utilisé pour marquer des documents avec un sceau ou une signature."
     },
     "le ruban adhésif transparent": {
       "name": "Un ruban adhésif transparent",
@@ -2364,12 +2340,6 @@
       "imgUrl": "./imgs/bloc_format_legal.png",
       "desc": "est un carnet de notes utilisé pour écrire des documents formels."
     },
-    "le fichier rotatif": {
-      "name": "Un fichier rotatif",
-      "img": "imgFichierRotatif",
-      "imgUrl": "./imgs/fichier_rotatif.png",
-      "desc": "est utilisé pour stocker des fiches de contact et les organiser."
-    },
     "Dossier de poche en plastique": {
       "name": "Dossier de poche en plastique",
       "img": "imgDossier",
@@ -2388,12 +2358,6 @@
       "imgUrl": "./imgs/notes_autoadhesives.png",
       "desc": "sont utilisées pour prendre des notes rapides et les coller sur des surfaces."
     },
-    "la cartouche d'encre": {
-      "name": "Une cartouche d'encre",
-      "img": "imgCartoucheEncre",
-      "imgUrl": "./imgs/cartouche_d_encre.png",
-      "desc": "est utilisée pour alimenter les imprimantes en encre."
-    }
   },
   "nature": {
     "la forêt pluviale": {
