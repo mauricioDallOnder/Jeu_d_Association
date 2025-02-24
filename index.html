@@ -64,62 +64,123 @@
         document.getElementById("itemsPerPage").value
       );
 
-     // Função para carregar todas as vozes disponíveis
-    function loadVoices() {
-      return new Promise((resolve, reject) => {
-        let voices = window.speechSynthesis.getVoices();
-        if (voices.length > 0) {
-          resolve(voices);
-        } else {
-          window.speechSynthesis.onvoiceschanged = () => {
-            voices = window.speechSynthesis.getVoices();
-            resolve(voices);
-          };
-        }
-      });
+   // Funções de síntese de fala
+function loadVoices() {
+  return new Promise((resolve) => {
+    let voices = window.speechSynthesis.getVoices();
+    if (voices.length > 0) {
+      resolve(voices);
+    } else {
+      window.speechSynthesis.onvoiceschanged = () => {
+        voices = window.speechSynthesis.getVoices();
+        resolve(voices);
+      };
     }
+  });
+}
+
+function playSound(text) {
+  if ('speechSynthesis' in window) {
+    loadVoices().then((voices) => {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.9;   // Fala um pouco mais lenta
+      utterance.pitch = 1.1;  // Aumenta levemente o tom
+      utterance.volume = 1;   // Volume máximo
+
+      // Seleciona a voz francesa de acordo com o navegador
+      const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      if (isSafari) {
+        const safariFrenchVoice = voices.find(voice => voice.name === "Thomas" && voice.lang === 'fr-FR');
+        if (safariFrenchVoice) {
+          utterance.voice = safariFrenchVoice;
+          utterance.lang = 'fr-FR';
+          console.log("Usando a voz Thomas no Safari.");
+        } else {
+          console.warn("A voz Thomas não foi encontrada no Safari.");
+        }
+      } else {
+        const chromeFrenchVoice = voices.find(voice => voice.lang === 'fr-FR' && voice.name.includes('Google')) ||
+          voices.find(voice => voice.lang === 'fr-FR');
+        if (chromeFrenchVoice) {
+          utterance.voice = chromeFrenchVoice;
+          utterance.lang = 'fr-FR';
+          console.log("Usando a voz Google no Chrome.");
+        } else {
+          console.warn("Nenhuma voz francesa foi encontrada.");
+        }
+      }
+
+      // Cancela qualquer fala em andamento antes de iniciar
+      if (window.speechSynthesis.speaking) {
+        console.log("Cancelando fala anterior...");
+        window.speechSynthesis.cancel();
+      }
+
+      utterance.onend = () => {
+        console.log("Fala concluída.");
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }).catch(error => {
+      console.error("Erro ao carregar vozes:", error);
+    });
+  } else {
+    console.error("API de síntese de fala não suportada.");
+  }
+}
 
     // Função para reproduzir a descrição com áudio com ajustes para melhorar a naturalidade
     function playDesc(text) {
-      if (synth && text) {
-        loadVoices().then(voices => {
-          // Tenta selecionar uma voz que contenha "Google" no nome para maior naturalidade
-          const naturalVoice = voices.find(v => v.name.toLowerCase().includes("google")) || voices.find(v => v.lang.startsWith("fr"));
-          const utterance = new SpeechSynthesisUtterance(text);
-          // Ajusta a língua conforme a voz encontrada, ou usa 'fr-FR' por padrão
-          utterance.lang = naturalVoice ? naturalVoice.lang : "fr-FR";
-          // Ajuste dos parâmetros para uma leitura mais natural
-          utterance.rate = 0.9;  // taxa normal
-          utterance.pitch = 1.1; // leve aumento de tom
-          utterance.volume = 1.0;
-          if (naturalVoice) {
-            utterance.voice = naturalVoice;
-          }
-          synth.cancel();
-          synth.speak(utterance);
-        });
+      if ('speechSynthesis' in window) {
+    loadVoices().then((voices) => {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.9;   // Fala um pouco mais lenta
+      utterance.pitch = 1.1;  // Aumenta levemente o tom
+      utterance.volume = 1;   // Volume máximo
+
+      // Seleciona a voz francesa de acordo com o navegador
+      const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      if (isSafari) {
+        const safariFrenchVoice = voices.find(voice => voice.name === "Thomas" && voice.lang === 'fr-FR');
+        if (safariFrenchVoice) {
+          utterance.voice = safariFrenchVoice;
+          utterance.lang = 'fr-FR';
+          console.log("Usando a voz Thomas no Safari.");
+        } else {
+          console.warn("A voz Thomas não foi encontrada no Safari.");
+        }
+      } else {
+        const chromeFrenchVoice = voices.find(voice => voice.lang === 'fr-FR' && voice.name.includes('Google')) ||
+          voices.find(voice => voice.lang === 'fr-FR');
+        if (chromeFrenchVoice) {
+          utterance.voice = chromeFrenchVoice;
+          utterance.lang = 'fr-FR';
+          console.log("Usando a voz Google no Chrome.");
+        } else {
+          console.warn("Nenhuma voz francesa foi encontrada.");
+        }
       }
+
+      // Cancela qualquer fala em andamento antes de iniciar
+      if (window.speechSynthesis.speaking) {
+        console.log("Cancelando fala anterior...");
+        window.speechSynthesis.cancel();
+      }
+
+      utterance.onend = () => {
+        console.log("Fala concluída.");
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }).catch(error => {
+      console.error("Erro ao carregar vozes:", error);
+    });
+  } else {
+    console.error("API de síntese de fala não suportada.");
+  }
     }
 
-    // Função para reproduzir o som da palavra com ajustes semelhantes
-    function playSound(text) {
-      if (synth && text) {
-        loadVoices().then(voices => {
-          const naturalVoice = voices.find(v => v.name.toLowerCase().includes("google")) || voices.find(v => v.lang.startsWith("fr"));
-          const utterance = new SpeechSynthesisUtterance(text);
-          utterance.lang = naturalVoice ? naturalVoice.lang : "fr-FR";
-          utterance.rate = 0.9;
-          utterance.pitch = 1.1;
-          utterance.volume = 1.0;
-          if (naturalVoice) {
-            utterance.voice = naturalVoice;
-          }
-          synth.cancel();
-          synth.speak(utterance);
-        });
-      }
-    }
-
+   
       // Função para fechar a descrição
       function closeDesc() {
         document.getElementById("descContainer").style.display = "none";
