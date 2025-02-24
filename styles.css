@@ -1,259 +1,308 @@
- /* Estilos Gerais */
- body {
-    margin: 0;
-    background-color: #1a237e;
-    font-family: "Arial Rounded MT Bold", Arial, sans-serif;
-    color: white;
-  }
-  .topnav {
-    background-color: #333;
-    overflow: hidden;
-    width: 100%;
-  }
+/* Estilos Gerais */
+body {
+  margin: 0;
+  
+  background-color: #1a237e;
+  font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+  color: white;
+}
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  width: 100%;
+}
 
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
 
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
 
-  /* Add a color to the active/current link */
-  .topnav a.active {
-   
-    color: white;
-  }
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-  .header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  .category-selector {
-    margin: 20px 0;
-    text-align: center;
-  }
-  .category-selector select,
-  .items-per-page {
-    padding: 12px 20px;
-    border-radius: 25px;
-    background-color: #3949ab;
-    color: white;
-    border: none;
-    margin: 0 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .category-selector select:hover,
-  .items-per-page:hover {
-    background-color: #5c6bc0;
-    transform: scale(1.05);
-  }
+/* Add a color to the active/current link */
+.topnav a.active {
+ 
+  color: white;
+}
 
-  /* Container de Descrição com Áudio (ícone à esquerda) */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.category-selector {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.category-selector select,
+.items-per-page {
+  padding: 12px 20px;
+  border-radius: 25px;
+  background-color: #3949ab;
+  color: white;
+  border: none;
+  margin: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-selector select:hover,
+.items-per-page:hover {
+  background-color: #5c6bc0;
+  transform: scale(1.05);
+}
+
+/* Container de Descrição */
+.desc-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px auto;
+  background: #3949ab;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+.desc-audio {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 10px;
+}
+.desc-content {
+  flex: 1;
+  font-size: 16px;
+  text-align: left;
+}
+.close-desc {
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+/* Layout do Jogo */
+.game-content {
+  display: grid;
+  grid-template-columns: 1fr; /* Layout desktop inicia com 1 coluna */
+  gap: 20px;
+}
+
+/* Container de imagens em grid (desktop) */
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.words-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+/* Itens de imagem */
+.image-item {
+  background-color: #3949ab;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.image-item:hover {
+  transform: translateY(-5px);
+}
+.image-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid #fff;
+}
+
+/* Área de drop */
+.drop-zone {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 2px dashed #fff;
+  border-radius: 10px;
+  min-height: 60px;
+  margin-top: 15px;
+  padding: 15px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Itens de palavra */
+.word {
+  background-color: #3949ab;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  padding: 15px 30px;
+  cursor: move;
+  user-select: none;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.word:hover {
+  background-color: #5c6bc0;
+  transform: scale(1.05);
+}
+.sound-icon {
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.2s ease;
+}
+.sound-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Estados de acerto e erro */
+.correct {
+  background-color: #4caf50 !important;
+  border-color: #4caf50;
+}
+.incorrect {
+  background-color: #ff4444 !important;
+  border-color: #ff4444;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Mensagem de conclusão */
+.completion-message {
+  text-align: center;
+  margin: 40px 0;
+  display: none;
+}
+.next-category-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+.next-category-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+
+/* Botões de Navegação de Página */
+#paginationButtons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+#paginationButtons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+#paginationButtons button:hover {
+  background-color: #1558b0;
+}
+
+/* RESPONSIVIDADE para telas pequenas */
+@media (max-width: 768px) {
+  /* Descrição em bloco */
   .desc-container {
+    display: block !important;
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  /* DUAS colunas fixas: imagens e palavras lado a lado */
+  .game-content {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    margin: 20px auto;
-    background: #3949ab;
-    padding: 15px;
-    border-radius: 10px;
-    max-width: 600px;
-    width: 90%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    color: white;
-  }
-  .desc-audio {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-  }
-  .desc-content {
-    flex: 1;
-    font-size: 16px;
-    margin-left: 10px;
-    text-align: left;
-  }
-  .close-desc {
-    cursor: pointer;
-    font-size: 20px;
-    margin-left: 10px;
+    gap: 10px;
+    justify-content: space-between;
   }
 
-  /* Container do Jogo (Imagens e Palavras) */
-  .game-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .image-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    justify-content: center;
-    margin-bottom: 40px;
-    padding: 0 20px;
-  }
+  /* Cada coluna fica com 50% */
+  .image-container,
   .words-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 40px;
-    padding: 0 20px;
+    width: 50%;
+    margin: 0px;
+    padding: 0;
+    gap:20px
+    /* Caso queira rolagem vertical separada, defina altura e overflow:
+       max-height: 70vh;
+       overflow-y: auto;
+    */
   }
-  .image-item {
-    background-color: #3949ab;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  .words-container{
+    margin-left: 30px;
   }
-  .image-item:hover {
-    transform: translateY(-5px);
-  }
+  /* Ajuste altura das imagens */
   .image-item img {
-    width: 100%;
-    height: 200px;
+    height: 120px;
     object-fit: cover;
-    border-radius: 10px;
-    border: 3px solid #fff;
   }
-  .drop-zone {
-    background-color: rgba(255, 255, 255, 0.15);
-    border: 2px dashed #fff;
-    border-radius: 10px;
-    min-height: 60px;
-    margin-top: 15px;
-    padding: 15px;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
+  /* Reduz tamanho da fonte e padding das palavras */
   .word {
-    background-color: #3949ab;
-    border: 2px solid #fff;
-    border-radius: 30px;
-    padding: 15px 30px;
-    cursor: move;
-    user-select: none;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s ease;
-  }
-  .word:hover {
-    background-color: #5c6bc0;
-    transform: scale(1.05);
-  }
-  .sound-icon {
-    cursor: pointer;
-    padding: 5px;
-    transition: transform 0.2s ease;
-  }
-  .sound-icon:hover {
-    transform: scale(1.2);
-  }
-  .correct {
-    background-color: #4caf50 !important;
-    border-color: #4caf50;
-  }
-  .incorrect {
-    background-color: #ff4444 !important;
-    border-color: #ff4444;
-  }
-  @keyframes shake {
-    0% {
-      transform: translateX(0);
-    }
-    25% {
-      transform: translateX(-5px);
-    }
-    50% {
-      transform: translateX(5px);
-    }
-    75% {
-      transform: translateX(-5px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-  .shake {
-    animation: shake 0.5s ease-in-out;
-  }
-  .completion-message {
-    text-align: center;
-    margin: 40px 0;
-    display: none;
-  }
-  .next-category-btn {
-    background-color: #4caf50;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: all 0.3s ease;
-  }
-  .next-category-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
-  }
-  /* Botões de Navegação de Página */
-  #paginationButtons {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  #paginationButtons button {
-    padding: 10px 20px;
     font-size: 16px;
-    background-color: #1a73e8;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 0 10px;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+   
   }
-  #paginationButtons button:hover {
-    background-color: #1558b0;
-  }
-  
-  /* Responsividade: em telas pequenas, exibe 2 colunas para imagens e palavras */
-  @media (max-width: 768px) {
-    .game-content {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .image-container,
-    .words-container {
-      width: 50%;
-    }
-    .image-container {
-      padding: 0 10px;
-    }
-    .words-container {
-      padding: 0 10px;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
+}
