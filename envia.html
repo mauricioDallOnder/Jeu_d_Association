@@ -10,46 +10,48 @@
     <a href="/index.html">Jeu</a>
     <a class="active" href="/envia.html">Créer de nouveaux mots</a>
   </div>
+
   <form id="addWordForm" enctype="multipart/form-data">
     <h1 style="color: black;">Ajouter un nouveau mot</h1>
-    <label for="categorySelect"style="color: black;">Catégorie:</label>
-    <!-- Inicialmente, o select exibe "Carregando categorias..." -->
+
+    <label for="categorySelect" style="color: black;">Catégorie:</label>
     <select id="categorySelect" name="category">
       <option value="">Chargement des catégories...</option>
     </select>
     
     <div id="newCategoryContainer" style="display:none;">
-      <label for="newCategory"  style="color: black;">Nouvelle catégorie</label>
+      <label for="newCategory" style="color: black;">Nouvelle catégorie</label>
       <input type="text" id="newCategory" name="newCategory" placeholder="Entrez le nom de la nouvelle catégorie">
     </div>
     
-    <label for="name"  style="color: black;">Écrirez le nouveau mot ici:
-     </label>
+    <label for="name" style="color: black;">Écrirez le nouveau mot ici:</label>
     <input type="text" id="name" name="name" required placeholder="Le mot doit contenir le bon article (défini, indéfini ou partitif). Ex:La chemise">
     
     <!-- Campo 'key' oculto, gerado automaticamente -->
     <input type="hidden" id="key" name="key">
     
-    <label for="desc"  style="color: black;">Description: <span class="info"></span></label>
+    <label for="desc" style="color: black;">Description:</label>
     <textarea id="desc" name="desc" rows="4" required placeholder="Entrez une description claire pour le nouveau mot. Ex: est un véhicule à deux roues que l'on propulse en pédalant."></textarea>
     
-    <label for="image"  style="color: black;">Image (fichier image)</label>
+    <label for="image" style="color: black;">Image (fichier image)</label>
     <input type="file" id="image" name="image" accept="image/*" required>
-    
+
+    <!-- Imagem de preview -->
+    <img id="imagePreview" alt="Aperçu de l'image" />
+
     <button type="submit" id="button-envia">Envoyer</button>
   </form>
   
-  <div id="response"  style="color: black;"></div>
+  <div id="response" style="color: black;"></div>
   
   <script>
     // Ao carregar a página, busca as categorias do arquivo JSON usando a URL raw do GitHub
     document.addEventListener("DOMContentLoaded", async () => {
       const select = document.getElementById("categorySelect");
       try {
-        // Use a URL raw para acessar o JSON
         const response = await fetch('https://raw.githubusercontent.com/mauricioDallOnder/jeu/main/correctAnswers.json');
         if (!response.ok) {
-          throw new Error("Erro ao carregar o arquivo JSON");
+          throw new Error("Erreur lors du chargement du fichier JSON");
         }
         const data = await response.json();
         // Limpa o select e adiciona a opção padrão
@@ -63,13 +65,13 @@
             select.appendChild(option);
           }
         }
-        // Adiciona a opção para criar nova categoria
+        // Adiciona a opção para criar nova catégorie
         const optionNova = document.createElement("option");
         optionNova.value = "nova";
         optionNova.textContent = "Créer une nouvelle catégorie";
         select.appendChild(optionNova);
       } catch (error) {
-        console.error("Erro ao carregar categorias:", error);
+        console.error("Erreur lors du chargement des catégories:", error);
         select.innerHTML = '<option value="nova">Créer une nouvelle catégorie</option>';
       }
     });
@@ -85,14 +87,13 @@
         .replace(/\_\_+/g, '_');    // remove underlines duplicados
     }
     
-    // Atualiza automaticamente o campo 'key' com base no valor do campo 'name'
     const nameInput = document.getElementById('name');
     const keyInput = document.getElementById('key');
     nameInput.addEventListener('input', () => {
       keyInput.value = slugify(nameInput.value);
     });
     
-    // Exibe ou oculta o campo para nova categoria conforme a seleção do dropdown
+    // Exibe ou oculta o campo para nova catégorie
     const categorySelect = document.getElementById('categorySelect');
     const newCategoryContainer = document.getElementById('newCategoryContainer');
     categorySelect.addEventListener('change', () => {
@@ -102,13 +103,31 @@
         newCategoryContainer.style.display = 'none';
       }
     });
+
+    // Preview da imagem ao selecionar arquivo
+    const imageInput = document.getElementById('image');
+    const imagePreview = document.getElementById('imagePreview');
+
+    imageInput.addEventListener('change', () => {
+      const file = imageInput.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          imagePreview.src = e.target.result;
+          imagePreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        imagePreview.src = '';
+        imagePreview.style.display = 'none';
+      }
+    });
     
     // Submissão do formulário
     const form = document.getElementById('addWordForm');
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      // Se o usuário selecionar "nova" ou não selecionar nenhuma categoria, usa o valor do campo de nova categoria
       const selectedCategory = categorySelect.value;
       const newCategory = document.getElementById('newCategory').value.trim();
       let category = selectedCategory;
@@ -120,13 +139,12 @@
         category = newCategory;
       }
       
-      // Cria o FormData com os dados do formulário
       const formData = new FormData();
       formData.append("category", category);
       formData.append("key", keyInput.value);
       formData.append("name", nameInput.value.trim());
       formData.append("desc", document.getElementById('desc').value.trim());
-      formData.append("image", document.getElementById('image').files[0]);
+      formData.append("image", imageInput.files[0]);
       
       const responseDiv = document.getElementById('response');
       
@@ -140,8 +158,10 @@
           responseDiv.textContent = 'Nouveau mot ajouté avec succès !';
           form.reset();
           newCategoryContainer.style.display = 'none';
+          imagePreview.src = '';
+          imagePreview.style.display = 'none';
         } else {
-          responseDiv.textContent = 'Erro ao adicionar a nova palavra: ' + JSON.stringify(result);
+          responseDiv.textContent = 'Erro ao adicionar a nouvelle mot: ' + JSON.stringify(result);
         }
       } catch (error) {
         responseDiv.textContent = 'Erro: ' + error.message;
