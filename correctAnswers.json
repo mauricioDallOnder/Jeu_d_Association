@@ -5301,6 +5301,12 @@
       "img": "elephant.jpeg",
       "imgUrl": "./imgs/elephant.jpeg",
       "desc": "Les éléphants sont les plus grands mammifères terrestres, reconnaissables à leur trompe et leurs grandes oreilles."
+    },
+    "la_girafe": {
+      "name": "la girafe",
+      "img": "girafa.jpg",
+      "imgUrl": "./imgs/girafa.jpg",
+      "desc": "Elles sont des animaux omnivores au long cou."
     }
   }
 }
