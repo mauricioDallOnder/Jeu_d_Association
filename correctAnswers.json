@@ -3272,8 +3272,8 @@
     },
     "La serviette": {
       "name": "La serviette",
-      "img": "imgServiette",
-      "imgUrl": "./imgs/serviette.png",
+      "img": "serviette_cusine.png",
+      "imgUrl": "./imgs/serviette_cusine.png",
       "desc": "est utilisée pour s'essuyer les mains ou la bouche pendant un repas."
     },
     "Le Thermos": {
