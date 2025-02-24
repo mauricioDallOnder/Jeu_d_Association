@@ -3958,7 +3958,7 @@
       "imgUrl": "./imgs/grille.png",
       "desc": "barrière métallique utilisée pour sécuriser ou décorer l'entrée de la maison."
     },
-     "Le immeuble à appartements": {
+    "Le immeuble à appartements": {
       "name": "Immeuble à appartements",
       "img": "imgImmeubleAppartments",
       "imgUrl": "./imgs/immeuble_appartments.png",
@@ -4178,7 +4178,7 @@
     },
     "une télévision": {
       "name": "Une télévision",
-      "img": "imgTelevision",
+      "img": "tele_vision.png",
       "imgUrl": "./imgs/tele_vision.png",
       "desc": "est utilisée pour regarder des émissions et des films."
     },
