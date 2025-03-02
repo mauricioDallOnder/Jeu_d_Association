@@ -180,18 +180,6 @@ function playSound(text) {
   }
     }
 
-      function loadCategory(index) {
-  const category = categories[index];
-  let categoryData = Object.entries(gameData[category]);
-  // Embaralha os itens da categoria antes de dividi-los em páginas
-  categoryData = shuffle(categoryData);
-  itemsPerPage = parseInt(document.getElementById("itemsPerPage").value);
-  categoryPages = chunkArray(categoryData, itemsPerPage);
-  currentPageIndex = 0;
-  loadPage(currentPageIndex);
-}
-
-
    
       // Função para fechar a descrição
       function closeDesc() {
@@ -291,7 +279,19 @@ function playSound(text) {
       }
 
       // Função para carregar uma categoria a partir do índice
-function loadPage(pageIndex) {
+      function loadCategory(index) {
+        const category = categories[index];
+        let categoryData = Object.entries(gameData[category]);
+        // Embaralha todos os itens da categoria antes de dividi-los em páginas
+        categoryData = shuffle(categoryData);
+        itemsPerPage = parseInt(document.getElementById("itemsPerPage").value);
+        categoryPages = chunkArray(categoryData, itemsPerPage);
+        currentPageIndex = 0;
+        loadPage(currentPageIndex);
+      }
+
+      // Função para carregar uma página da categoria
+  function loadPage(pageIndex) {
   if (pageIndex >= categoryPages.length) {
     document.getElementById("completionMessage").style.display = "block";
     return;
@@ -355,7 +355,6 @@ function loadPage(pageIndex) {
     wordsContainer.appendChild(word);
   });
 }
-
 
 
       // Carrega os dados do JSON e inicia o jogo
