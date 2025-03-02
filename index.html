@@ -291,58 +291,62 @@ function playSound(text) {
       }
 
       // Função para carregar uma página da categoria
-      function loadPage(pageIndex) {
-        if (pageIndex >= categoryPages.length) {
-          document.getElementById("completionMessage").style.display = "block";
-          return;
-        }
-        const pageItems = categoryPages[pageIndex];
-        const imageContainer = document.getElementById("imageContainer");
-        const wordsContainer = document.getElementById("wordsContainer");
-        imageContainer.innerHTML = "";
-        wordsContainer.innerHTML = "";
-        document.getElementById("descContainer").style.display = "none";
+     function loadPage(pageIndex) {
+  if (pageIndex >= categoryPages.length) {
+    document.getElementById("completionMessage").style.display = "block";
+    return;
+  }
+  const pageItems = categoryPages[pageIndex];
+  const imageContainer = document.getElementById("imageContainer");
+  const wordsContainer = document.getElementById("wordsContainer");
+  imageContainer.innerHTML = "";
+  wordsContainer.innerHTML = "";
+  document.getElementById("descContainer").style.display = "none";
 
-        // Exibe os itens (imagens)
-        pageItems.forEach(([key, item]) => {
-          const imageItem = document.createElement("div");
-          imageItem.className = "image-item";
-          const img = document.createElement("img");
-          img.src = item.imgUrl;
-          img.alt = item.name;
-          img.addEventListener("click", () => {
-            showDescription(key);
-          });
-          const dropZone = document.createElement("div");
-          dropZone.className = "drop-zone";
-          dropZone.dataset.key = key;
-          dropZone.addEventListener("dragover", handleDragOver);
-          dropZone.addEventListener("drop", handleDrop);
-          imageItem.append(img, dropZone);
-          imageContainer.appendChild(imageItem);
-        });
+  // Cria cópias separadas para imagens e palavras e as embaralha
+  const imageItems = shuffle([...pageItems]);
+  const wordItems = shuffle([...pageItems]);
 
-        // Exibe as palavras (itens) embaralhadas para drag and drop
-        // Como já embaralhamos na função loadCategory, não é necessário chamar shuffle novamente
-        pageItems.forEach(([key]) => {
-          const word = document.createElement("div");
-          word.className = "word";
-          word.draggable = true;
-          word.dataset.key = key;
-          const textSpan = document.createElement("span");
-          textSpan.textContent = key;
-          const soundIcon = document.createElement("span");
-          soundIcon.innerHTML = "🔊";
-          soundIcon.className = "sound-icon";
-          soundIcon.onclick = (e) => {
-            e.stopPropagation();
-            playSound(key);
-          };
-          word.append(textSpan, soundIcon);
-          word.addEventListener("dragstart", handleDragStart);
-          wordsContainer.appendChild(word);
-        });
-      }
+  // Exibe os itens (imagens)
+  imageItems.forEach(([key, item]) => {
+    const imageItem = document.createElement("div");
+    imageItem.className = "image-item";
+    const img = document.createElement("img");
+    img.src = item.imgUrl;
+    img.alt = item.name;
+    img.addEventListener("click", () => {
+      showDescription(key);
+    });
+    const dropZone = document.createElement("div");
+    dropZone.className = "drop-zone";
+    dropZone.dataset.key = key;
+    dropZone.addEventListener("dragover", handleDragOver);
+    dropZone.addEventListener("drop", handleDrop);
+    imageItem.append(img, dropZone);
+    imageContainer.appendChild(imageItem);
+  });
+
+  // Exibe as palavras (itens) embaralhadas para drag and drop
+  wordItems.forEach(([key]) => {
+    const word = document.createElement("div");
+    word.className = "word";
+    word.draggable = true;
+    word.dataset.key = key;
+    const textSpan = document.createElement("span");
+    textSpan.textContent = key;
+    const soundIcon = document.createElement("span");
+    soundIcon.innerHTML = "🔊";
+    soundIcon.className = "sound-icon";
+    soundIcon.onclick = (e) => {
+      e.stopPropagation();
+      playSound(key);
+    };
+    word.append(textSpan, soundIcon);
+    word.addEventListener("dragstart", handleDragStart);
+    wordsContainer.appendChild(word);
+  });
+}
+
 
       // Carrega os dados do JSON e inicia o jogo
       fetch("correctAnswers.json")
